@@ -5,15 +5,15 @@ import { Todo } from "./types";
 
 import s from "./App.module.css";
 
-const mockTodos: Todo[] = [
-  { title: "Learn redux", id: "1", completed: false },
-  { title: "Write code", id: "2", completed: false },
-  { title: "Profit", id: "3", completed: false },
-];
+//const mockTodos: Todo[] = [
+//  { title: "Learn redux", id: "1", completed: false },
+//  { title: "Write code", id: "2", completed: false },
+//  { title: "Profit", id: "3", completed: false },
+//];
 
 function App() {
   const [value, setValue] = React.useState("");
-  const [todos, setTodos] = React.useState<Todo[]>(mockTodos);
+  const [todos, setTodos] = React.useState<Todo[]>([]);
 
   const onClick = () => {
     if (!value) return;
