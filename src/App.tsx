@@ -1,26 +1,22 @@
 import * as React from "react";
-import { v4 as uuidv4 } from "uuid";
+import { orderBy } from "lodash";
 
 import { Todo } from "./types";
 
 import s from "./App.module.css";
-
-//const mockTodos: Todo[] = [
-//  { title: "Learn redux", id: "1", completed: false },
-//  { title: "Write code", id: "2", completed: false },
-//  { title: "Profit", id: "3", completed: false },
-//];
+import { TodoControls } from "./components/TodoControls";
+import { TodoList } from "./components/TodoList";
 
 function App() {
   const [value, setValue] = React.useState("");
   const [todos, setTodos] = React.useState<Todo[]>([]);
 
-  const onClick = () => {
+  const onAddTodo = () => {
     if (!value) return;
 
     const newTodo: Todo = {
       title: value,
-      id: uuidv4(),
+      id: Date.now(),
       completed: false,
     };
 
@@ -28,23 +24,35 @@ function App() {
     setValue("");
   };
 
+  const onDeleteTodo = (id: number) => {
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+  };
+
+  const onToggleComplete = (id: number) => {
+    const newTodos = todos.map((todo) => {
+      if (todo.id === id) {
+        return {
+          title: todo.title,
+          id: todo.id,
+          completed: !todo.completed,
+        };
+      }
+
+      return todo;
+    });
+
+    setTodos(orderBy(newTodos, ['completed', 'id'], ['asc', 'asc']));
+  };
+
   return (
     <div className={s.container}>
-      <div className={s.controls}>
-        <input
-          type="text"
-          value={value}
-          className={s.input}
-          onChange={(e) => setValue(e.target.value)}
-        />
-        <button onClick={onClick}>Add todo</button>
-      </div>
+      <TodoControls value={value} onClick={onAddTodo} setValue={setValue} />
 
-      <ul className={s.todoWrapper}>
-        {todos.map((todo) => (
-          <li key={todo.id}>{todo.title}</li>
-        ))}
-      </ul>
+      <TodoList
+        todos={todos}
+        onDelete={onDeleteTodo}
+        onToggleComplete={onToggleComplete}
+      />
     </div>
   );
 }
