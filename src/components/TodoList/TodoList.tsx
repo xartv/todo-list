@@ -1,19 +1,21 @@
-import { Todo } from "../../types";
+import { TodoItem } from "../TodoItem";
+import { useAppSelector } from "../../store/hooks";
+import { getTodosSelector } from "../store/todoListSlice/todoListSelectors";
 
 import s from "./TodoList.module.scss";
-import { TodoItem } from "../TodoItem";
 
-interface TodoListProps {
-  todos: Todo[];
-  onDelete: (id: number) => void;
-  onToggleComplete: (id: number) => void;
-}
+//interface TodoListProps {
+//  onDelete: (id: number) => void;
+//  onToggleComplete: (id: number) => void;
+//}
 
-export const TodoList = ({ todos, onDelete, onToggleComplete }: TodoListProps) => {
+export const TodoList = () => {
+  const todos = useAppSelector(getTodosSelector);
+
   return (
     <ul className={s.todosWrapper}>
       {todos.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} onDelete={onDelete} onToggleComplete={onToggleComplete}/>
+        <TodoItem key={todo.id} todo={todo} />
       ))}
     </ul>
   );
