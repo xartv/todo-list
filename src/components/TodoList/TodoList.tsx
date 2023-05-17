@@ -1,14 +1,23 @@
+import * as React from 'react';
+
 import { TodoItem } from "../TodoItem";
-import { useAppSelector } from "../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { getTodosSelector } from "../store/todoListSlice/todoListSelectors";
 
 import s from "./TodoList.module.scss";
 import { orderBy } from "lodash";
+import { deleteTodo, fetchTodos } from '../store/todoListSlice/todoActions';
 
 
 export const TodoList = () => {
+  const dispatch = useAppDispatch();
+
   const todos = useAppSelector(getTodosSelector);
   const sortedTodos = orderBy(todos, ["completed", "id"], ["asc", "asc"]); // возможно нужно сортить массив непосредственно в сторе, для этого нужна санка
+
+  React.useEffect(() => {
+    dispatch(fetchTodos());
+  }, []);
 
   return (
     <ul className={s.todosWrapper}>

@@ -4,7 +4,8 @@ import { Todo } from "../../types";
 
 import s from "./TodoItem.module.scss";
 import { useAppDispatch } from "../../store/hooks";
-import { deleteTodo, toggleComplete } from "../store/todoListSlice/todoListSlice";
+import { toggleComplete } from "../store/todoListSlice/todoListSlice";
+import { deleteTodo } from "../store/todoListSlice/todoActions";
 
 interface TodoItemProps {
   todo: Todo;

@@ -1,0 +1,24 @@
+{
+  "todos": [
+    {
+      "id": 111,
+      "title": "Learn redux toolkit",
+      "completed": false
+    },
+    {
+      "id": 222,
+      "title": "Profit",
+      "completed": false
+    },
+    {
+      "id": 333,
+      "title": "OMG",
+      "completed": false
+    },
+    {
+      "id": 444,
+      "title": "LOL",
+      "completed": false
+    }
+  ]
+}
