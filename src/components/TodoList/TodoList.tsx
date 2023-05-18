@@ -6,7 +6,7 @@ import { getTodosSelector } from "../store/todoListSlice/todoListSelectors";
 
 import s from "./TodoList.module.scss";
 import { orderBy } from "lodash";
-import { deleteTodo, fetchTodos } from '../store/todoListSlice/todoActions';
+import { fetchTodos } from '../store/todoListSlice/todoActions';
 
 
 export const TodoList = () => {
@@ -17,6 +17,7 @@ export const TodoList = () => {
 
   React.useEffect(() => {
     dispatch(fetchTodos());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

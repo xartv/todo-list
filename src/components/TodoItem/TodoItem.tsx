@@ -4,28 +4,25 @@ import { Todo } from "../../types";
 
 import s from "./TodoItem.module.scss";
 import { useAppDispatch } from "../../store/hooks";
-import { toggleComplete } from "../store/todoListSlice/todoListSlice";
-import { deleteTodo } from "../store/todoListSlice/todoActions";
+import { deleteTodo, toggleComplete } from "../store/todoListSlice/todoActions";
 
 interface TodoItemProps {
   todo: Todo;
 }
 
-export const TodoItem = ({
-  todo,
-}: TodoItemProps) => {
+export const TodoItem = ({ todo }: TodoItemProps) => {
   const dispatch = useAppDispatch();
 
   const onDelete = (id: number) => {
-    dispatch(deleteTodo(id))
-  }
+    dispatch(deleteTodo(id));
+  };
 
   const onToggleComplete = (id: number) => {
     dispatch(toggleComplete(id));
-  }
+  };
 
   return (
-    <li className={cn(s.listItem, {[s.listItemCompleted]: todo.completed})}>
+    <li className={cn(s.listItem, { [s.listItemCompleted]: todo.completed })}>
       <input
         type="checkbox"
         checked={todo.completed}
