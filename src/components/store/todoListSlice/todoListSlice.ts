@@ -1,13 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { AnyAction, PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { Todo } from "../../../types";
 import { fetchTodos, deleteTodo, addTodo, toggleComplete } from "./todoActions";
 
 interface TodoListState {
   todos: Todo[];
+  error: string | null;
 }
 
 const initialState: TodoListState = {
   todos: [],
+  error: null,
 };
 
 export const todoListSlice = createSlice({
@@ -31,11 +33,18 @@ export const todoListSlice = createSlice({
         (todo) => todo.id === action.payload
       );
 
-      if(toggledTodo) {
+      if (toggledTodo) {
         toggledTodo.completed = !toggledTodo?.completed;
       }
     });
+    builder.addMatcher(isRejected, (state, action: AnyAction) => {
+      state.error = action.payload;
+    });
   },
 });
+
+function isRejected(action: AnyAction): action is PayloadAction {
+  return action.type.endsWith("/rejected");
+}
 
 export default todoListSlice.reducer;

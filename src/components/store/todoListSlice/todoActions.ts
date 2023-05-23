@@ -13,9 +13,9 @@ export const fetchTodos = createAsyncThunk<
     const response = await axios.get<Todo[]>("http://localhost:3000/todos");
 
     return response.data;
-  } catch (e) {
-    console.error(e);
-    return thunkApi.rejectWithValue("Something going wrong");
+  } catch (error) {
+    console.error(error);
+    return thunkApi.rejectWithValue("Can't fetch todos. Server error");
   }
 });
 
@@ -28,9 +28,9 @@ export const deleteTodo = createAsyncThunk<
     await axios.delete(`http://localhost:3000/todos/${id}`);
 
     return id;
-  } catch (e) {
-    console.error(e);
-    return thunkApi.rejectWithValue("Oops");
+  } catch (error) {
+    console.error(error);
+    return thunkApi.rejectWithValue("Can't delete todo. Server error");
   }
 });
 
@@ -43,9 +43,9 @@ export const addTodo = createAsyncThunk<
     await axios.post(`http://localhost:3000/todos/`, todo);
 
     return todo;
-  } catch (e) {
-    console.error(e);
-    return thunkApi.rejectWithValue("Oops");
+  } catch (error) {
+    console.error(error);
+    return thunkApi.rejectWithValue("Can't add todo. Server error");
   }
 });
 
@@ -63,8 +63,8 @@ export const toggleComplete = createAsyncThunk<
     await axios.patch(`http://localhost:3000/todos/${id}`, {completed: !toggledTodo?.completed});
 
     return id;
-  } catch (e) {
-    console.error(e);
-    return thunkApi.rejectWithValue("Oops");
+  } catch (error) {
+    console.error(error);
+    return thunkApi.rejectWithValue("Can't toggle todo. Server error");
   }
 });
