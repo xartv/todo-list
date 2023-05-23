@@ -21,14 +21,20 @@ export const todoListSlice = createSlice({
       }
     });
     builder.addCase(deleteTodo.fulfilled, (state, action) => {
-      state.todos = action.payload;
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload);
     });
     builder.addCase(addTodo.fulfilled, (state, action) => {
       state.todos.push(action.payload);
     });
     builder.addCase(toggleComplete.fulfilled, (state, action) => {
-      state.todos = action.payload;
-    })
+      const toggledTodo = state.todos.find(
+        (todo) => todo.id === action.payload
+      );
+
+      if(toggledTodo) {
+        toggledTodo.completed = !toggledTodo?.completed;
+      }
+    });
   },
 });
 

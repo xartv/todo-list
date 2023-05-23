@@ -20,19 +20,14 @@ export const fetchTodos = createAsyncThunk<
 });
 
 export const deleteTodo = createAsyncThunk<
-  Todo[],
+  number,
   number,
   { state: RootState; rejectValue: string }
 >("todos/deleteTodo", async (id: number, thunkApi) => {
   try {
     await axios.delete(`http://localhost:3000/todos/${id}`);
 
-    const state = thunkApi.getState();
-    const todos = getTodosSelector(state);
-
-    const filteredTodos = todos.filter((todo) => todo.id !== id);
-
-    return filteredTodos;
+    return id;
   } catch (e) {
     console.error(e);
     return thunkApi.rejectWithValue("Oops");
@@ -55,7 +50,7 @@ export const addTodo = createAsyncThunk<
 });
 
 export const toggleComplete = createAsyncThunk<
-  Todo[],
+  number,
   number,
   { state: RootState; rejectValue: string }
 >("todos/toggleComplete", async (id, thunkApi) => {
@@ -63,24 +58,11 @@ export const toggleComplete = createAsyncThunk<
     const state = thunkApi.getState();
     const todos = getTodosSelector(state);
 
-    let toggledTodo;
+    const toggledTodo = todos.find(todo => todo.id === id);
 
-    const newTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        toggledTodo = {
-          title: todo.title,
-          id: todo.id,
-          completed: !todo.completed,
-        };
-        return toggledTodo;
-      }
+    await axios.patch(`http://localhost:3000/todos/${id}`, {completed: !toggledTodo?.completed});
 
-      return todo;
-    });
-
-    await axios.patch(`http://localhost:3000/todos/${id}`, toggledTodo);
-
-    return newTodos;
+    return id;
   } catch (e) {
     console.error(e);
     return thunkApi.rejectWithValue("Oops");
