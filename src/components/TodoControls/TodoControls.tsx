@@ -1,19 +1,27 @@
-import React from "react";
+import * as React from "react";
 
 import { useAppDispatch } from "../../store/hooks";
 import { addTodo } from "../store/todoListSlice/todoActions";
 import { Todo } from "../../types";
 
 import s from "./TodoControls.module.scss";
-
+import { useSelector } from "react-redux";
+import { getTodosSelector } from "../store/todoListSlice/todoListSelectors";
 
 export const TodoControls = () => {
-  const [value, setValue] = React.useState("");
-
   const dispatch = useAppDispatch();
 
+  const [value, setValue] = React.useState("");
+
+  const inputRef = React.useRef<HTMLInputElement | null>(null);
+
+  const todos = useSelector(getTodosSelector);
+
   const onAddTodo = () => {
-    if (!value) return;
+    if (!value.trim()) {
+      setValue("");
+      return;
+    }
 
     const newTodo: Todo = {
       title: value,
@@ -25,13 +33,29 @@ export const TodoControls = () => {
     setValue("");
   };
 
+  const onAddByEnterKey: React.KeyboardEventHandler<HTMLInputElement> = (
+    event
+  ) => {
+    if (event.key === "Enter") {
+      onAddTodo();
+    }
+  };
+
+  React.useEffect(() => {
+    if (!inputRef.current) return;
+
+    inputRef.current.focus();
+  }, [todos]);
+
   return (
     <div className={s.controls}>
       <input
+        ref={inputRef}
         type="text"
         value={value}
         className={s.input}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(event) => setValue(event.target.value)}
+        onKeyDown={onAddByEnterKey}
       />
       <button onClick={onAddTodo}>Add todo</button>
     </div>
