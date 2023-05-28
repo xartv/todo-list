@@ -1,0 +1,1 @@
+export { NothingFoundPage } from "./NothingFoundPage";
