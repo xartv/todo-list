@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import { TodosPage } from "./pages/TodosPage";
-import { InfoPage } from "./pages/InfoPage";
+import { TestPage } from "./pages/TestPage";
 import { AppHeader } from "./components/AppHeader";
 import { NothingFoundPage } from "./pages/NothingFoundPage";
 
@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/todos" />} />
           <Route path="/todos" element={<TodosPage />} />
-          <Route path="/info" element={<InfoPage />} />
+          <Route path="/info" element={<TestPage />} />
           <Route path="*" element={<NothingFoundPage />} />
         </Routes>
       </BrowserRouter>

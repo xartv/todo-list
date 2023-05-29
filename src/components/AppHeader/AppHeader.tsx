@@ -7,10 +7,10 @@ export const AppHeader = () => {
   return (
     <ul className={s.root}>
       <li className={s.tab}>
-        <Link to="/info">Info</Link>
+        <Link to="/todos">Todos</Link>
       </li>
       <li className={s.tab}>
-        <Link to="/todos">Todos</Link>
+        <Link to="/info">Test Page</Link>
       </li>
     </ul>
   );
