@@ -1,91 +1,54 @@
 import * as React from "react";
-import Select from "react-select";
 
-const MOCK_DATA_OPTIONS: Options[] = [
-  {
-    label: "First option",
-    value: "first option",
-  },
-  {
-    label: "Second option",
-    value: "second option",
-  },
-  {
-    label: "Third option",
-    value: "third option",
-  },
-];
+import Select, { ControlProps, OptionProps, components } from "react-select";
 
-const MOCK_DATA_COLORS: Options[] = [
+import s from "./TestPage.module.scss";
+
+const MOCK_USERS = [
   {
-    label: "Red",
-    value: "red",
+    name: "Наталья Ивановна Никольская",
+    job_position: "Менеджер",
+    isDisabled: false,
   },
   {
-    label: "Green",
-    value: "green",
+    name: "Николай Иванович Ефимов",
+    job_position: "Project Менеджер",
+    isDisabled: false,
+  },
+  {
+    name: "Кристина Сергеевна Иванова",
+    job_position: "Project Менеджер",
+    isDisabled: false,
+  },
+  {
+    name: "Борис Иванович Иванов",
+    job_position: "Дизайнер",
     isDisabled: true,
   },
-  {
-    label: "Blue",
-    value: "blue",
-  },
 ];
 
-interface Options {
-  readonly label: string;
-  readonly value: string;
-  readonly isDisabled?: boolean;
-}
+const usersOptions = MOCK_USERS.map((user) => ({
+  label: user.name,
+  value: user.name,
+  isDisabled: user.isDisabled,
+}));
 
-interface GroupedOption {
-  readonly label: string;
-  readonly options: Options[];
-}
+const Option = ({ children, ...props }: OptionProps) => {
+  const additionalInfo = props.isDisabled ? 'DISABLED' : null;
 
-const groupedOptions: readonly GroupedOption[] = [
-  {
-    label: "Data",
-    options: MOCK_DATA_OPTIONS,
-  },
-  {
-    label: "Colors",
-    options: MOCK_DATA_COLORS,
-  },
-];
+  console.log(additionalInfo);
+  
+  
+  return (
+  <components.Option {...props}>{children} {additionalInfo}</components.Option>
+)};
 
 export const TestPage = () => {
-  const groupStyles = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-  };
-
-  const groupBadgeStyles: React.CSSProperties = {
-    backgroundColor: "#EBECF0",
-    borderRadius: "2em",
-    color: "#172B4D",
-    display: "inline-block",
-    fontSize: 12,
-    fontWeight: "normal",
-    lineHeight: "1",
-    minWidth: 1,
-    padding: "0.16666666666667em 0.5em",
-    textAlign: "center",
-  };
-
-  const formatGroupLabel = (data) => (
-    <div style={groupStyles}>
-      <span>{data.label}</span>
-      <span style={groupBadgeStyles}>{data.options.length}</span>
-    </div>
-  );
-
   return (
-    <Select<Options, false, GroupedOption>
-      defaultValue={MOCK_DATA_OPTIONS[0]}
-      options={groupedOptions}
-      formatGroupLabel={formatGroupLabel}
+    <Select
+      options={usersOptions}
+      className={s.dropdown}
+      components={{ Option }}
     />
   );
 };
