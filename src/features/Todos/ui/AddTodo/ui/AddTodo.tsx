@@ -1,10 +1,14 @@
 import * as React from "react";
-import s from "./AddTodo.module.scss";
 import { useSelector } from "react-redux";
+
 import { getTodosSelector } from "src/features/Todos/model/todoListSelectors";
-import { useAppDispatch } from "src/shared/hooks/useAppHooks";
-import { Todo } from "src/entities/Todo/model/types";
 import { addTodo } from "src/features/Todos/model/todoActions";
+
+import { Todo } from "src/entities/Todo/model/types";
+
+import { useAppDispatch } from "src/shared/hooks/useAppHooks";
+
+import s from "./AddTodo.module.scss";
 
 export const AddTodo = () => {
   const dispatch = useAppDispatch();

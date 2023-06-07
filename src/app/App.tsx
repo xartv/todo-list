@@ -1,6 +1,8 @@
 import * as React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+
 import { AppHeader } from "src/widgets/AppHeader";
+
 import { AppRouter } from "./providers/router";
 
 function App() {
