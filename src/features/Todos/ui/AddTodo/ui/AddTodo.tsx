@@ -1,10 +1,10 @@
 import * as React from "react";
 import s from "./AddTodo.module.scss";
 import { useSelector } from "react-redux";
-import { useAppDispatch } from "../../../../shared/hooks/useAppHooks";
-import { getTodosSelector } from "../../../../widgets/TodoList/model/todoListSelectors";
-import { Todo } from "../../../../entities/TodoItem/model/types";
-import { addTodo } from "../../../../widgets/TodoList/model/todoActions";
+import { useAppDispatch } from "../../../../../shared/hooks/useAppHooks";
+import { getTodosSelector } from "../../../model/todoListSelectors";
+import { Todo } from "../../../../../entities/Todo/model/types";
+import { addTodo } from "../../../model/todoActions";
 
 export const AddTodo = () => {
   const dispatch = useAppDispatch();

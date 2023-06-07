@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 import { getTodosSelector } from "./todoListSelectors";
-import { Todo } from "../../../entities/TodoItem/model/types";
+import { Todo } from "../../../entities/Todo/model/types";
 import {
   AppDispatch,
   RootState,
