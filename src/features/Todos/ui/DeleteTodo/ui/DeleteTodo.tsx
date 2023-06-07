@@ -1,8 +1,6 @@
-import * as React from "react";
-
 import s from "./DeleteTodo.module.scss";
-import { deleteTodo } from "../../../model/todoActions";
-import { useAppDispatch } from "../../../../../shared/hooks/useAppHooks";
+import { useAppDispatch } from "src/shared/hooks/useAppHooks";
+import { deleteTodo } from "src/features/Todos/model/todoActions";
 
 interface DeleteTodoProps {
   id: number;

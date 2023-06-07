@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import Select, { OptionProps, components } from "react-select";
 
 import s from "./TestPage.module.scss";

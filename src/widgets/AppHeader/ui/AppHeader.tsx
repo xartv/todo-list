@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import s from "./AppHeader.module.scss";
 import { Link } from "react-router-dom";
 
