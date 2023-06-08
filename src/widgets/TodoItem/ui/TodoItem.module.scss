@@ -1,13 +1,13 @@
 .listItem {
+  position: relative;
+
   display: flex;
   align-items: center;
   gap: 10px;
 
-  list-style-type: none;
-
   width: fit-content;
 
-  position: relative;
+  list-style-type: none;
 }
 
 .listItemCompleted {
@@ -21,6 +21,7 @@
 
     width: 120%;
     height: 1px;
+
     background-color: white;
   }
 }
