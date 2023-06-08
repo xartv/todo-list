@@ -1,8 +1,8 @@
-import { AnyAction, PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { AnyAction, PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { Todo } from "src/entities/Todo/model/types";
+import { Todo } from 'src/entities/Todo/model/types';
 
-import { fetchTodos, deleteTodo, addTodo, toggleComplete } from "./todoActions";
+import { fetchTodos, deleteTodo, addTodo, toggleComplete } from './todoActions';
 
 interface TodoListState {
   todos: Todo[];
@@ -15,25 +15,23 @@ const initialState: TodoListState = {
 };
 
 export const todoListSlice = createSlice({
-  name: "todoList",
+  name: 'todoList',
   initialState,
   reducers: {},
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder.addCase(fetchTodos.fulfilled, (state, action) => {
       if (action.payload) {
         state.todos = action.payload;
       }
     });
     builder.addCase(deleteTodo.fulfilled, (state, action) => {
-      state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+      state.todos = state.todos.filter(todo => todo.id !== action.payload);
     });
     builder.addCase(addTodo.fulfilled, (state, action) => {
       state.todos.push(action.payload);
     });
     builder.addCase(toggleComplete.fulfilled, (state, action) => {
-      const toggledTodo = state.todos.find(
-        (todo) => todo.id === action.payload
-      );
+      const toggledTodo = state.todos.find(todo => todo.id === action.payload);
 
       if (toggledTodo) {
         toggledTodo.completed = !toggledTodo?.completed;
@@ -46,7 +44,7 @@ export const todoListSlice = createSlice({
 });
 
 function isRejected(action: AnyAction): action is PayloadAction {
-  return action.type.endsWith("/rejected");
+  return action.type.endsWith('/rejected');
 }
 
 export default todoListSlice.reducer;

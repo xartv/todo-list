@@ -1,6 +1,6 @@
-import { toggleComplete } from "src/features/Todos/model/todoActions";
+import { toggleComplete } from 'src/features/Todos/model/todoActions';
 
-import { useAppDispatch } from "src/shared/hooks/useAppHooks";
+import { useAppDispatch } from 'src/shared/hooks/useAppHooks';
 
 interface ToggleTodoProps {
   id: number;
@@ -14,11 +14,5 @@ export const ToggleTodoComplete = ({ id, completed }: ToggleTodoProps) => {
     dispatch(toggleComplete(todoId));
   };
 
-  return (
-    <input
-      type="checkbox"
-      checked={completed}
-      onChange={() => onToggleComplete(id)}
-    />
-  );
+  return <input type="checkbox" checked={completed} onChange={() => onToggleComplete(id)} />;
 };

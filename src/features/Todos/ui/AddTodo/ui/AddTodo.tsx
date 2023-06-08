@@ -1,19 +1,19 @@
-import * as React from "react";
-import { useSelector } from "react-redux";
+import * as React from 'react';
+import { useSelector } from 'react-redux';
 
-import { getTodosSelector } from "src/features/Todos/model/todoListSelectors";
-import { addTodo } from "src/features/Todos/model/todoActions";
+import { getTodosSelector } from 'src/features/Todos/model/todoListSelectors';
+import { addTodo } from 'src/features/Todos/model/todoActions';
 
-import { Todo } from "src/entities/Todo/model/types";
+import { Todo } from 'src/entities/Todo/model/types';
 
-import { useAppDispatch } from "src/shared/hooks/useAppHooks";
+import { useAppDispatch } from 'src/shared/hooks/useAppHooks';
 
-import s from "./AddTodo.module.scss";
+import s from './AddTodo.module.scss';
 
 export const AddTodo = () => {
   const dispatch = useAppDispatch();
 
-  const [value, setValue] = React.useState("");
+  const [value, setValue] = React.useState('');
 
   const inputRef = React.useRef<HTMLInputElement | null>(null);
 
@@ -21,7 +21,7 @@ export const AddTodo = () => {
 
   const onAddTodo = () => {
     if (!value.trim()) {
-      setValue("");
+      setValue('');
       return;
     }
 
@@ -32,13 +32,11 @@ export const AddTodo = () => {
     };
 
     dispatch(addTodo(newTodo));
-    setValue("");
+    setValue('');
   };
 
-  const onAddByEnterKey: React.KeyboardEventHandler<HTMLInputElement> = (
-    event
-  ) => {
-    if (event.key === "Enter") {
+  const onAddByEnterKey: React.KeyboardEventHandler<HTMLInputElement> = event => {
+    if (event.key === 'Enter') {
       onAddTodo();
     }
   };
@@ -56,7 +54,7 @@ export const AddTodo = () => {
         type="text"
         value={value}
         className={s.input}
-        onChange={(event) => setValue(event.target.value)}
+        onChange={event => setValue(event.target.value)}
         onKeyDown={onAddByEnterKey}
       />
       <button onClick={onAddTodo}>Add todo</button>

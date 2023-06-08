@@ -1,1 +1,1 @@
-export { NothingFoundPage } from "./ui/NothingFoundPage";
+export { NothingFoundPage } from './ui/NothingFoundPage';

@@ -1,1 +1,1 @@
-export { DeleteTodo } from "./ui/DeleteTodo";
+export { DeleteTodo } from './ui/DeleteTodo';
