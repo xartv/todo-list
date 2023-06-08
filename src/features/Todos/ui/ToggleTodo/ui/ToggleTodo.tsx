@@ -10,8 +10,8 @@ interface ToggleTodoProps {
 export const ToggleTodoComplete = ({ id, completed }: ToggleTodoProps) => {
   const dispatch = useAppDispatch();
 
-  const onToggleComplete = (id: number) => {
-    dispatch(toggleComplete(id));
+  const onToggleComplete = (todoId: number) => {
+    dispatch(toggleComplete(todoId));
   };
 
   return (

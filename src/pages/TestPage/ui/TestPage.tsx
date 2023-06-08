@@ -34,9 +34,6 @@ const usersOptions = MOCK_USERS.map((user) => ({
 const Option = ({ children, ...props }: OptionProps) => {
   const additionalInfo = props.isDisabled ? 'DISABLED' : null;
 
-  console.log(additionalInfo);
-  
-  
   return (
   <components.Option {...props}>{children} {additionalInfo}</components.Option>
 )};

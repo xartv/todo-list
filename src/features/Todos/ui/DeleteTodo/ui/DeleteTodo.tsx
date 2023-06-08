@@ -11,8 +11,8 @@ interface DeleteTodoProps {
 export const DeleteTodo = ({ id }: DeleteTodoProps) => {
   const dispatch = useAppDispatch();
 
-  const onDelete = (id: number) => {
-    dispatch(deleteTodo(id));
+  const onDelete = (todoId: number) => {
+    dispatch(deleteTodo(todoId));
   };
 
   return (
