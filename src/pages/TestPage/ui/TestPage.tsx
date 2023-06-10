@@ -40,7 +40,7 @@ const Option = ({ children, ...props }: OptionProps) => {
 };
 
 const TestPage = () => {
-  return <Select options={usersOptions} className={s.dropdown} components={{ Option }} />;
+  return <Select options={usersOptions} components={{ Option }} />;
 };
 
 export default TestPage;
