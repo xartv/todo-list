@@ -41,6 +41,8 @@ const Option = ({ children, ...props }: OptionProps) => {
   );
 };
 
-export const TestPage = () => {
+const TestPage = () => {
   return <Select options={usersOptions} className={s.dropdown} components={{ Option }} />;
 };
+
+export default TestPage;

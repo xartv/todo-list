@@ -1,1 +1,1 @@
-export { TodosPage } from './ui/TodosPage';
+export { TodosPageAsync as TodosPage } from './ui/TodosPage.async';

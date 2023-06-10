@@ -11,7 +11,7 @@ export const AppRouter = () => {
           key={path}
           path={path}
           element={
-            <React.Suspense fallback={<div>`&quot;`LOADING...`&quot;`</div>}>
+            <React.Suspense fallback={<div>Lazy loading...</div>}>
               <div className="page-wrapper">{element}</div>
             </React.Suspense>
           }

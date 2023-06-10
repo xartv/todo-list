@@ -17,8 +17,10 @@ function App() {
 
   return (
     <div className="container">
-      <AppHeader />
-      <AppRouter />
+      <React.Suspense>
+        <AppHeader />
+        <AppRouter />
+      </React.Suspense>
     </div>
   );
 }

@@ -42,6 +42,7 @@ module.exports = {
     '@typescript-eslint/no-shadow': 2,
     '@typescript-eslint/no-non-null-asserted-optional-chain': 1,
     '@typescript-eslint/no-unused-vars': 2,
+    '@typescript-eslint/ban-ts-comment': 0,
     'react/display-name': 1,
     'no-console': [2, { allow: ['error'] }],
     'no-const-assign': 2,

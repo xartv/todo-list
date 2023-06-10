@@ -11,7 +11,7 @@ import { useAppDispatch, useAppSelector } from 'src/shared/hooks/useAppHooks';
 
 import s from './TodosPage.module.scss';
 
-export const TodosPage = () => {
+const TodosPage = () => {
   const dispatch = useAppDispatch();
 
   const todos = useAppSelector(getTodosSelector);
@@ -34,3 +34,5 @@ export const TodosPage = () => {
     </React.Fragment>
   );
 };
+
+export default TodosPage;
