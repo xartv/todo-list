@@ -1,13 +1,24 @@
 import * as React from 'react';
+import cn from 'classnames';
 import { useLocation, useNavigate } from 'react-router-dom';
+
+import { useTheme } from 'src/app/providers/ThemeProvider/lib/useTheme';
+import { AppRouter } from 'src/app/providers/router';
 
 import { AppHeader } from 'src/widgets/AppHeader';
 
-import { AppRouter } from './providers/router';
+import './styles/index.css';
+
+export enum Theme {
+  LIGHT = 'light',
+  DARK = 'dark',
+}
 
 function App() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+
+  const { theme, toggleTheme } = useTheme();
 
   React.useEffect(() => {
     if (pathname === '/') {
@@ -16,11 +27,12 @@ function App() {
   }, [navigate, pathname]);
 
   return (
-    <div className="container">
+    <div className={cn('app', theme)}>
       <React.Suspense>
         <AppHeader />
         <AppRouter />
       </React.Suspense>
+      <button onClick={toggleTheme}>Theme switch</button>
     </div>
   );
 }

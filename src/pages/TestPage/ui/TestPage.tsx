@@ -1,7 +1,5 @@
 import Select, { OptionProps, components } from 'react-select';
 
-import s from './TestPage.module.scss';
-
 const MOCK_USERS = [
   {
     name: 'Наталья Ивановна Никольская',
