@@ -18,7 +18,7 @@ function App() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
 
   React.useEffect(() => {
     if (pathname === '/') {
@@ -32,7 +32,6 @@ function App() {
         <AppHeader />
         <AppRouter />
       </React.Suspense>
-      <button onClick={toggleTheme}>Theme switch</button>
     </div>
   );
 }
