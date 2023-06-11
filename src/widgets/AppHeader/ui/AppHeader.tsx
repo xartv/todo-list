@@ -1,7 +1,7 @@
 import { AppLink } from 'shared/ui/AppLink';
+import { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 
 import s from './AppHeader.module.scss';
-import { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 
 export const AppHeader = () => {
   return (
