@@ -217,13 +217,5 @@ module.exports = {
     'media-feature-name-no-unknown': true,
     'no-descending-specificity': true,
     'selector-pseudo-class-no-unknown': true,
-    'custom-property-empty-line-before': [
-      'always',
-      {
-        except: ['after-custom-property'],
-        ignore: ['after-comment', 'first-nested', 'inside-single-line-block'],
-        severity: 'warning',
-      },
-    ],
   },
 };

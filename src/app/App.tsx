@@ -6,8 +6,9 @@ import { AppRouter } from 'app/providers/router';
 import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 
 import { AppHeader } from 'widgets/AppHeader';
+import { Sidebar } from 'widgets/SideBar';
 
-import './styles/index.css';
+import './styles/index.scss';
 
 export enum Theme {
   LIGHT = 'light',
@@ -30,7 +31,10 @@ function App() {
     <div className={cn('app', theme)}>
       <React.Suspense>
         <AppHeader />
-        <AppRouter />
+        <div className="app-container">
+          <Sidebar />
+          <AppRouter />
+        </div>
       </React.Suspense>
     </div>
   );

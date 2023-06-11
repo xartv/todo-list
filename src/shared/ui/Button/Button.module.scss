@@ -1,14 +1,15 @@
-.button {
-  cursor: pointer;
-  color: var(--primary-color);
+.root {
   padding: 6px 15px;
 
   color: var(--inverted-primary-color);
+
+  cursor: pointer;
 }
 
 .clear {
   padding: 0;
-  border: none;
+
   background: none;
+  border: none;
   outline: none;
 }

@@ -15,7 +15,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button = ({ theme = ButtonTheme.CLEAR, children, className, ...otherProps }: ButtonProps) => {
   return (
-    <button className={cn(s.button, s[theme], className)} {...otherProps}>
+    <button className={cn(s.root, s[theme], className)} {...otherProps}>
       {children}
     </button>
   );

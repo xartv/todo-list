@@ -15,4 +15,11 @@ export default defineConfig({
       cache: false,
     }),
   ],
+  css: {
+    modules: {
+      scopeBehaviour: 'local',
+      generateScopedName: '[name]__[local]___[hash:base64:5]',
+      localsConvention: 'camelCase',
+    },
+  },
 });
