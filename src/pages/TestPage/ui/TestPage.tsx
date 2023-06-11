@@ -1,4 +1,4 @@
-import Select, { OptionProps, components } from 'react-select';
+import Select, { components, OptionProps } from 'react-select';
 
 const MOCK_USERS = [
   {

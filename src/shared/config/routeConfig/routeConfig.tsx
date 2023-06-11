@@ -1,8 +1,8 @@
 import { RouteProps } from 'react-router-dom';
 
-import { TodosPage } from 'pages/TodosPage';
-import { TestPage } from 'pages/TestPage';
 import { NothingFoundPage } from 'pages/NothingFoundPage';
+import { TestPage } from 'pages/TestPage';
+import { TodosPage } from 'pages/TodosPage';
 
 export enum APP_ROUTES {
   TODOS = 'todos',

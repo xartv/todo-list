@@ -1,9 +1,9 @@
 import * as React from 'react';
-import cn from 'classnames';
 import { useLocation, useNavigate } from 'react-router-dom';
+import cn from 'classnames';
 
-import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 import { AppRouter } from 'app/providers/router';
+import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 
 import { AppHeader } from 'widgets/AppHeader';
 

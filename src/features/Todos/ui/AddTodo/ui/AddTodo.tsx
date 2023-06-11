@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
 
-import { getTodosSelector } from 'features/Todos/model/todoListSelectors';
 import { addTodo } from 'features/Todos/model/todoActions';
+import { getTodosSelector } from 'features/Todos/model/todoListSelectors';
 
 import { Todo } from 'entities/Todo/model/types';
 

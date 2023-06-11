@@ -3,8 +3,8 @@ import { orderBy } from 'lodash';
 
 import { TodoItem } from 'widgets/TodoItem';
 
-import { getTodosSelector } from 'features/Todos/model/todoListSelectors';
 import { fetchTodos } from 'features/Todos/model/todoActions';
+import { getTodosSelector } from 'features/Todos/model/todoListSelectors';
 import { AddTodo } from 'features/Todos/ui/AddTodo';
 
 import { useAppDispatch, useAppSelector } from 'shared/hooks/useAppHooks';
