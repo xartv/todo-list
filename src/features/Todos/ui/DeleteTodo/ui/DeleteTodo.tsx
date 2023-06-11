@@ -1,6 +1,6 @@
-import { deleteTodo } from 'src/features/Todos/model/todoActions';
+import { deleteTodo } from 'features/Todos/model/todoActions';
 
-import { useAppDispatch } from 'src/shared/hooks/useAppHooks';
+import { useAppDispatch } from 'shared/hooks/useAppHooks';
 
 import s from './DeleteTodo.module.scss';
 

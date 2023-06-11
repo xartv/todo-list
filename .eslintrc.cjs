@@ -22,12 +22,12 @@ module.exports = {
       {
         groups: [['builtin', 'external'], 'internal', 'parent', 'sibling', 'index'],
         pathGroups: [
-          { pattern: 'src/app/**', group: 'internal', position: 'after' },
-          { pattern: 'src/pages/**', group: 'internal', position: 'after' },
-          { pattern: 'src/widgets/**', group: 'internal', position: 'after' },
-          { pattern: 'src/features/**', group: 'internal', position: 'after' },
-          { pattern: 'src/entities/**', group: 'internal', position: 'after' },
-          { pattern: 'src/shared/**', group: 'internal', position: 'after' },
+          { pattern: 'app/**', group: 'internal', position: 'after' },
+          { pattern: 'pages/**', group: 'internal', position: 'after' },
+          { pattern: 'widgets/**', group: 'internal', position: 'after' },
+          { pattern: 'features/**', group: 'internal', position: 'after' },
+          { pattern: 'entities/**', group: 'internal', position: 'after' },
+          { pattern: 'shared/**', group: 'internal', position: 'after' },
 
           { pattern: './*.module.scss', group: 'index', position: 'after' },
           { pattern: './*.scss', group: 'index', position: 'after' },

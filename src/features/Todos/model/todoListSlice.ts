@@ -1,6 +1,6 @@
 import { AnyAction, PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-import { Todo } from 'src/entities/Todo/model/types';
+import { Todo } from 'entities/Todo/model/types';
 
 import { fetchTodos, deleteTodo, addTodo, toggleComplete } from './todoActions';
 

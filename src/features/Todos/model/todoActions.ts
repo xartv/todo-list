@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-import { AppDispatch, RootState } from 'src/app/providers/StoreProvider/config/store';
+import { AppDispatch, RootState } from 'app/providers/StoreProvider/config/store';
 
-import { Todo } from 'src/entities/Todo/model/types';
+import { Todo } from 'entities/Todo/model/types';
 
 import { getTodosSelector } from './todoListSelectors';
 

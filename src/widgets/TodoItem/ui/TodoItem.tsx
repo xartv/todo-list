@@ -1,9 +1,9 @@
 import cn from 'classnames';
 
-import { DeleteTodo } from 'src/features/Todos/ui/DeleteTodo';
-import { ToggleTodoComplete } from 'src/features/Todos/ui/ToggleTodo';
+import { DeleteTodo } from 'features/Todos/ui/DeleteTodo';
+import { ToggleTodoComplete } from 'features/Todos/ui/ToggleTodo';
 
-import { Todo } from 'src/entities/Todo/model/types';
+import { Todo } from 'entities/Todo/model/types';
 
 import s from './TodoItem.module.scss';
 

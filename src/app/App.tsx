@@ -2,10 +2,10 @@ import * as React from 'react';
 import cn from 'classnames';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { useTheme } from 'src/app/providers/ThemeProvider/lib/useTheme';
-import { AppRouter } from 'src/app/providers/router';
+import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
+import { AppRouter } from 'app/providers/router';
 
-import { AppHeader } from 'src/widgets/AppHeader';
+import { AppHeader } from 'widgets/AppHeader';
 
 import './styles/index.css';
 
