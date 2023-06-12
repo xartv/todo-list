@@ -1,0 +1,16 @@
+{
+  "header": {
+    "test": "Test",
+    "zadachi": "Todos"
+  },
+  "sidebar": {
+    "language": "En"
+  },
+  "todos": {
+    "dobavit": "Add"
+  },
+  "test": {
+    "privet-mir": "Hello World!",
+    "kak-tvoi-dela": "How are you doing?"
+  }
+}

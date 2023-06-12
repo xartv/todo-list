@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import { addTodo } from 'features/Todos/model/todoActions';
 import { getTodosSelector } from 'features/Todos/model/todoListSelectors';
@@ -12,6 +13,8 @@ import s from './AddTodo.module.scss';
 
 export const AddTodo = () => {
   const dispatch = useAppDispatch();
+
+  const { t } = useTranslation();
 
   const [value, setValue] = React.useState('');
 
@@ -57,7 +60,7 @@ export const AddTodo = () => {
         onChange={event => setValue(event.target.value)}
         onKeyDown={onAddByEnterKey}
       />
-      <button onClick={onAddTodo}>Add todo</button>
+      <button onClick={onAddTodo}>{t('todos.dobavit')}</button>
     </div>
   );
 };

@@ -1,46 +1,15 @@
-import Select, { components, OptionProps } from 'react-select';
-
-const MOCK_USERS = [
-  {
-    name: 'Наталья Ивановна Никольская',
-    job_position: 'Менеджер',
-    isDisabled: false,
-  },
-  {
-    name: 'Николай Иванович Ефимов',
-    job_position: 'Project Менеджер',
-    isDisabled: false,
-  },
-  {
-    name: 'Кристина Сергеевна Иванова',
-    job_position: 'Project Менеджер',
-    isDisabled: false,
-  },
-  {
-    name: 'Борис Иванович Иванов',
-    job_position: 'Дизайнер',
-    isDisabled: true,
-  },
-];
-
-const usersOptions = MOCK_USERS.map(user => ({
-  label: user.name,
-  value: user.name,
-  isDisabled: user.isDisabled,
-}));
-
-const Option = ({ children, ...props }: OptionProps) => {
-  const additionalInfo = props.isDisabled ? 'DISABLED' : null;
-
-  return (
-    <components.Option {...props}>
-      {children} {additionalInfo}
-    </components.Option>
-  );
-};
+import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const TestPage = () => {
-  return <Select options={usersOptions} components={{ Option }} />;
+  const { t } = useTranslation();
+
+  return (
+    <React.Fragment>
+      <div>{t('test.privet-mir')}</div>
+      <div>{t('test.kak-tvoi-dela')}</div>
+    </React.Fragment>
+  );
 };
 
 export default TestPage;

@@ -14,7 +14,7 @@ export const useTheme = () => {
   };
 
   return {
-  theme,
+    theme,
     toggleTheme,
   };
 };

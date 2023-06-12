@@ -1,0 +1,16 @@
+{
+  "header": {
+    "test": "Тест",
+    "zadachi": "Задачи"
+  },
+  "sidebar": {
+    "language": "Ru"
+  },
+  "todos": {
+    "dobavit": "Добавить"
+  },
+  "test": {
+    "privet-mir": "Привет, мир!",
+    "kak-tvoi-dela": "Как твои дела?"
+  }
+}

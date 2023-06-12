@@ -17,10 +17,17 @@
   width: var(--sidebar-collapsed);
 }
 
-.themeSwitcher {
+.switchersWrapper {
+  display: flex;
+  gap: 20px;
+
   position: absolute;
 
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.switchersWrapperCollapsed {
+  flex-direction: column;
 }
