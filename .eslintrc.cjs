@@ -10,7 +10,7 @@ module.exports = {
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: { ecmaVersion: '2020', sourceType: 'module' },
-  plugins: ['react-refresh', '@typescript-eslint', 'import', 'prettier'],
+  plugins: ['react-refresh', '@typescript-eslint', 'import', 'prettier', 'i18next'],
   rules: {
     'prettier/prettier': 1,
     'react-refresh/only-export-components': 'warn',
@@ -45,6 +45,7 @@ module.exports = {
     '@typescript-eslint/no-non-null-asserted-optional-chain': 1,
     '@typescript-eslint/no-unused-vars': 1,
     '@typescript-eslint/ban-ts-comment': 0,
+    "i18next/no-literal-string": 2,
     'react/display-name': 1,
     'no-console': [2, { allow: ['error'] }],
     'no-const-assign': 2,

@@ -1,4 +1,9 @@
 {
+  "global": {
+    "na-glavnuyu": "To main",
+    "oops-error": "Oops, there's been a mistake",
+    "sozdat-oshibku": "Create error"
+  },
   "header": {
     "test": "Test",
     "zadachi": "Todos"
@@ -6,11 +11,11 @@
   "sidebar": {
     "language": "En"
   },
+  "test": {
+    "kak-tvoi-dela": "How are you doing?",
+    "privet-mir": "Hello World!"
+  },
   "todos": {
     "dobavit": "Add"
-  },
-  "test": {
-    "privet-mir": "Hello World!",
-    "kak-tvoi-dela": "How are you doing?"
   }
 }

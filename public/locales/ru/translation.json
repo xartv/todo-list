@@ -1,4 +1,9 @@
 {
+  "global": {
+    "na-glavnuyu": "На главную",
+    "oops-error": "Ой, тут какая-то ошибочка произошла",
+    "sozdat-oshibku": "Создать ошибку"
+  },
   "header": {
     "test": "Тест",
     "zadachi": "Задачи"
@@ -6,11 +11,11 @@
   "sidebar": {
     "language": "Ru"
   },
+  "test": {
+    "kak-tvoi-dela": "Как твои дела?",
+    "privet-mir": "Привет, мир!"
+  },
   "todos": {
     "dobavit": "Добавить"
-  },
-  "test": {
-    "privet-mir": "Привет, мир!",
-    "kak-tvoi-dela": "Как твои дела?"
   }
 }

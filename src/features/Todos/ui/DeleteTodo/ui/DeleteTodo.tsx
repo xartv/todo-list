@@ -16,6 +16,7 @@ export const DeleteTodo = ({ id }: DeleteTodoProps) => {
   };
 
   return (
+    // eslint-disable-next-line i18next/no-literal-string
     <button className={s.deleteButton} onClick={() => onDelete(id)}>
       &#10008;
     </button>
