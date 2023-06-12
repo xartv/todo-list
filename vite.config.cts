@@ -1,8 +1,8 @@
 import react from '@vitejs/plugin-react-swc';
-import { defineConfig } from 'vite';
 import eslintPlugin from 'vite-plugin-eslint';
 import svgr from 'vite-plugin-svgr';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import { defineConfig } from 'vitest/config';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -21,5 +21,10 @@ export default defineConfig({
       generateScopedName: '[name]__[local]___[hash:base64:5]',
       localsConvention: 'camelCase',
     },
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    clearMocks: true,
   },
 });
