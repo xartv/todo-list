@@ -6,6 +6,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
+    'plugin:i18next/recommended',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
@@ -45,7 +46,6 @@ module.exports = {
     '@typescript-eslint/no-non-null-asserted-optional-chain': 1,
     '@typescript-eslint/no-unused-vars': 1,
     '@typescript-eslint/ban-ts-comment': 0,
-    "i18next/no-literal-string": 2,
     'react/display-name': 1,
     'no-console': [2, { allow: ['error'] }],
     'no-const-assign': 2,
@@ -79,4 +79,12 @@ module.exports = {
     },
     'import/extensions': ['.ts', '.tsx', '.d.ts', '.js', '.jsx'],
   },
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts, tsx}'],
+      rules: {
+        'i18next/no-literal-string': 0,
+      },
+    },
+  ],
 };

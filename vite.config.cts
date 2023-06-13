@@ -30,5 +30,6 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     clearMocks: true,
+    setupFiles: './config/tests/setup.cjs',
   },
 });

@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import { Button } from 'shared/ui/Button';
-import { LangSwitcher } from 'shared/ui/LangSwitcher';
+import { LangSwitcher } from 'shared/ui/Button/LangSwitcher';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 
 import s from './Sidebar.module.scss';
@@ -17,8 +17,10 @@ export const Sidebar = ({ className }: SidebarProps) => {
   const toggleCollapsed = () => setCollapsed(prev => !prev);
 
   return (
-    <div className={cn(s.root, className, { [s.collapsed]: collapsed })}>
-      <Button onClick={toggleCollapsed}>{collapsed ? '▶' : '◀'}</Button>
+    <div data-testid="sidebar" className={cn(s.root, className, { [s.collapsed]: collapsed })}>
+      <Button data-testid="toggle-collapse" onClick={toggleCollapsed}>
+        {collapsed ? '▶' : '◀'}
+      </Button>
 
       <div className={cn(s.switchersWrapper, { [s.switchersWrapperCollapsed]: collapsed })}>
         <LangSwitcher />
