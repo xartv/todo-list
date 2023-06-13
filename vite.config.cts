@@ -1,4 +1,5 @@
 import react from '@vitejs/plugin-react-swc';
+import { visualizer } from 'rollup-plugin-visualizer';
 import eslintPlugin from 'vite-plugin-eslint';
 import svgr from 'vite-plugin-svgr';
 import tsconfigPaths from 'vite-tsconfig-paths';
@@ -13,6 +14,9 @@ export default defineConfig({
     eslintPlugin({
       include: '**/*.{js,jsx,ts,tsx}',
       cache: false,
+    }),
+    visualizer({
+      open: true,
     }),
   ],
   css: {
