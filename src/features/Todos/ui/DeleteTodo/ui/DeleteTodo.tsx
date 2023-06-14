@@ -1,6 +1,8 @@
 import { deleteTodo } from 'features/Todos/model/todoActions';
 
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
+import { Button } from 'shared/ui/Button';
+import { ButtonTheme } from 'shared/ui/Button/Button';
 
 import s from './DeleteTodo.module.scss';
 
@@ -17,8 +19,8 @@ export const DeleteTodo = ({ id }: DeleteTodoProps) => {
 
   return (
     // eslint-disable-next-line i18next/no-literal-string
-    <button className={s.deleteButton} onClick={() => onDelete(id)}>
+    <Button theme={ButtonTheme.CLEAR} className={s.deleteButton} onClick={() => onDelete(id)}>
       &#10008;
-    </button>
+    </Button>
   );
 };

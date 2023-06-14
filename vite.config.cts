@@ -14,6 +14,7 @@ export default defineConfig({
     eslintPlugin({
       include: '**/*.{js,jsx,ts,tsx}',
       cache: false,
+      exclude: [/virtual:/, /node_modules/],
     }),
     visualizer({
       open: true,

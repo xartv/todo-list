@@ -6,6 +6,13 @@
   cursor: pointer;
 }
 
+.primary {
+  width: min-content;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
 .clear {
   padding: 0;
 

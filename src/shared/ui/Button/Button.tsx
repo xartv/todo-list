@@ -4,6 +4,7 @@ import cn from 'classnames';
 import s from './Button.module.scss';
 
 export enum ButtonTheme {
+  PRIMARY = 'primary',
   CLEAR = 'clear',
 }
 
@@ -13,7 +14,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
-export const Button = ({ theme = ButtonTheme.CLEAR, children, className, ...otherProps }: ButtonProps) => {
+export const Button = ({ theme = ButtonTheme.PRIMARY, children, className, ...otherProps }: ButtonProps) => {
   return (
     <button className={cn(s.root, s[theme], className)} {...otherProps}>
       {children}

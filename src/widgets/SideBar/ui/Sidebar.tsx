@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { Button } from 'shared/ui/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button';
 import { LangSwitcher } from 'shared/ui/Button/LangSwitcher';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 
@@ -18,7 +18,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
 
   return (
     <div data-testid="sidebar" className={cn(s.root, className, { [s.collapsed]: collapsed })}>
-      <Button data-testid="toggle-collapse" onClick={toggleCollapsed}>
+      <Button theme={ButtonTheme.CLEAR} data-testid="toggle-collapse" onClick={toggleCollapsed}>
         {collapsed ? '▶' : '◀'}
       </Button>
 

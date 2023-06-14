@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { Button } from 'shared/ui/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button';
 
 interface LangSwitcherProps {
   className?: string;
@@ -15,7 +15,9 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
 
   return (
     <div className={className}>
-      <Button onClick={onChange}>{t('sidebar.language')}</Button>
+      <Button theme={ButtonTheme.CLEAR} onClick={onChange}>
+        {t('sidebar.language')}
+      </Button>
     </div>
   );
 };

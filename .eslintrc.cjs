@@ -1,5 +1,9 @@
 module.exports = {
-  env: { browser: true, es2020: true, node: true },
+  env: {
+    browser: true,
+    es2020: true,
+    node: true,
+  },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -8,9 +12,13 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:i18next/recommended',
     'prettier',
+    'plugin:storybook/recommended',
   ],
   parser: '@typescript-eslint/parser',
-  parserOptions: { ecmaVersion: '2020', sourceType: 'module' },
+  parserOptions: {
+    ecmaVersion: '2020',
+    sourceType: 'module',
+  },
   plugins: ['react-refresh', '@typescript-eslint', 'import', 'prettier', 'i18next'],
   rules: {
     'prettier/prettier': 1,
@@ -23,16 +31,51 @@ module.exports = {
       {
         groups: [['builtin', 'external'], 'internal', 'parent', 'sibling', 'index'],
         pathGroups: [
-          { pattern: 'app/**', group: 'internal', position: 'after' },
-          { pattern: 'pages/**', group: 'internal', position: 'after' },
-          { pattern: 'widgets/**', group: 'internal', position: 'after' },
-          { pattern: 'features/**', group: 'internal', position: 'after' },
-          { pattern: 'entities/**', group: 'internal', position: 'after' },
-          { pattern: 'shared/**', group: 'internal', position: 'after' },
-
-          { pattern: './*.module.scss', group: 'index', position: 'after' },
-          { pattern: './*.scss', group: 'index', position: 'after' },
-          { pattern: './*.css', group: 'index', position: 'after' },
+          {
+            pattern: 'app/**',
+            group: 'internal',
+            position: 'after',
+          },
+          {
+            pattern: 'pages/**',
+            group: 'internal',
+            position: 'after',
+          },
+          {
+            pattern: 'widgets/**',
+            group: 'internal',
+            position: 'after',
+          },
+          {
+            pattern: 'features/**',
+            group: 'internal',
+            position: 'after',
+          },
+          {
+            pattern: 'entities/**',
+            group: 'internal',
+            position: 'after',
+          },
+          {
+            pattern: 'shared/**',
+            group: 'internal',
+            position: 'after',
+          },
+          {
+            pattern: './*.module.scss',
+            group: 'index',
+            position: 'after',
+          },
+          {
+            pattern: './*.scss',
+            group: 'index',
+            position: 'after',
+          },
+          {
+            pattern: './*.css',
+            group: 'index',
+            position: 'after',
+          },
         ],
         'newlines-between': 'always',
       },
@@ -40,14 +83,24 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-explicit-any': 1,
     '@typescript-eslint/explicit-function-return-type': 0,
-    '@typescript-eslint/no-use-before-define': [1, { functions: false }],
+    '@typescript-eslint/no-use-before-define': [
+      1,
+      {
+        functions: false,
+      },
+    ],
     '@typescript-eslint/ban-types': 1,
     '@typescript-eslint/no-shadow': 2,
     '@typescript-eslint/no-non-null-asserted-optional-chain': 1,
     '@typescript-eslint/no-unused-vars': 1,
     '@typescript-eslint/ban-ts-comment': 0,
     'react/display-name': 1,
-    'no-console': [2, { allow: ['error'] }],
+    'no-console': [
+      2,
+      {
+        allow: ['error'],
+      },
+    ],
     'no-const-assign': 2,
     'no-dupe-class-members': 2,
     'no-else-return': 0,
