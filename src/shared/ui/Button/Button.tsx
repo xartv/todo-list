@@ -5,6 +5,7 @@ import s from './Button.module.scss';
 
 export enum ButtonTheme {
   PRIMARY = 'primary',
+  OUTLINE = 'outline',
   CLEAR = 'clear',
 }
 

@@ -1,16 +1,16 @@
 .root {
   padding: 6px 15px;
-
-  color: var(--inverted-primary-color);
+  width: min-content;
 
   cursor: pointer;
 }
 
 .primary {
-  width: min-content;
-  padding: 10px;
-  border: 1px solid black;
+  background-color: var(--inverted-secondary-color);
+  color: var(--inverted-primary-color);
+
   border-radius: 5px;
+  border: 1px solid black;
 }
 
 .clear {
