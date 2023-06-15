@@ -10,11 +10,6 @@ import { Sidebar } from 'widgets/SideBar';
 
 import './styles/index.scss';
 
-export enum Theme {
-  LIGHT = 'light',
-  DARK = 'dark',
-}
-
 function App() {
   const navigate = useNavigate();
   const { pathname } = useLocation();

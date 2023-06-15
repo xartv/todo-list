@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import { Theme } from 'app/App';
+import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 
 import { ReactComponent as Dark } from 'shared/assets/icons/dark-theme.svg';

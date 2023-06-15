@@ -6,17 +6,20 @@
 }
 
 .primary {
-  background-color: var(--inverted-secondary-color);
+  background-color: var(--inverted-bg-color);
   color: var(--inverted-primary-color);
-
   border-radius: 5px;
   border: 1px solid black;
 }
 
 .clear {
   padding: 0;
-
+  color: var(--inverted-primary-color);
   background: none;
   border: none;
   outline: none;
+}
+
+.outline {
+  background-color: white;
 }

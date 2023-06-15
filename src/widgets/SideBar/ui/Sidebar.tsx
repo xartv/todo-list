@@ -2,7 +2,7 @@ import React from 'react';
 import cn from 'classnames';
 
 import { Button, ButtonTheme } from 'shared/ui/Button';
-import { LangSwitcher } from 'shared/ui/Button/LangSwitcher';
+import { LangSwitcher } from 'shared/ui/LangSwitcher';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 
 import s from './Sidebar.module.scss';

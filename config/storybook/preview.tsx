@@ -1,13 +1,10 @@
-import React from 'react';
 import type { Preview } from '@storybook/react';
 
-import { ThemeProvider } from '../../src/app/providers/ThemeProvider';
-
-import '../../src/app/styles/index.scss';
-import '../../src/app/styles/themes/light.scss';
-import '../../src/app/styles/themes/dark.scss';
-
 import { Theme } from '../../src/app/providers/ThemeProvider/lib/ThemeContext';
+import { RouteDecorator } from '../../src/shared/config/storybook/RouteDecorator/RouteDecorator';
+import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator/StyleDecorator';
+import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { TranslationDecorator } from '../../src/shared/config/storybook/TranslationDecorator/TranslationDecorator';
 
 const preview: Preview = {
   parameters: {
@@ -19,15 +16,7 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [
-    Story => (
-      <ThemeProvider initialTheme={Theme.LIGHT}>
-        <div className={`app ${Theme.LIGHT}`}>
-          <Story />
-        </div>
-      </ThemeProvider>
-    ),
-  ],
+  decorators: [StyleDecorator, ThemeDecorator(Theme.LIGHT), RouteDecorator, TranslationDecorator],
 };
 
 export default preview;
