@@ -5,18 +5,19 @@
 @import './themes/dark.scss';
 
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
+
   box-sizing: border-box;
 }
 
 .app {
+  min-height: 100vh;
+
+  color: var(--primary-color);
   font: var(--font-m);
 
   background: var(--bg-color);
-  color: var(--primary-color);
-
-  min-height: 100vh;
 }
 
 .app-container {

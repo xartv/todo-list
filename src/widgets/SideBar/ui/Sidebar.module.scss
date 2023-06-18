@@ -1,4 +1,6 @@
 .root {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,8 +12,6 @@
   background-color: var(--inverted-bg-color);
 
   transition: width 0.3s;
-
-  position: relative;
 }
 
 .collapsed {
@@ -19,13 +19,14 @@
 }
 
 .switchersWrapper {
-  display: flex;
-  gap: 20px;
-
   position: absolute;
 
   bottom: 10px;
   left: 50%;
+
+  display: flex;
+  gap: 20px;
+
   transform: translateX(-50%);
 }
 
