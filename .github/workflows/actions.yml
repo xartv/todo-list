@@ -27,6 +27,10 @@ jobs:
         if: always()
       - name: lint css
         run: yarn lint:styles
-      - name: unit testing
+      - name: unit test
         if: always()
         run: yarn test:unit
+      - name: build storybook
+        run: sb:build
+      - name: ui test
+        run: test:ui:ci
