@@ -24,4 +24,6 @@ storybook-static
 *.njsproj
 *.sln
 *.sw?
-db.json
+stats.html
+stats.json
+stats.yml
