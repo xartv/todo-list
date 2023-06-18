@@ -31,6 +31,6 @@ jobs:
         if: always()
         run: yarn test:unit
       - name: build storybook
-        run: sb:build
+        run: yarn sb:build
       - name: ui test
-        run: test:ui:ci
+        run: yarn test:ui:ci
