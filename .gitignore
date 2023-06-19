@@ -13,6 +13,8 @@ dist-ssr
 *.local
 docs
 storybook-static
+.loki/report.html
+.loki/report.json
 
 # Editor directories and files
 .vscode/*
