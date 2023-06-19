@@ -1,19 +1,35 @@
 .root {
   width: min-content;
-  padding: 6px 15px;
+  padding: 4px 12px;
+
+  color: var(--primary-color);
+
+  border-radius: 5px;
 
   cursor: pointer;
 }
 
 .primary {
+  background-color: var(--bg-color);
+  border: 1px solid var(--primary-color);
+}
+
+.inverted {
   color: var(--inverted-primary-color);
 
   background-color: var(--inverted-bg-color);
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 1px solid var(--inverted-primary-color);
 }
 
 .clear {
+  padding: 0;
+
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.clearInverted {
   padding: 0;
 
   color: var(--inverted-primary-color);
@@ -24,5 +40,23 @@
 }
 
 .outline {
-  background-color: white;
+  background-color: unset;
+
+  border: 1px solid var(--primary-color);
+}
+
+.size_s {
+  font: var(--font-s);
+}
+
+.size_m {
+  font: var(--font-m);
+}
+
+.size_l {
+  font: var(--font-l);
+}
+
+.size_xl {
+  font: var(--font-xl);
 }

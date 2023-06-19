@@ -15,7 +15,7 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
 
   return (
     <div className={className}>
-      <Button theme={ButtonTheme.CLEAR} onClick={onChange}>
+      <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onChange}>
         {t('sidebar.language')}
       </Button>
     </div>

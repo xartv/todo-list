@@ -18,7 +18,8 @@
     "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
     "test:ui:ok": "yarn loki approve",
     "sb": "storybook dev -p 6006",
-    "sb:build": "storybook build"
+    "sb:build": "storybook build",
+    "server": "json-server --watch json-server/db.json"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",

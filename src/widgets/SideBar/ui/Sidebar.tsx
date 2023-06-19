@@ -18,7 +18,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
 
   return (
     <div data-testid="sidebar" className={cn(s.root, className, { [s.collapsed]: collapsed })}>
-      <Button theme={ButtonTheme.CLEAR} data-testid="toggle-collapse" onClick={toggleCollapsed}>
+      <Button theme={ButtonTheme.CLEAR_INVERTED} data-testid="toggle-collapse" onClick={toggleCollapsed}>
         {collapsed ? '▶' : '◀'}
       </Button>
 
