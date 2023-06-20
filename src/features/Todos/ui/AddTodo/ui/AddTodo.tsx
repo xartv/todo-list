@@ -8,6 +8,7 @@ import { getTodosSelector } from 'features/Todos/model/todoListSelectors';
 import { Todo } from 'entities/Todo/model/types';
 
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
+import { Button } from 'shared/ui/Button';
 
 import s from './AddTodo.module.scss';
 
@@ -60,7 +61,7 @@ export const AddTodo = () => {
         onChange={event => setValue(event.target.value)}
         onKeyDown={onAddByEnterKey}
       />
-      <button onClick={onAddTodo}>{t('todos.dobavit')}</button>
+      <Button onClick={onAddTodo}>{t('todos.dobavit')}</Button>
     </div>
   );
 };

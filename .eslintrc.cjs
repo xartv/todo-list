@@ -97,7 +97,7 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 0,
     'react/display-name': 1,
     'no-console': [
-      2,
+      1,
       {
         allow: ['error'],
       },

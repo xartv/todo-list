@@ -13,11 +13,13 @@
 
 .app {
   min-height: 100vh;
+  background: var(--bg-color);
+}
 
+.app,
+.app_modal {
   color: var(--primary-color);
   font: var(--font-m);
-
-  background: var(--bg-color);
 }
 
 .app-container {

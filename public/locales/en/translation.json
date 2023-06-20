@@ -8,6 +8,7 @@
     "test": "Test page",
     "zadachi": "Todos"
   },
+  "lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestias maxime laudantium. Ut accusamus, repellendus nihil sit fuga maxime officia voluptate saepe dicta porro doloribus, illo tenetur voluptatem ratione possimus?",
   "sidebar": {
     "language": "En"
   },
@@ -17,5 +18,6 @@
   },
   "todos": {
     "dobavit": "Add"
-  }
+  },
+  "voiti": "Log in"
 }

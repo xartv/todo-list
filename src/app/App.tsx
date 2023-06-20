@@ -8,8 +8,6 @@ import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 import { AppHeader } from 'widgets/AppHeader';
 import { Sidebar } from 'widgets/SideBar';
 
-import './styles/index.scss';
-
 function App() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
