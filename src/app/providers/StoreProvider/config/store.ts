@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import todoListReducer from 'features/Todos/model/todoListSlice';
+import todoListReducer from 'features/Todos/model/slice/todoListSlice';
 
 import { StateSchema } from './StateSchema';
 

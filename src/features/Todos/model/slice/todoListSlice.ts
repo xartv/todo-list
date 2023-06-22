@@ -2,7 +2,7 @@ import { AnyAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { Todo } from 'entities/Todo/model/types';
 
-import { addTodo, deleteTodo, fetchTodos, toggleComplete } from './todoActions';
+import { addTodo, deleteTodo, fetchTodos, toggleComplete } from '../actions/todoActions';
 
 interface TodoListState {
   todos: Todo[];

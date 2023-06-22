@@ -6,7 +6,7 @@ import { AppDispatch } from 'app/providers/StoreProvider/config/store';
 
 import { Todo } from 'entities/Todo/model/types';
 
-import { getTodosSelector } from './todoListSelectors';
+import { getTodosSelector } from '../selectors/getTodosSelector/getTodosSelector';
 
 export const fetchTodos = createAsyncThunk<Todo[], undefined, { rejectValue: string }>(
   'todos/fetchTodos',

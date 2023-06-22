@@ -2,13 +2,13 @@ import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import { addTodo } from 'features/Todos/model/todoActions';
-import { getTodosSelector } from 'features/Todos/model/todoListSelectors';
-
 import { Todo } from 'entities/Todo/model/types';
 
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { Button } from 'shared/ui/Button';
+
+import { addTodo } from '../../model/actions/todoActions';
+import { getTodosSelector } from '../../model/selectors/getTodosSelector/getTodosSelector';
 
 import s from './AddTodo.module.scss';
 
