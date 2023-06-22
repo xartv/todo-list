@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-import { AppDispatch, RootState } from 'app/providers/StoreProvider/config/store';
+import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
+import { AppDispatch } from 'app/providers/StoreProvider/config/store';
 
 import { Todo } from 'entities/Todo/model/types';
 
@@ -21,7 +22,7 @@ export const fetchTodos = createAsyncThunk<Todo[], undefined, { rejectValue: str
   },
 );
 
-export const deleteTodo = createAsyncThunk<number, number, { state: RootState; rejectValue: string }>(
+export const deleteTodo = createAsyncThunk<number, number, { state: StateSchema; rejectValue: string }>(
   'todos/deleteTodo',
   async (id: number, thunkApi) => {
     try {
@@ -35,7 +36,7 @@ export const deleteTodo = createAsyncThunk<number, number, { state: RootState; r
   },
 );
 
-export const addTodo = createAsyncThunk<Todo, Todo, { dispatch: AppDispatch; state: RootState; rejectValue: string }>(
+export const addTodo = createAsyncThunk<Todo, Todo, { dispatch: AppDispatch; state: StateSchema; rejectValue: string }>(
   'todos/addTodo',
   async (todo: Todo, thunkApi) => {
     try {
@@ -49,7 +50,7 @@ export const addTodo = createAsyncThunk<Todo, Todo, { dispatch: AppDispatch; sta
   },
 );
 
-export const toggleComplete = createAsyncThunk<number, number, { state: RootState; rejectValue: string }>(
+export const toggleComplete = createAsyncThunk<number, number, { state: StateSchema; rejectValue: string }>(
   'todos/toggleComplete',
   async (id, thunkApi) => {
     try {

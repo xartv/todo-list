@@ -1,3 +1,3 @@
-import { RootState } from 'app/providers/StoreProvider/config/store';
+import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 
-export const getTodosSelector = (state: RootState) => state.todoListReducer.todos;
+export const getTodosSelector = (state: StateSchema) => state.todoListReducer.todos;
