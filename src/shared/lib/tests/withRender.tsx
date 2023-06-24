@@ -14,7 +14,7 @@ export interface componentRenderOptions {
   initialState?: DeepPartial<StateSchema>;
 }
 
-export const withRender = (component: React.ReactNode, { route = '/', initialState }: componentRenderOptions) => {
+export const withRender = (component: React.ReactNode, { route = '/', initialState }: componentRenderOptions = {}) => {
   return render(
     <StoreProvider initialState={initialState}>
       <MemoryRouter initialEntries={[route]}>
