@@ -4,12 +4,12 @@ import { Todo } from 'entities/Todo/model/types';
 
 import { addTodo, deleteTodo, fetchTodos, toggleComplete } from '../actions/todoActions';
 
-interface TodoListState {
+export interface TodoListState {
   todos: Todo[];
   error: string | null;
 }
 
-const initialState: TodoListState = {
+export const initialState: TodoListState = {
   todos: [],
   error: null,
 };
