@@ -54,7 +54,7 @@ export const AddTodo = () => {
   return (
     <div className={s.controls}>
       <input
-        data-testId={'add-todo-input'}
+        data-testid={'add-todo-input'}
         ref={inputRef}
         type="text"
         value={value}
@@ -62,7 +62,7 @@ export const AddTodo = () => {
         onChange={event => setValue(event.target.value)}
         onKeyDown={onAddByEnterKey}
       />
-      <Button data-testId={'add-todo-button'} onClick={onAddTodo}>
+      <Button data-testid={'add-todo-button'} onClick={onAddTodo}>
         {t('todos.dobavit')}
       </Button>
     </div>

@@ -12,7 +12,11 @@ export const fetchTodos = createAsyncThunk<Todo[], undefined, { rejectValue: str
   'todos/fetchTodos',
   async (_, thunkApi) => {
     try {
-      const response = await axios.get<Todo[]>('http://localhost:3000/todos');
+      const response = await axios.get<Todo[]>('http://localhost:8000/todos', {
+        headers: {
+          Authorization: '123',
+        },
+      });
 
       return response.data;
     } catch (error) {
@@ -26,7 +30,11 @@ export const deleteTodo = createAsyncThunk<number, number, { state: StateSchema;
   'todos/deleteTodo',
   async (id: number, thunkApi) => {
     try {
-      await axios.delete(`http://localhost:3000/todos/${id}`);
+      await axios.delete(`http://localhost:8000/todos/${id}`, {
+        headers: {
+          Authorization: '123',
+        },
+      });
 
       return id;
     } catch (error) {
@@ -40,7 +48,11 @@ export const addTodo = createAsyncThunk<Todo, Todo, { dispatch: AppDispatch; sta
   'todos/addTodo',
   async (todo: Todo, thunkApi) => {
     try {
-      await axios.post(`http://localhost:3000/todos/`, todo);
+      await axios.post(`http://localhost:8000/todos/`, todo, {
+        headers: {
+          Authorization: '123',
+        },
+      });
 
       return todo;
     } catch (error) {
@@ -59,9 +71,17 @@ export const toggleComplete = createAsyncThunk<number, number, { state: StateSch
 
       const toggledTodo = todos.find(todo => todo.id === id);
 
-      await axios.patch(`http://localhost:3000/todos/${id}`, {
-        completed: !toggledTodo?.completed,
-      });
+      await axios.patch(
+        `http://localhost:8000/todos/${id}`,
+        {
+          completed: !toggledTodo?.completed,
+        },
+        {
+          headers: {
+            Authorization: '123',
+          },
+        },
+      );
 
       return id;
     } catch (error) {
