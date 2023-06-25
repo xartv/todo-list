@@ -1,11 +1,11 @@
 import cn from 'classnames';
 
-import { Todo } from 'entities/Todo/model/types/types';
+import { TodoEntity } from 'entities/Todo/model/types/TodoEntity';
 
 import s from './TodoItem.module.scss';
 
 interface TodoItemProps {
-  todo: Todo;
+  todo: TodoEntity;
   ToggleTodoComplete: React.ReactElement;
   DeleteTodo: React.ReactElement;
 }

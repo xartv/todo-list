@@ -1,6 +1,6 @@
-import { Todo } from 'entities/Todo/model/types/types';
+import { TodoEntity } from 'entities/Todo/model/types/TodoEntity';
 
 export interface TodoListReducerSchema {
-  todos: Todo[];
+  todos: TodoEntity[];
   error: string | null;
 }

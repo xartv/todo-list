@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { addTodo } from 'entities/Todo/model/actions/todoActions';
 import { getTodosSelector } from 'entities/Todo/model/selectors/getTodosSelector/getTodosSelector';
-import { Todo } from 'entities/Todo/model/types/types';
+import { TodoEntity } from 'entities/Todo/model/types/TodoEntity';
 
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { Button } from 'shared/ui/Button';
@@ -28,7 +28,7 @@ export const AddTodo = () => {
       return;
     }
 
-    const newTodo: Todo = {
+    const newTodo: TodoEntity = {
       title: value,
       id: Date.now(),
       completed: false,

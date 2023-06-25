@@ -1,4 +1,4 @@
-export interface Todo {
+export interface TodoEntity {
   id: number;
   title: string;
   completed: boolean;
