@@ -1,7 +1,9 @@
+import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
 import { Button } from 'shared/ui/Button';
+import { Input } from 'shared/ui/Input/Input';
 
 import s from './LoginForm.module.scss';
 
@@ -12,11 +14,22 @@ interface LoginFormProps {
 export const LoginForm = ({ className }: LoginFormProps) => {
   const { t } = useTranslation();
 
+  const [userName, setUserName] = React.useState('');
+  const [password, setPassword] = React.useState('');
+
+  const onChangeUserName = (value: string) => {
+    setUserName(value);
+  };
+
+  const onChangePasswordName = (value: string) => {
+    setPassword(value);
+  };
+
   return (
     <div className={cn(s.root, className)}>
-      <input type="text" />
-      <input type="text" />
-      <Button>{t('global.voiti-modal')}</Button>
+      <Input value={userName} onChange={onChangeUserName} autofocus title={t('loginModal.imya-polzovatelya')}/>
+      <Input value={password} onChange={onChangePasswordName} title={t('loginModal.parol')} />
+      <Button>{t('loginModal.voiti')}</Button>
     </div>
   );
 };

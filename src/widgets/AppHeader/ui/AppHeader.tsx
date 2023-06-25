@@ -23,7 +23,7 @@ export const AppHeader = () => {
         </Button>
       </div>
 
-      <LoginModal isOpen={isLoginModalOpen} onClose={closeModal} overlayClose />
+      <LoginModal isOpen={isLoginModalOpen} onClose={closeModal} overlayClose lazy />
     </div>
   );
 };

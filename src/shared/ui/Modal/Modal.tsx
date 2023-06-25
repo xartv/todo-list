@@ -13,14 +13,16 @@ export interface ModalProps {
   isOpen: boolean;
   onClose?: () => void;
   overlayClose?: boolean;
+  lazy?: boolean;
 }
 
-export const Modal = ({ className, children, isOpen, overlayClose, onClose }: ModalProps) => {
+export const Modal = ({ className, children, isOpen, overlayClose, lazy, onClose }: ModalProps) => {
   const [isClosing, setIsClosing] = React.useState(false);
-
-  const { theme } = useTheme();
+  const [isMounted, setIsMounted] = React.useState(false);
 
   const timerRef = React.useRef<ReturnType<typeof setTimeout>>();
+
+  const { theme } = useTheme();
 
   const animationClosing = React.useCallback(() => {
     if (!onClose) return;
@@ -55,6 +57,14 @@ export const Modal = ({ className, children, isOpen, overlayClose, onClose }: Mo
   );
 
   React.useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    } else {
+      setIsMounted(false);
+    }
+  }, [isOpen]);
+
+  React.useEffect(() => {
     window.addEventListener('keydown', onKeyDown);
 
     return () => {
@@ -62,6 +72,8 @@ export const Modal = ({ className, children, isOpen, overlayClose, onClose }: Mo
       window.removeEventListener('keydown', onKeyDown);
     };
   }, [onKeyDown]);
+
+  if (!isMounted && lazy) return null;
 
   return (
     <Portal>

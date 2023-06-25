@@ -2,10 +2,14 @@
   "global": {
     "na-glavnuyu": "На главную",
     "oops-error": "Ой, тут какая-то ошибочка произошла",
-    "sozdat-oshibku": "Создать ошибку",
-    "voiti-modal": "Войти"
+    "sozdat-oshibku": "Создать ошибку"
   },
   "header": {
+    "voiti": "Войти"
+  },
+  "loginModal": {
+    "imya-polzovatelya": "Имя пользователя",
+    "parol": "Пароль",
     "voiti": "Войти"
   },
   "lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestias maxime laudantium. Ut accusamus, repellendus nihil sit fuga maxime officia voluptate saepe dicta porro doloribus, illo tenetur voluptatem ratione possimus?",

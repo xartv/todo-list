@@ -1,0 +1,15 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  
+  input {
+    padding: 6px;
+    width: 100%;
+
+    color: var(--inverted-primary-color);
+    background: var(--inverted-bg-color);
+
+    border-radius: 10px;
+  }
+}

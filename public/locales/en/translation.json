@@ -2,11 +2,15 @@
   "global": {
     "na-glavnuyu": "To main",
     "oops-error": "Oops, there's been a mistake",
-    "sozdat-oshibku": "Create error",
-    "voiti-modal": "Login"
+    "sozdat-oshibku": "Create error"
   },
   "header": {
     "voiti": "Log in"
+  },
+  "loginModal": {
+    "imya-polzovatelya": "User name",
+    "parol": "Password",
+    "voiti": "Login"
   },
   "lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestias maxime laudantium. Ut accusamus, repellendus nihil sit fuga maxime officia voluptate saepe dicta porro doloribus, illo tenetur voluptatem ratione possimus?",
   "sidebar": {
