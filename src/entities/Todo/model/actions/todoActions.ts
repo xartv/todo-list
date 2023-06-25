@@ -4,7 +4,7 @@ import axios from 'axios';
 import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
 
-import { Todo } from 'entities/Todo/model/types';
+import { Todo } from 'entities/Todo/model/types/types';
 
 import { getTodosSelector } from '../selectors/getTodosSelector/getTodosSelector';
 

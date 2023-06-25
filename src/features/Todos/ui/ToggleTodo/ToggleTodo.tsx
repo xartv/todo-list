@@ -1,6 +1,6 @@
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
 
-import { toggleComplete } from '../../model/actions/todoActions';
+import { toggleComplete } from '../../../../entities/Todo/model/actions/todoActions';
 
 interface ToggleTodoProps {
   id: number;

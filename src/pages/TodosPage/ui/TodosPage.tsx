@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { orderBy } from 'lodash';
 
-import { AddTodo, TodoItem } from 'features/Todos/';
-import { fetchTodos } from 'features/Todos/model/actions/todoActions';
-import { getTodosSelector } from 'features/Todos/model/selectors/getTodosSelector/getTodosSelector';
+import { AddTodo, DeleteTodo, ToggleTodoComplete } from 'features/Todos/';
+
+import { TodoItem } from 'entities/Todo';
+import { fetchTodos } from 'entities/Todo/model/actions/todoActions';
+import { getTodosSelector } from 'entities/Todo/model/selectors/getTodosSelector/getTodosSelector';
 
 import { useAppDispatch, useAppSelector } from 'shared/hooks/useAppHooks';
 
@@ -26,7 +28,12 @@ const TodosPage = () => {
 
       <ul className={s.todosWrapper}>
         {sortedTodos.map(todo => (
-          <TodoItem key={todo.id} todo={todo} />
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            ToggleTodoComplete={<ToggleTodoComplete id={todo.id} completed={todo.completed} />}
+            DeleteTodo={<DeleteTodo id={todo.id} />}
+          />
         ))}
       </ul>
     </React.Fragment>

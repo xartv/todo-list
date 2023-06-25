@@ -1,4 +1,4 @@
-import { TodoListReducerSchema } from 'features/Todos/model/types/todoListReducerSchema';
+import { TodoListReducerSchema } from 'entities/Todo/model/types/todoListReducerSchema';
 
 export interface StateSchema {
   todoListReducer: TodoListReducerSchema;

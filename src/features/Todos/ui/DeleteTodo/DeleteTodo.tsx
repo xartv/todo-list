@@ -1,4 +1,4 @@
-import { deleteTodo } from 'features/Todos/model/actions/todoActions';
+import { deleteTodo } from 'entities/Todo/model/actions/todoActions';
 
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { Button } from 'shared/ui/Button';
