@@ -8,8 +8,8 @@ describe('test getTodosSelector', () => {
   test('return todos', () => {
     const MOCK_TODO = [{ id: 1, title: 'test', completed: true }];
     const state: DeepPartial<StateSchema> = {
-      todoListReducer: {
-        todos: MOCK_TODO,
+      todos: {
+        list: MOCK_TODO,
       },
     };
     expect(getTodosSelector(state as StateSchema)).toEqual(MOCK_TODO);

@@ -4,7 +4,7 @@ import { addTodo, deleteTodo, fetchTodos, toggleComplete } from '../actions/todo
 import { TodoListReducerSchema } from '../types/todoListReducerSchema';
 
 export const initialState: TodoListReducerSchema = {
-  todos: [],
+  list: [],
   error: null,
 };
 
@@ -15,17 +15,17 @@ export const todoListSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(fetchTodos.fulfilled, (state, action) => {
       if (action.payload) {
-        state.todos = action.payload;
+        state.list = action.payload;
       }
     });
     builder.addCase(deleteTodo.fulfilled, (state, action) => {
-      state.todos = state.todos.filter(todo => todo.id !== action.payload);
+      state.list = state.list.filter(todo => todo.id !== action.payload);
     });
     builder.addCase(addTodo.fulfilled, (state, action) => {
-      state.todos.push(action.payload);
+      state.list.push(action.payload);
     });
     builder.addCase(toggleComplete.fulfilled, (state, action) => {
-      const toggledTodo = state.todos.find(todo => todo.id === action.payload);
+      const toggledTodo = state.list.find(todo => todo.id === action.payload);
 
       if (toggledTodo) {
         toggledTodo.completed = !toggledTodo?.completed;
