@@ -1,15 +1,9 @@
 import { AnyAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { TodoEntity } from 'entities/Todo/model/types/TodoEntity';
-
 import { addTodo, deleteTodo, fetchTodos, toggleComplete } from '../actions/todoActions';
+import { TodoListReducerSchema } from '../types/todoListReducerSchema';
 
-export interface TodoListState {
-  todos: TodoEntity[];
-  error: string | null;
-}
-
-export const initialState: TodoListState = {
+export const initialState: TodoListReducerSchema = {
   todos: [],
   error: null,
 };

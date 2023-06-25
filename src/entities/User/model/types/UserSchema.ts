@@ -1,5 +1,5 @@
 import { UserEntity } from './UserEntity';
 
 export interface UserSchema {
-  userData: UserEntity[];
+  authData?: UserEntity[];
 }
