@@ -2,15 +2,17 @@
   "global": {
     "na-glavnuyu": "На главную",
     "oops-error": "Ой, тут какая-то ошибочка произошла",
-    "sozdat-oshibku": "Создать ошибку"
+    "sozdat-oshibku": "Создать ошибку",
+    "voiti-modal": "Войти"
   },
   "header": {
-    "test": "Тестовая страница",
-    "zadachi": "Задачи"
+    "voiti": "Войти"
   },
   "lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestias maxime laudantium. Ut accusamus, repellendus nihil sit fuga maxime officia voluptate saepe dicta porro doloribus, illo tenetur voluptatem ratione possimus?",
   "sidebar": {
-    "language": "Ru"
+    "language": "Ru",
+    "test": "Тестовая страница",
+    "zadachi": "Задачи"
   },
   "test": {
     "kak-tvoi-dela": "Как твои дела?",
@@ -18,6 +20,5 @@
   },
   "todos": {
     "dobavit": "Добавить"
-  },
-  "voiti": "Войти"
+  }
 }

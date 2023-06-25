@@ -33,11 +33,11 @@ export const Sidebar = ({ className }: SidebarProps) => {
       <div className={s.links}>
         <AppLink to={ROUTE_PATHS.todos} theme={AppLinkTheme.INVERTED} className={s.link}>
           <TodoIcon />
-          {!collapsed && <span>{t('header.zadachi')}</span>}
+          {!collapsed && <span>{t('sidebar.zadachi')}</span>}
         </AppLink>
         <AppLink to={ROUTE_PATHS.test_page} theme={AppLinkTheme.INVERTED} className={s.link}>
           <TestPageIcon />
-          {!collapsed && <span>{t('header.test')}</span>}
+          {!collapsed && <span>{t('sidebar.test')}</span>}
         </AppLink>
       </div>
 

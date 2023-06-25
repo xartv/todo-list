@@ -7,7 +7,7 @@ import { Portal } from 'shared/ui/Portal';
 
 import s from './Modal.module.scss';
 
-interface ModalProps {
+export interface ModalProps {
   className?: string;
   children: React.ReactNode;
   isOpen: boolean;
@@ -35,7 +35,7 @@ export const Modal = ({ className, children, isOpen, overlayClose, onClose }: Mo
   const closeHandler = (event: React.MouseEvent<HTMLDivElement>) => {
     const target = event.target as HTMLDivElement;
 
-    if (target.dataset.click === 'content') {
+    if (target.dataset.click !== 'overlay') {
       event.stopPropagation();
       return;
     }
@@ -66,10 +66,8 @@ export const Modal = ({ className, children, isOpen, overlayClose, onClose }: Mo
   return (
     <Portal>
       <div className={cn(s.root, className, theme, 'app_modal', { [s.opened]: isOpen, [s.closing]: isClosing })}>
-        <div className={s.overlay} onClick={closeHandler}>
-          <div data-click="content" className={s.content}>
-            {children}
-          </div>
+        <div data-click="overlay" className={s.overlay} onClick={closeHandler}>
+          <div className={s.content}>{children}</div>
         </div>
       </div>
     </Portal>

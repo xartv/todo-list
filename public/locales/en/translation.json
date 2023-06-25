@@ -2,15 +2,17 @@
   "global": {
     "na-glavnuyu": "To main",
     "oops-error": "Oops, there's been a mistake",
-    "sozdat-oshibku": "Create error"
+    "sozdat-oshibku": "Create error",
+    "voiti-modal": "Login"
   },
   "header": {
-    "test": "Test page",
-    "zadachi": "Todos"
+    "voiti": "Log in"
   },
   "lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestias maxime laudantium. Ut accusamus, repellendus nihil sit fuga maxime officia voluptate saepe dicta porro doloribus, illo tenetur voluptatem ratione possimus?",
   "sidebar": {
-    "language": "En"
+    "language": "En",
+    "test": "Test page",
+    "zadachi": "Todos"
   },
   "test": {
     "kak-tvoi-dela": "How are you doing?",
@@ -18,6 +20,5 @@
   },
   "todos": {
     "dobavit": "Add"
-  },
-  "voiti": "Log in"
+  }
 }
