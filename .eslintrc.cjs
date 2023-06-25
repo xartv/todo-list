@@ -95,6 +95,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 1,
     '@typescript-eslint/ban-ts-comment': 0,
     '@typescript-eslint/no-var-requires': 0,
+    '@typescript-eslint/no-empty-function': 0,
     'react/display-name': 1,
     'no-console': [
       1,

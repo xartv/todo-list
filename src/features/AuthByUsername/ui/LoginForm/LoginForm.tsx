@@ -27,7 +27,7 @@ export const LoginForm = ({ className }: LoginFormProps) => {
 
   return (
     <div className={cn(s.root, className)}>
-      <Input value={userName} onChange={onChangeUserName} autofocus title={t('loginModal.imya-polzovatelya')}/>
+      <Input value={userName} onChange={onChangeUserName} autofocus title={t('loginModal.imya-polzovatelya')} />
       <Input value={password} onChange={onChangePasswordName} title={t('loginModal.parol')} />
       <Button>{t('loginModal.voiti')}</Button>
     </div>

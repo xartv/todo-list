@@ -31,8 +31,19 @@ export const Input = React.memo(
 
     return (
       <label className={cn(s.root, className)}>
-        {title && <span className={s.title}>{title}</span>}
-        <input ref={inputRef} type={type} value={value} onChange={onChangeHandler} {...otherProps} />
+        {title && (
+          <span data-testid="input-title" className={s.title}>
+            {title}
+          </span>
+        )}
+        <input
+          data-testid="input"
+          ref={inputRef}
+          type={type}
+          value={value}
+          onChange={onChangeHandler}
+          {...otherProps}
+        />
       </label>
     );
   },

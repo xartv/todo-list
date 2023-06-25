@@ -16,14 +16,16 @@ export const AppHeader = () => {
   const closeModal = React.useCallback(() => setIsLoginModalOpen(false), []);
 
   return (
-    <div className={s.root}>
-      <div className={s.links}>
-        <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={openModal}>
-          {t('header.voiti')}
-        </Button>
+    <React.Fragment>
+      <div className={s.root}>
+        <div className={s.links}>
+          <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={openModal}>
+            {t('header.voiti')}
+          </Button>
+        </div>
       </div>
 
       <LoginModal isOpen={isLoginModalOpen} onClose={closeModal} overlayClose lazy />
-    </div>
+    </React.Fragment>
   );
 };
