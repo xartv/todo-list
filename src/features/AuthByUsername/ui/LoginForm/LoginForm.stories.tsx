@@ -14,10 +14,14 @@ export default meta;
 type Story = StoryObj<typeof LoginForm>;
 
 export const Primary: Story = {
-  args: {},
+  args: {
+    className: 'app_theme_light',
+  },
 };
 
 export const PrimaryDark: Story = {
-  args: {},
+  args: {
+    className: 'app_theme_dark',
+  },
   decorators: [ThemeDecorator(Theme.DARK)],
 };

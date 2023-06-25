@@ -7,7 +7,7 @@ export const LoginModal = ({ className, ...modalProps }: Omit<ModalProps, 'child
   return (
     <div className={className}>
       <Modal {...modalProps}>
-        <LoginForm />
+        <LoginForm autofocus />
       </Modal>
     </div>
   );
