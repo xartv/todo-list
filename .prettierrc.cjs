@@ -13,6 +13,7 @@ const THIRD_PARTY_MODULES_ORDER = [
 ];
 
 module.exports = {
+  plugins: ['@trivago/prettier-plugin-sort-imports'],
   arrowParens: 'avoid',
   bracketSpacing: true,
   endOfLine: 'lf',
@@ -49,7 +50,6 @@ module.exports = {
   ],
   importOrderSeparation: false,
   importOrderSortSpecifiers: true,
-  importOrderBuiltinModulesToTop: true,
   overrides: [
     {
       files: '*.json',
