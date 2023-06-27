@@ -41,4 +41,4 @@ function isRejected(action: AnyAction): action is PayloadAction {
   return action.type.endsWith('/rejected');
 }
 
-export default todoListSlice.reducer;
+export const { reducer: todoListReducer } = todoListSlice;
