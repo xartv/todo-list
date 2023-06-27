@@ -10,7 +10,8 @@
   "loginModal": {
     "imya-polzovatelya": "Имя пользователя",
     "parol": "Пароль",
-    "voiti": "Войти"
+    "voiti": "Войти",
+    "login-error": "Неправильное имя пользователя или пароль"
   },
   "lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestias maxime laudantium. Ut accusamus, repellendus nihil sit fuga maxime officia voluptate saepe dicta porro doloribus, illo tenetur voluptatem ratione possimus?",
   "sidebar": {
