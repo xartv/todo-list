@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-import { TodoEntity } from 'entities/Todo/model/types/TodoEntity';
+import { TodoEntity } from '../model/types/TodoEntity';
 
 import s from './TodoItem.module.scss';
 

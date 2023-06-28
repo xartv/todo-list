@@ -1,4 +1,4 @@
-import { TodoEntity } from 'entities/Todo/model/types/TodoEntity';
+import { TodoEntity } from './TodoEntity';
 
 export interface TodoListReducerSchema {
   list: TodoEntity[];

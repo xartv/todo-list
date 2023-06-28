@@ -3,7 +3,7 @@ import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 
 import { todoListReducer } from 'entities/Todo/model/slice/todoListSlice';
-import { userReducer } from 'entities/Todo/User/model/slice/userSlice';
+import { userReducer } from 'entities/User/model/slice/userSlice';
 
 import { StateSchema } from './StateSchema';
 

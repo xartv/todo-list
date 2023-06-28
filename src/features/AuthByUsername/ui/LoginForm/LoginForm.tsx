@@ -3,18 +3,16 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
-import { loginByUsername } from 'features/AuthByUsername/model/actions/loginByUsername';
-import { ErrorMessages } from 'features/AuthByUsername/model/const/errorMessages';
-import { getErrorMessageSelector } from 'features/AuthByUsername/model/selector/getErrorMessageSelector/getErrorMessageSelector';
-import { getLoginStatusSelector } from 'features/AuthByUsername/model/selector/getLoginStatusSelector/getLoginStatusSelector';
-import { getPasswordSelector } from 'features/AuthByUsername/model/selector/getPasswordSelector/getPasswordSelector';
-import { getUsernameSelector } from 'features/AuthByUsername/model/selector/getUsernameSelector/getUsernameSelector';
-import { loginActions } from 'features/AuthByUsername/model/slice/loginSlice';
-
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+
+import { loginByUsername } from '../../model/actions/loginByUsername';
+import { getLoginStatusSelector } from '../../model/selector/getLoginStatusSelector/getLoginStatusSelector';
+import { getPasswordSelector } from '../../model/selector/getPasswordSelector/getPasswordSelector';
+import { getUsernameSelector } from '../../model/selector/getUsernameSelector/getUsernameSelector';
+import { loginActions } from '../../model/slice/loginSlice';
 
 import s from './LoginForm.module.scss';
 
@@ -30,7 +28,6 @@ export const LoginForm = memo(({ className, autofocus }: LoginFormProps) => {
   const username = useSelector(getUsernameSelector);
   const password = useSelector(getPasswordSelector);
   const loginStatus = useSelector(getLoginStatusSelector);
-  const errorMessage = useSelector(getErrorMessageSelector);
 
   const isLoading = loginStatus === 'loading';
   const isError = loginStatus === 'reject';
@@ -56,7 +53,8 @@ export const LoginForm = memo(({ className, autofocus }: LoginFormProps) => {
 
   return (
     <div className={cn(s.root, className)}>
-      {isError && <Text theme={TextTheme.ERROR} title={t(ErrorMessages[errorMessage as keyof typeof ErrorMessages])} />}
+      <Text title={t('loginModal.forma-avtorizacii')} />
+      {isError && <Text theme={TextTheme.ERROR} description={t('loginModal.login-error')} />}
       <Input
         value={username}
         onChange={onChangeUserName}

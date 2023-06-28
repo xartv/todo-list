@@ -8,7 +8,12 @@ import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 import { AppHeader } from 'widgets/AppHeader';
 import { Sidebar } from 'widgets/SideBar';
 
+import { userActions } from 'entities/User';
+
+import { useAppDispatch } from 'shared/hooks/useAppHooks';
+
 function App() {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
@@ -19,6 +24,10 @@ function App() {
       navigate('/todos');
     }
   }, [navigate, pathname]);
+
+  React.useEffect(() => {
+    dispatch(userActions.initAuth());
+  }, [dispatch]);
 
   return (
     <div className={cn('app', theme)}>

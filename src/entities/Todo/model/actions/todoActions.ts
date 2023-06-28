@@ -4,9 +4,8 @@ import axios from 'axios';
 import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 import { AppDispatch } from 'app/providers/StoreProvider/config/store';
 
-import { TodoEntity } from 'entities/Todo/model/types/TodoEntity';
-
 import { getTodosSelector } from '../selectors/getTodosSelector/getTodosSelector';
+import { TodoEntity } from '../types/TodoEntity';
 
 export const fetchTodos = createAsyncThunk<TodoEntity[], undefined, { rejectValue: string }>(
   'todos/fetchTodos',

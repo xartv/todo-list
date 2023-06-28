@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 import { AppHeader } from './AppHeader';
@@ -13,8 +14,40 @@ const meta: Meta<typeof AppHeader> = {
 export default meta;
 type Story = StoryObj<typeof AppHeader>;
 
-export const Primary: Story = {};
+export const PrimaryLogin: Story = {
+  decorators: [
+    StoreDecorator({
+      login: { username: 'Test', password: 'pass' },
+    }),
+  ],
+};
 
-export const PrimaryDark: Story = {
-  decorators: [ThemeDecorator(Theme.DARK)],
+export const PrimaryLoginDark: Story = {
+  decorators: [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+      login: { username: 'Test', password: 'pass' },
+    }),
+  ],
+};
+
+export const PrimaryLogout: Story = {
+  decorators: [
+    StoreDecorator({
+      users: {
+        authData: { id: '1', username: 'Test', password: 'pass' },
+      },
+    }),
+  ],
+};
+
+export const PrimaryLogoutDark: Story = {
+  decorators: [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+      users: {
+        authData: { id: '1', username: 'Test', password: 'pass' },
+      },
+    }),
+  ],
 };

@@ -8,10 +8,12 @@
     "voiti": "Войти"
   },
   "loginModal": {
+    "forma-avtorizacii": "Форма авторизации",
     "imya-polzovatelya": "Имя пользователя",
+    "login-error": "Неправильное имя пользователя или пароль",
     "parol": "Пароль",
     "voiti": "Войти",
-    "login-error": "Неправильное имя пользователя или пароль"
+    "vyiti": "Выйти"
   },
   "lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestias maxime laudantium. Ut accusamus, repellendus nihil sit fuga maxime officia voluptate saepe dicta porro doloribus, illo tenetur voluptatem ratione possimus?",
   "sidebar": {

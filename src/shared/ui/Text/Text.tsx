@@ -8,7 +8,7 @@ interface TextProps {
   className?: string;
   theme?: TextTheme;
   title?: string | DefaultTFuncReturn;
-  description?: string;
+  description?: string | DefaultTFuncReturn;
 }
 
 export enum TextTheme {

@@ -1,11 +1,9 @@
 import * as React from 'react';
 import { orderBy } from 'lodash';
 
-import { AddTodo, DeleteTodo, ToggleTodoComplete } from 'features/Todos/';
+import { AddTodo, DeleteTodo, ToggleTodoComplete } from 'features/Todos';
 
-import { TodoItem } from 'entities/Todo';
-import { fetchTodos } from 'entities/Todo/model/actions/todoActions';
-import { getTodosSelector } from 'entities/Todo/model/selectors/getTodosSelector/getTodosSelector';
+import { fetchTodos, getTodosSelector, TodoItem } from 'entities/Todo';
 
 import { useAppDispatch, useAppSelector } from 'shared/hooks/useAppHooks';
 
