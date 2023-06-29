@@ -16,12 +16,12 @@ import { loginActions } from '../../model/slice/loginSlice';
 
 import s from './LoginForm.module.scss';
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string;
   autofocus?: boolean;
 }
 
-export const LoginForm = memo(({ className, autofocus }: LoginFormProps) => {
+const LoginForm = memo(({ className, autofocus }: LoginFormProps) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
@@ -70,3 +70,4 @@ export const LoginForm = memo(({ className, autofocus }: LoginFormProps) => {
 });
 
 LoginForm.displayName = 'LoginForm';
+export default LoginForm;
