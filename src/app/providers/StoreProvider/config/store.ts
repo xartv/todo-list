@@ -16,7 +16,6 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Red
   const reducerManager = createReducerManager(rootReducers);
 
   const store = configureStore<StateSchema>({
-    // @ts-ignore
     reducer: reducerManager.reduce,
     devTools: import.meta.env.DEV,
     preloadedState: initialState,
@@ -27,3 +26,7 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Red
 
   return store;
 }
+
+const store = createReduxStore();
+
+export type AppDispatch = typeof store.dispatch;
