@@ -8,8 +8,8 @@ import { LOCAL_STORAGE_AUTH_USER } from 'shared/const/globalConsts';
 import { loginActions } from '../slice/loginSlice';
 
 export interface loginByUsernameProps {
-  username: string;
-  password: string;
+  username?: string;
+  password?: string;
 }
 
 export const loginByUsername = createAsyncThunk<UserEntity, loginByUsernameProps, { rejectValue: string }>(

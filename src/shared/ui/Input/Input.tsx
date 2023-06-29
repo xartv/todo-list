@@ -9,7 +9,7 @@ type InputPropsOmit = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 
 interface InputProps extends InputPropsOmit {
   className?: string;
-  value: string;
+  value: string | undefined;
   title?: string | DefaultTFuncReturn;
   autofocus?: boolean;
   onChange: (value: string) => void;

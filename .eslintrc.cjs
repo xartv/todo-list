@@ -116,7 +116,7 @@ module.exports = {
     'no-var': 2,
     'one-var': [2, 'never'],
     'prefer-arrow-callback': 2,
-    'prefer-const': 2,
+    'prefer-const': 0,
     'prefer-promise-reject-errors': 2,
     'react/prop-types': 0,
   },

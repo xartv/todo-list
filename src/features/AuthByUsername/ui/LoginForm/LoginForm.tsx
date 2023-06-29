@@ -1,7 +1,9 @@
-import { memo, useCallback } from 'react';
-import { useSelector } from 'react-redux';
+import { memo, useCallback, useEffect } from 'react';
+import { useSelector, useStore } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
+
+import { ReduxStoreWithManager } from 'app/providers/StoreProvider';
 
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { Button, ButtonTheme } from 'shared/ui/Button';
@@ -12,7 +14,7 @@ import { loginByUsername } from '../../model/actions/loginByUsername';
 import { getLoginStatusSelector } from '../../model/selector/getLoginStatusSelector/getLoginStatusSelector';
 import { getPasswordSelector } from '../../model/selector/getPasswordSelector/getPasswordSelector';
 import { getUsernameSelector } from '../../model/selector/getUsernameSelector/getUsernameSelector';
-import { loginActions } from '../../model/slice/loginSlice';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 
 import s from './LoginForm.module.scss';
 
@@ -24,6 +26,8 @@ export interface LoginFormProps {
 const LoginForm = memo(({ className, autofocus }: LoginFormProps) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
+
+  const store = useStore() as ReduxStoreWithManager;
 
   const username = useSelector(getUsernameSelector);
   const password = useSelector(getPasswordSelector);
@@ -50,6 +54,17 @@ const LoginForm = memo(({ className, autofocus }: LoginFormProps) => {
   const onLogin = () => {
     dispatch(loginByUsername({ username, password }));
   };
+
+  useEffect(() => {
+    store.reducerManager.add('login', loginReducer);
+    dispatch({ type: '@INIT loginReducer' });
+
+    return () => {
+      store.reducerManager.remove('login');
+      dispatch({ type: '@REMOVE loginReducer' });
+    };
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <div className={cn(s.root, className)}>

@@ -1,26 +1,29 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 
-import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
-
 import { todoListReducer } from 'entities/Todo/model/slice/todoListSlice';
 import { userReducer } from 'entities/User/model/slice/userSlice';
 
+import { createReducerManager } from './reducerManager';
 import { StateSchema } from './StateSchema';
 
-export const createReduxStore = (initialState?: StateSchema) => {
+export function createReduxStore(initialState?: StateSchema, asyncReducers?: ReducersMapObject<StateSchema>) {
   const rootReducers: ReducersMapObject<StateSchema> = {
+    ...asyncReducers,
     todos: todoListReducer,
     users: userReducer,
-    login: loginReducer,
   };
 
-  return configureStore<StateSchema>({
-    reducer: rootReducers,
+  const reducerManager = createReducerManager(rootReducers);
+
+  const store = configureStore<StateSchema>({
+    // @ts-ignore
+    reducer: reducerManager.reduce,
     devTools: import.meta.env.DEV,
     preloadedState: initialState,
   });
-};
 
-const store = createReduxStore();
+  // @ts-ignore
+  store.reducerManager = reducerManager;
 
-export type AppDispatch = typeof store.dispatch;
+  return store;
+}
