@@ -1,11 +1,10 @@
-import { memo, useCallback, useEffect } from 'react';
-import { useSelector, useStore } from 'react-redux';
+import { memo, useCallback } from 'react';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
-import { ReduxStoreWithManager } from 'app/providers/StoreProvider';
-
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
+import { DynamicReducerLoader } from 'shared/lib/components/DynamicReducerLoader';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
@@ -23,11 +22,13 @@ export interface LoginFormProps {
   autofocus?: boolean;
 }
 
+const loginReducerObject = {
+  login: loginReducer,
+};
+
 const LoginForm = memo(({ className, autofocus }: LoginFormProps) => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
-
-  const store = useStore() as ReduxStoreWithManager;
 
   const username = useSelector(getUsernameSelector);
   const password = useSelector(getPasswordSelector);
@@ -55,32 +56,23 @@ const LoginForm = memo(({ className, autofocus }: LoginFormProps) => {
     dispatch(loginByUsername({ username, password }));
   };
 
-  useEffect(() => {
-    store.reducerManager.add('login', loginReducer);
-    dispatch({ type: '@INIT loginReducer' });
-
-    return () => {
-      store.reducerManager.remove('login');
-      dispatch({ type: '@REMOVE loginReducer' });
-    };
-    // eslint-disable-next-line
-  }, []);
-
   return (
-    <div className={cn(s.root, className)}>
-      <Text title={t('loginModal.forma-avtorizacii')} />
-      {isError && <Text theme={TextTheme.ERROR} description={t('loginModal.login-error')} />}
-      <Input
-        value={username}
-        onChange={onChangeUserName}
-        autofocus={autofocus}
-        title={t('loginModal.imya-polzovatelya')}
-      />
-      <Input value={password} onChange={onChangePasswordName} title={t('loginModal.parol')} />
-      <Button theme={buttonTheme} onClick={onLogin}>
-        {t('loginModal.voiti')}
-      </Button>
-    </div>
+    <DynamicReducerLoader asyncReducers={loginReducerObject} removeOnUnmount>
+      <div className={cn(s.root, className)}>
+        <Text title={t('loginModal.forma-avtorizacii')} />
+        {isError && <Text theme={TextTheme.ERROR} description={t('loginModal.login-error')} />}
+        <Input
+          value={username}
+          onChange={onChangeUserName}
+          autofocus={autofocus}
+          title={t('loginModal.imya-polzovatelya')}
+        />
+        <Input value={password} onChange={onChangePasswordName} title={t('loginModal.parol')} />
+        <Button theme={buttonTheme} onClick={onLogin}>
+          {t('loginModal.voiti')}
+        </Button>
+      </div>
+    </DynamicReducerLoader>
   );
 });
 
