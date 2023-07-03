@@ -35,7 +35,7 @@ export const PrimaryLogout: Story = {
   decorators: [
     StoreDecorator({
       users: {
-        authData: { id: '1', username: 'Test', password: 'pass' },
+        authData: { id: 1, username: 'Test', password: 'pass' },
       },
     }),
   ],
@@ -46,7 +46,7 @@ export const PrimaryLogoutDark: Story = {
     ThemeDecorator(Theme.DARK),
     StoreDecorator({
       users: {
-        authData: { id: '1', username: 'Test', password: 'pass' },
+        authData: { id: 1, username: 'Test', password: 'pass' },
       },
     }),
   ],
