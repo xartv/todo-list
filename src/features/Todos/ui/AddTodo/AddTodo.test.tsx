@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 
-import { withRender } from 'shared/lib/tests/withRender';
+import { withRender } from 'shared/lib/tests/withRender/withRender';
 
 import { AddTodo } from './AddTodo';
 
