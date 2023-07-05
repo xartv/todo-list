@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Fragment, memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -11,16 +11,16 @@ import { Button, ButtonTheme } from 'shared/ui/Button';
 
 import s from './AppHeader.module.scss';
 
-export const AppHeader = () => {
+export const AppHeader = memo(() => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
 
   const authUser = useSelector(getAuthUserSelector);
 
-  const [isLoginModalOpen, setIsLoginModalOpen] = React.useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
-  const openModal = React.useCallback(() => setIsLoginModalOpen(true), []);
-  const closeModal = React.useCallback(() => setIsLoginModalOpen(false), []);
+  const openModal = useCallback(() => setIsLoginModalOpen(true), []);
+  const closeModal = useCallback(() => setIsLoginModalOpen(false), []);
 
   const onLogOut = () => {
     dispatch(userActions.removeAuthUser());
@@ -37,7 +37,7 @@ export const AppHeader = () => {
     );
 
   return (
-    <React.Fragment>
+    <Fragment>
       <div className={s.root}>
         <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={openModal}>
           {t('header.voiti')}
@@ -45,6 +45,6 @@ export const AppHeader = () => {
       </div>
 
       <LoginModal isOpen={isLoginModalOpen} onClose={closeModal} overlayClose lazy />
-    </React.Fragment>
+    </Fragment>
   );
-};
+});

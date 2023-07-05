@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { memo } from 'react';
 import cn from 'classnames';
 
 import s from './Button.module.scss';
@@ -26,16 +26,12 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
 }
 
-export const Button = ({
-  theme = ButtonTheme.PRIMARY,
-  children,
-  className,
-  size = ButtonSize.M,
-  ...otherProps
-}: ButtonProps) => {
-  return (
-    <button className={cn(s.root, s[theme], s[size], className)} {...otherProps}>
-      {children}
-    </button>
-  );
-};
+export const Button = memo(
+  ({ theme = ButtonTheme.PRIMARY, children, className, size = ButtonSize.M, ...otherProps }: ButtonProps) => {
+    return (
+      <button className={cn(s.root, s[theme], s[size], className)} {...otherProps}>
+        {children}
+      </button>
+    );
+  },
+);

@@ -1,8 +1,8 @@
-import { FC, Fragment, SVGProps } from 'react';
+import { FC, Fragment, memo, SVGProps } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { AppLink } from '../AppLink';
-import { AppLinkTheme } from '../AppLink/AppLink';
+import { AppLink } from '../../../../shared/ui/AppLink';
+import { AppLinkTheme } from '../../../../shared/ui/AppLink/AppLink';
 
 import s from './SidebarLinkItem.module.scss';
 
@@ -13,7 +13,7 @@ interface SidebarLinkItemProps {
   collapsed?: boolean;
 }
 
-export const SidebarLinkItem = ({ to, title, Icon, collapsed }: SidebarLinkItemProps) => {
+export const SidebarLinkItem = memo(({ to, title, Icon, collapsed }: SidebarLinkItemProps) => {
   const { t } = useTranslation();
 
   return (
@@ -24,4 +24,4 @@ export const SidebarLinkItem = ({ to, title, Icon, collapsed }: SidebarLinkItemP
       </AppLink>
     </Fragment>
   );
-};
+});

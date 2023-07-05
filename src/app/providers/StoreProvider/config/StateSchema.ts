@@ -3,6 +3,7 @@ import { CombinedState } from 'redux';
 
 import { LoginSchema } from 'features/AuthByUsername/model/types/loginSchema';
 
+import { ProfileSchema } from 'entities/Profile';
 import { TodoListReducerSchema } from 'entities/Todo/model/types/todoListReducerSchema';
 import { UserSchema } from 'entities/User/model/types/UserSchema';
 
@@ -10,6 +11,7 @@ export interface StateSchema {
   todos: TodoListReducerSchema;
   users: UserSchema;
   login?: LoginSchema;
+  profile?: ProfileSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

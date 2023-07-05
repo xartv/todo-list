@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
@@ -36,7 +36,7 @@ const LoginForm = memo(({ className, autofocus }: LoginFormProps) => {
 
   const isLoading = loginStatus === 'loading';
   const isError = loginStatus === 'reject';
-  const buttonTheme = isLoading ? ButtonTheme.DISABLED : ButtonTheme.PRIMARY;
+  const buttonTheme = useMemo(() => (isLoading ? ButtonTheme.DISABLED : ButtonTheme.PRIMARY), [isLoading]);
 
   const onChangeUserName = useCallback(
     (value: string) => {
@@ -52,9 +52,9 @@ const LoginForm = memo(({ className, autofocus }: LoginFormProps) => {
     [dispatch],
   );
 
-  const onLogin = () => {
+  const onLogin = useCallback(() => {
     dispatch(loginByUsername({ username, password }));
-  };
+  }, [dispatch, username, password]);
 
   return (
     <DynamicReducerLoader asyncReducers={loginReducerObject} removeOnUnmount>

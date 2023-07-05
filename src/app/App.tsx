@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { Suspense, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 
@@ -19,25 +19,25 @@ function App() {
 
   const { theme } = useTheme();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (pathname === '/') {
       navigate('/todos');
     }
   }, [navigate, pathname]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(userActions.initAuth());
   }, [dispatch]);
 
   return (
     <div className={cn('app', theme)}>
-      <React.Suspense>
+      <Suspense>
         <AppHeader />
         <div className="app-container">
           <Sidebar />
           <AppRouter />
         </div>
-      </React.Suspense>
+      </Suspense>
     </div>
   );
 }

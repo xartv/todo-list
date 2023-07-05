@@ -6,8 +6,11 @@ import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 
 import { loginReducer } from 'features/AuthByUsername';
 
+import { profileReducer } from 'entities/Profile/model/slice/profileSlice';
+
 const defaultAsyncReducers = {
   login: loginReducer,
+  profile: profileReducer,
 };
 
 export const StoreDecorator =

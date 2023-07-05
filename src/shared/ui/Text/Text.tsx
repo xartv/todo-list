@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, memo } from 'react';
 import { DefaultTFuncReturn } from 'i18next';
 import cn from 'classnames';
 
@@ -16,11 +16,11 @@ export enum TextTheme {
   ERROR = 'error',
 }
 
-export const Text = ({ className, title, description, theme = TextTheme.PRIMARY }: TextProps) => {
+export const Text = memo(({ className, title, description, theme = TextTheme.PRIMARY }: TextProps) => {
   return (
     <Fragment>
       {title && <p className={cn(s.title, className, s[theme])}>{title}</p>}
       {description && <p className={cn(s.description, className, s[theme])}>{description}</p>}
     </Fragment>
   );
-};
+});

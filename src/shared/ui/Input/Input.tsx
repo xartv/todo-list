@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { InputHTMLAttributes } from 'react';
+import { ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef } from 'react';
 import { DefaultTFuncReturn } from 'i18next';
 import cn from 'classnames';
 
@@ -15,15 +14,15 @@ interface InputProps extends InputPropsOmit {
   onChange: (value: string) => void;
 }
 
-export const Input = React.memo(
+export const Input = memo(
   ({ type = 'text', className, title, value, autofocus, onChange, ...otherProps }: InputProps) => {
-    const inputRef = React.useRef<HTMLInputElement | null>(null);
+    const inputRef = useRef<HTMLInputElement | null>(null);
 
-    const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
       onChange(event.target.value);
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
       if (autofocus) {
         inputRef.current?.focus();
       }

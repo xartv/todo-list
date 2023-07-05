@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { memo } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 import cn from 'classnames';
 
@@ -15,10 +15,12 @@ interface AppLinkProps extends LinkProps {
   children: React.ReactNode;
 }
 
-export const AppLink = ({ className, theme = AppLinkTheme.PRIMARY, to, children, ...otherProps }: AppLinkProps) => {
-  return (
-    <Link to={to} className={cn(className, s[theme])} {...otherProps}>
-      {children}
-    </Link>
-  );
-};
+export const AppLink = memo(
+  ({ className, theme = AppLinkTheme.PRIMARY, to, children, ...otherProps }: AppLinkProps) => {
+    return (
+      <Link to={to} className={cn(className, s[theme])} {...otherProps}>
+        {children}
+      </Link>
+    );
+  },
+);
