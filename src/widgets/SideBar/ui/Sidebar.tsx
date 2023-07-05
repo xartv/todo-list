@@ -1,15 +1,12 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
-import { ReactComponent as TestPageIcon } from 'shared/assets/icons/test-page.svg';
-import { ReactComponent as TodoIcon } from 'shared/assets/icons/todo.svg';
-import { ROUTE_PATHS } from 'shared/config/routeConfig/routeConfig';
-import { AppLink } from 'shared/ui/AppLink';
-import { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { LangSwitcher } from 'shared/ui/LangSwitcher';
+import { SidebarLinkItem } from 'shared/ui/SidebarLinkItem/SidebarLinkItem';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
+
+import { sidebarLinks } from '../model/sidebarLinks';
 
 import s from './Sidebar.module.scss';
 
@@ -18,8 +15,6 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ className }: SidebarProps) => {
-  const { t } = useTranslation();
-
   const [collapsed, setCollapsed] = React.useState(true);
 
   const toggleCollapsed = () => setCollapsed(prev => !prev);
@@ -31,14 +26,15 @@ export const Sidebar = ({ className }: SidebarProps) => {
       </Button>
 
       <div className={s.links}>
-        <AppLink to={ROUTE_PATHS.todos} theme={AppLinkTheme.INVERTED} className={s.link}>
-          <TodoIcon />
-          {!collapsed && <span>{t('sidebar.zadachi')}</span>}
-        </AppLink>
-        <AppLink to={ROUTE_PATHS.test_page} theme={AppLinkTheme.INVERTED} className={s.link}>
-          <TestPageIcon />
-          {!collapsed && <span>{t('sidebar.test')}</span>}
-        </AppLink>
+        {sidebarLinks.map(link => (
+          <SidebarLinkItem
+            key={`SIDEBAR_LINK_ITEM_${link.title}`}
+            to={link.link}
+            title={link.title}
+            Icon={link.icon}
+            collapsed={collapsed}
+          />
+        ))}
       </div>
 
       <div className={cn(s.switchersWrapper, { [s.switchersWrapperCollapsed]: collapsed })}>

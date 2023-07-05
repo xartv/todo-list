@@ -1,4 +1,4 @@
-import { RequestStatuses } from 'shared/const/globalTypes';
+import { RequestStatuses } from 'shared/types/globalTypes';
 
 export interface LoginSchema {
   status?: RequestStatuses;

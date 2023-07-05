@@ -6,7 +6,7 @@ import { AppRouter } from 'app/providers/router';
 import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 
 import { AppHeader } from 'widgets/AppHeader';
-import { Sidebar } from 'widgets/SideBar';
+import { Sidebar } from 'widgets/Sidebar';
 
 import { userActions } from 'entities/User';
 

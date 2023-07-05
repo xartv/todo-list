@@ -19,7 +19,8 @@
   "sidebar": {
     "language": "Ru",
     "test": "Тестовая страница",
-    "zadachi": "Задачи"
+    "zadachi": "Задачи",
+    "profile": "Профиль"
   },
   "test": {
     "kak-tvoi-dela": "Как твои дела?",

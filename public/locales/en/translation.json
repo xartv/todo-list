@@ -19,7 +19,8 @@
   "sidebar": {
     "language": "En",
     "test": "Test page",
-    "zadachi": "Todos"
+    "zadachi": "Todos",
+    "profile": "Profile"
   },
   "test": {
     "kak-tvoi-dela": "How are you doing?",
