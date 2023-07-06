@@ -1,5 +1,6 @@
 import { Fragment, memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { LoginModal } from 'features/AuthByUsername';
@@ -13,6 +14,7 @@ import s from './AppHeader.module.scss';
 
 export const AppHeader = memo(() => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { t } = useTranslation();
 
   const authUser = useSelector(getAuthUserSelector);
@@ -25,6 +27,7 @@ export const AppHeader = memo(() => {
   const onLogOut = () => {
     dispatch(userActions.removeAuthUser());
     setIsLoginModalOpen(false);
+    navigate(0);
   };
 
   if (authUser)

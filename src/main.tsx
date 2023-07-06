@@ -10,13 +10,13 @@ import './app/styles/index.scss';
 import './shared/config/i18n/i18n.ts';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <StoreProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <StoreProvider>
       <ThemeProvider>
         <ErrorBoundary>
           <App />
         </ErrorBoundary>
       </ThemeProvider>
-    </BrowserRouter>
-  </StoreProvider>,
+    </StoreProvider>
+  </BrowserRouter>,
 );
