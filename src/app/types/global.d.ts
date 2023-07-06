@@ -16,4 +16,4 @@ declare module '*.svg' {
   export default src;
 }
 
-declare const __IS_DEV__: boolean;
+declare const __APP_BASE_URL__: string;
