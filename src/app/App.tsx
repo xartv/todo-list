@@ -6,7 +6,7 @@ import { AppRouter } from 'app/providers/router';
 import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 
 import { AppHeader } from 'widgets/AppHeader';
-import { Sidebar } from 'widgets/SideBar';
+import { AppSidebar } from 'widgets/AppSidebar';
 
 import { userActions } from 'entities/User';
 
@@ -34,7 +34,7 @@ function App() {
       <Suspense>
         <AppHeader />
         <div className="app-container">
-          <Sidebar />
+          <AppSidebar />
           <AppRouter />
         </div>
       </Suspense>

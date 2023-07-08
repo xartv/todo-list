@@ -2,15 +2,15 @@ import { fireEvent, screen } from '@testing-library/react';
 
 import { withRender } from 'shared/lib/tests/withRender/withRender';
 
-import { Sidebar } from './Sidebar';
+import { AppSidebar } from './AppSidebar';
 
 describe('test sidebar', () => {
   test('render', () => {
-    withRender(<Sidebar />);
+    withRender(<AppSidebar />);
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
   });
   test('collapse', () => {
-    withRender(<Sidebar />);
+    withRender(<AppSidebar />);
     const toggleBtn = screen.getByTestId('toggle-collapse');
     const sidebar = screen.getByTestId('sidebar');
     expect(sidebar).toBeInTheDocument();

@@ -5,14 +5,14 @@ import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { TranslationDecorator } from 'shared/config/storybook/TranslationDecorator/TranslationDecorator';
 
-import { Sidebar } from './Sidebar';
+import { AppSidebar } from './AppSidebar';
 
-const meta: Meta<typeof Sidebar> = {
-  component: Sidebar,
+const meta: Meta<typeof AppSidebar> = {
+  component: AppSidebar,
 };
 
 export default meta;
-type Story = StoryObj<typeof Sidebar>;
+type Story = StoryObj<typeof AppSidebar>;
 
 export const Primary: Story = {
   decorators: [TranslationDecorator],

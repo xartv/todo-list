@@ -6,21 +6,21 @@ import { LangSwitcher } from 'shared/ui/LangSwitcher';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 
 import { sidebarLinks } from '../../model/sidebarLinks';
-import { SidebarLinkItem } from '../SidebarLinkItem/SidebarLinkItem';
+import { AppSidebarLinkItem } from '../AppSidebarLinkItem/AppSidebarLinkItem';
 
-import s from './Sidebar.module.scss';
+import s from './AppSidebar.module.scss';
 
-interface SidebarProps {
+interface AppSidebarProps {
   className?: string;
 }
 
-export const Sidebar = memo(({ className }: SidebarProps) => {
+export const AppSidebar = memo(({ className }: AppSidebarProps) => {
   const [collapsed, setCollapsed] = useState(true);
 
   const linkItemsList = useMemo(
     () =>
       sidebarLinks.map(link => (
-        <SidebarLinkItem
+        <AppSidebarLinkItem
           key={`SIDEBAR_LINK_ITEM_${link.title}`}
           to={link.link}
           title={link.title}
