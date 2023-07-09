@@ -1,5 +1,8 @@
-import { profileReducer } from 'entities/Profile/model/slice/profileSlice';
+import { useEffect } from 'react';
 
+import { getProfile, ProfileCard, profileReducer } from 'entities/Profile';
+
+import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { DynamicReducerLoader } from 'shared/lib/components/DynamicReducerLoader';
 
 import s from './ProfilePage.module.scss';
@@ -9,9 +12,17 @@ const profileReducerObject = {
 };
 
 const ProfilePage = () => {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getProfile());
+  }, [dispatch]);
+
   return (
     <DynamicReducerLoader asyncReducers={profileReducerObject} removeOnUnmount>
-      <div className={s.root}>{'ProfilePage'}</div>
+      <div className={s.root}>
+        <ProfileCard />
+      </div>
     </DynamicReducerLoader>
   );
 };

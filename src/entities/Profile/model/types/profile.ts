@@ -11,7 +11,7 @@ export interface ProfileEntity {
 }
 
 export interface ProfileSchema {
-  profile?: ProfileEntity;
+  data?: ProfileEntity;
   status: RequestStatuses;
   error?: string;
   readonly: boolean;

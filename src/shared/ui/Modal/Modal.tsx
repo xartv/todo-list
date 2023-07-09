@@ -20,7 +20,7 @@ export const Modal = ({ className, children, isOpen, overlayClose, lazy, onClose
   const [isClosing, setIsClosing] = React.useState(false);
   const [isMounted, setIsMounted] = React.useState(false);
 
-  const timerRef = React.useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = React.useRef() as React.MutableRefObject<ReturnType<typeof setTimeout>>;
 
   const { theme } = useTheme();
 

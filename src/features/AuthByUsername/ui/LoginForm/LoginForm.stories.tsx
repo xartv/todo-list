@@ -43,7 +43,7 @@ export const Error: Story = {
   },
   decorators: [
     StoreDecorator({
-      login: { username: 'Test', password: 'pass', status: 'reject' },
+      login: { status: 'reject' },
     }),
   ],
 };
@@ -55,7 +55,7 @@ export const ErrorDark: Story = {
   decorators: [
     ThemeDecorator(Theme.DARK),
     StoreDecorator({
-      login: { username: 'Test', password: 'pass', status: 'reject' },
+      login: { status: 'reject' },
     }),
   ],
 };
@@ -66,7 +66,7 @@ export const Loading: Story = {
   },
   decorators: [
     StoreDecorator({
-      login: { username: 'Test', password: 'pass', status: 'loading' },
+      login: { status: 'loading' },
     }),
   ],
 };
@@ -78,7 +78,7 @@ export const LoadingDark: Story = {
   decorators: [
     ThemeDecorator(Theme.DARK),
     StoreDecorator({
-      login: { username: 'Test', password: 'pass', status: 'loading' },
+      login: { status: 'loading' },
     }),
   ],
 };
