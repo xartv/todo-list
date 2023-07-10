@@ -20,9 +20,8 @@
 }
 
 .readonly {
-  pointer-events: none;
+  color: var(--inverted-secondary-color);
 
   outline: none;
-
-  color: var(--inverted-secondary-color);
+  pointer-events: none;
 }
