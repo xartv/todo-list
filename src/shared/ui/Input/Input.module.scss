@@ -2,15 +2,27 @@
   display: flex;
   flex-direction: column;
   gap: 6px;
+}
 
-  input {
-    width: 100%;
-    padding: 6px;
+.input {
+  width: 100%;
+  padding: 6px;
 
-    color: var(--inverted-primary-color);
+  color: var(--inverted-primary-color);
 
-    background: var(--inverted-bg-color);
+  background: var(--inverted-bg-color);
 
-    border-radius: 10px;
-  }
+  border-radius: 10px;
+}
+
+.title {
+  color: var(--primary-color);
+}
+
+.readonly {
+  pointer-events: none;
+
+  outline: none;
+
+  color: var(--inverted-secondary-color);
 }

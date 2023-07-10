@@ -17,7 +17,16 @@
   },
   "lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestias maxime laudantium. Ut accusamus, repellendus nihil sit fuga maxime officia voluptate saepe dicta porro doloribus, illo tenetur voluptatem ratione possimus?",
   "profile": {
-    "title": "Profile"
+    "age": "Age",
+    "avatar": "Avatar",
+    "cancel": "Cancel",
+    "city": "City",
+    "edit": "Edit",
+    "lastname": "Surname",
+    "name": "Name",
+    "save": "Save",
+    "title": "Profile",
+    "username": "Username"
   },
   "sidebar": {
     "language": "En",

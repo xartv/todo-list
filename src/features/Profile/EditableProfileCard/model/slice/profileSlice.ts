@@ -1,11 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { ProfileSchema } from 'entities/Profile';
+import { ProfileEntity, ProfileSchema } from 'entities/Profile';
 
 import { getProfile } from '../actions/getProfile';
+import { updateProfileData } from '../actions/updateProfileData';
 
 export const initialState: ProfileSchema = {
-  data: undefined,
+  fetchData: undefined,
+  formData: undefined,
   status: 'init',
   error: undefined,
   readonly: true,
@@ -14,7 +16,21 @@ export const initialState: ProfileSchema = {
 export const profileSlice = createSlice({
   name: 'profile',
   initialState,
-  reducers: {},
+  reducers: {
+    setReadonly: (state, action: PayloadAction<boolean>) => {
+      state.readonly = action.payload;
+    },
+    updateProfile: (state, action: PayloadAction<ProfileEntity>) => {
+      state.formData = {
+        ...state.formData,
+        ...action.payload,
+      };
+    },
+    cancelUpdate: state => {
+      state.formData = state.fetchData;
+      state.readonly = true;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(getProfile.pending, state => {
@@ -23,13 +39,29 @@ export const profileSlice = createSlice({
       })
       .addCase(getProfile.fulfilled, (state, action) => {
         state.status = 'idle';
-        state.data = action.payload;
+        state.fetchData = action.payload;
+        state.formData = action.payload;
       })
       .addCase(getProfile.rejected, (state, action) => {
+        state.status = 'reject';
+        state.error = action.payload;
+      })
+      .addCase(updateProfileData.pending, state => {
+        state.error = undefined;
+        state.status = 'loading';
+      })
+      .addCase(updateProfileData.fulfilled, (state, action) => {
+        state.status = 'idle';
+        state.fetchData = action.payload;
+        state.formData = action.payload;
+        state.readonly = true;
+      })
+      .addCase(updateProfileData.rejected, (state, action) => {
         state.status = 'reject';
         state.error = action.payload;
       });
   },
 });
 
+export const { actions: profileActions } = profileSlice;
 export const { reducer: profileReducer } = profileSlice;

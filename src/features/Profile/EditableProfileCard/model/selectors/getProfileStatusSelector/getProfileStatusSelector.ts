@@ -1,3 +1,3 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 
-export const getProfileDataSelector = (state: StateSchema) => state.profile?.status;
+export const getProfileStatusSelector = (state: StateSchema) => state.profile?.status;

@@ -8,18 +8,33 @@ type InputPropsOmit = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onC
 
 interface InputProps extends InputPropsOmit {
   className?: string;
-  value: string | undefined;
+  classNames?: {
+    title?: string;
+    input?: string;
+  };
+  value: string | number | undefined;
   title?: string | DefaultTFuncReturn;
   autofocus?: boolean;
-  onChange: (value: string) => void;
+  readonly?: boolean;
+  onChange?: (value: string) => void;
 }
 
 export const Input = memo(
-  ({ type = 'text', className, title, value, autofocus, onChange, ...otherProps }: InputProps) => {
+  ({
+    type = 'text',
+    className,
+    classNames = {},
+    title,
+    value,
+    autofocus,
+    onChange,
+    readonly,
+    ...otherProps
+  }: InputProps) => {
     const inputRef = useRef<HTMLInputElement | null>(null);
 
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-      onChange(event.target.value);
+      onChange?.(event.target.value);
     };
 
     useEffect(() => {
@@ -31,7 +46,7 @@ export const Input = memo(
     return (
       <label className={cn(s.root, className)}>
         {title && (
-          <span data-testid="input-title" className={s.title}>
+          <span data-testid="input-title" className={cn(s.title, classNames.title)}>
             {title}
           </span>
         )}
@@ -41,6 +56,8 @@ export const Input = memo(
           type={type}
           value={value}
           onChange={onChangeHandler}
+          readOnly={readonly}
+          className={cn(s.input, classNames.input, { [s.readonly]: readonly })}
           {...otherProps}
         />
       </label>

@@ -17,7 +17,16 @@
   },
   "lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestias maxime laudantium. Ut accusamus, repellendus nihil sit fuga maxime officia voluptate saepe dicta porro doloribus, illo tenetur voluptatem ratione possimus?",
   "profile": {
-    "title": "Профиль"
+    "age": "Возраст",
+    "avatar": "Аватар",
+    "cancel": "Отменить",
+    "city": "Город",
+    "edit": "Редактировать",
+    "lastname": "Фамилия",
+    "name": "Имя",
+    "save": "Сохранить",
+    "title": "Профиль",
+    "username": "Юзернэйм"
   },
   "sidebar": {
     "language": "Ru",
