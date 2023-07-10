@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { ProfileSchema } from 'entities/Profile';
+
 import { getProfile } from '../actions/getProfile';
-import { ProfileSchema } from '../types/profile';
 
 export const initialState: ProfileSchema = {
   data: undefined,

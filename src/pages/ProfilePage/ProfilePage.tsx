@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { getProfile, ProfileCard, profileReducer } from 'entities/Profile';
+import { EditableProfileCard, profileReducer } from 'features/Profile';
 
-import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { DynamicReducerLoader } from 'shared/lib/components/DynamicReducerLoader';
+import { Text } from 'shared/ui/Text/Text';
 
 import s from './ProfilePage.module.scss';
 
@@ -12,16 +12,13 @@ const profileReducerObject = {
 };
 
 const ProfilePage = () => {
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(getProfile());
-  }, [dispatch]);
+  const { t } = useTranslation();
 
   return (
     <DynamicReducerLoader asyncReducers={profileReducerObject} removeOnUnmount>
       <div className={s.root}>
-        <ProfileCard />
+        <Text title={t('profile.title')} />
+        <EditableProfileCard />
       </div>
     </DynamicReducerLoader>
   );

@@ -5,7 +5,10 @@ import cn from 'classnames';
 import s from './Text.module.scss';
 
 interface TextProps {
-  className?: string;
+  classNames?: {
+    title?: string;
+    description?: string;
+  };
   theme?: TextTheme;
   title?: string | DefaultTFuncReturn;
   description?: string | DefaultTFuncReturn;
@@ -16,11 +19,11 @@ export enum TextTheme {
   ERROR = 'error',
 }
 
-export const Text = memo(({ className, title, description, theme = TextTheme.PRIMARY }: TextProps) => {
+export const Text = memo(({ classNames, title, description, theme = TextTheme.PRIMARY }: TextProps) => {
   return (
     <Fragment>
-      {title && <p className={cn(s.title, className, s[theme])}>{title}</p>}
-      {description && <p className={cn(s.description, className, s[theme])}>{description}</p>}
+      {title && <p className={cn(s.title, classNames?.title, s[theme])}>{title}</p>}
+      {description && <p className={cn(s.description, classNames?.description, s[theme])}>{description}</p>}
     </Fragment>
   );
 });

@@ -1,3 +1,7 @@
 .root {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
   color: var(--red-primary);
 }

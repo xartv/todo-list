@@ -1,11 +1,19 @@
-import { useSelector } from 'react-redux';
+import { ProfileEntity } from 'entities/Profile';
 
-import { getProfileDataSelector } from 'entities/Profile';
+import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 
 import s from './ProfileCard.module.scss';
 
-export const ProfileCard = () => {
-  const profile = useSelector(getProfileDataSelector);
+interface ProfileCardInterface {
+  profile: ProfileEntity | undefined;
+}
 
-  return <div className={s.root}>{profile?.username}</div>;
+export const ProfileCard = ({ profile }: ProfileCardInterface) => {
+  if (!profile) return null;
+
+  return (
+    <div className={s.root}>
+      <Avatar src={profile.avatar} size={AvatarSize.M} />
+    </div>
+  );
 };

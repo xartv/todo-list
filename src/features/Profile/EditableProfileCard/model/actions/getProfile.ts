@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { CustomThunkApi } from 'app/providers/StoreProvider';
 
-import { ProfileEntity } from '../types/profile';
+import { ProfileEntity } from '../../../../../entities/Profile/model/types/profile';
 
 export const getProfile = createAsyncThunk<ProfileEntity, undefined, CustomThunkApi<string>>(
   'profile/getProfile',
