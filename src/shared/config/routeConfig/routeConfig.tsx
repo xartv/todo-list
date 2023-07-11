@@ -5,6 +5,10 @@ import { ProfilePage } from 'pages/ProfilePage';
 import { TestPage } from 'pages/TestPage';
 import { TodosPage } from 'pages/TodosPage';
 
+export type CustomRouteProps = RouteProps & {
+  authOnly?: boolean;
+};
+
 export enum APP_ROUTES {
   TODOS = 'todos',
   TEST_PAGE = 'test_page',
@@ -20,9 +24,9 @@ export const ROUTE_PATHS: Record<APP_ROUTES, string> = {
   [APP_ROUTES.NOT_FOUND]: '*',
 };
 
-export const routeConfig: RouteProps[] = [
-  { path: ROUTE_PATHS.todos, element: <TodosPage /> },
+export const routeConfig: CustomRouteProps[] = [
+  { path: ROUTE_PATHS.todos, element: <TodosPage />, authOnly: true },
   { path: ROUTE_PATHS.test_page, element: <TestPage /> },
-  { path: ROUTE_PATHS.profile, element: <ProfilePage /> },
+  { path: ROUTE_PATHS.profile, element: <ProfilePage />, authOnly: true },
   { path: ROUTE_PATHS.not_found, element: <NothingFoundPage /> },
 ];

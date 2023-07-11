@@ -9,6 +9,7 @@ interface SidebarLinks {
   title: string;
   link: string;
   icon: FC<SVGProps<SVGSVGElement>>;
+  isAuth?: boolean;
 }
 
 export const sidebarLinks: SidebarLinks[] = [
@@ -16,6 +17,7 @@ export const sidebarLinks: SidebarLinks[] = [
     title: 'sidebar.zadachi',
     link: ROUTE_PATHS.todos,
     icon: TodoIcon,
+    isAuth: true,
   },
   {
     title: 'sidebar.test',
@@ -26,5 +28,6 @@ export const sidebarLinks: SidebarLinks[] = [
     title: 'sidebar.profile',
     link: ROUTE_PATHS.profile,
     icon: ProfileIcon,
+    isAuth: true,
   },
 ];

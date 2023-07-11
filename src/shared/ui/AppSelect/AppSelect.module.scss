@@ -10,9 +10,10 @@
 
 .control.control {
   background-color: var(--inverted-bg-color);
+  border-color: var(--inverted-bg-color);
 
   border-radius: 10px;
-  border-color: var(--inverted-bg-color);
+
   box-shadow: none;
 
   &:hover {

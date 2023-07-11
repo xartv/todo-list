@@ -18,7 +18,7 @@ interface AppSelectProps extends Omit<StateManagedSelect, 'isDisabled'> {
   };
   //eslint-disable-next-line
   options?: Option<any, any>[];
-  //eslint-disable-next-line
+
   isDisabled?: boolean;
 }
 
