@@ -1,0 +1,62 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.title {
+  color: var(--primary-color);
+}
+
+.control.control {
+  background-color: var(--inverted-bg-color);
+
+  border-radius: 10px;
+  border-color: var(--inverted-bg-color);
+  box-shadow: none;
+
+  &:hover {
+    border-color: none;
+  }
+}
+
+.activeControl.activeControl {
+  border: 2px solid;
+  border-color: var(--primary-color);
+}
+
+.dropdownIndicator.dropdownIndicator {
+  color: var(--inverted-primary-color);
+
+  opacity: 0.5;
+}
+
+.option.option {
+  color: var(--inverted-primary-color);
+}
+
+.menu.menu {
+  background-color: var(--inverted-bg-color);
+}
+
+.placeholder.placeholder {
+  color: var(--inverted-primary-color);
+
+  opacity: 0.3;
+}
+
+.activePlaceholder.activePlaceholder {
+  opacity: 0.5;
+}
+
+.activeDropdownIndicator.activeDropdownIndicator {
+  opacity: 1;
+}
+
+.singleValue.singleValue {
+  color: var(--inverted-secondary-color);
+}
+
+.activeSingleValue.activeSingleValue {
+  color: var(--inverted-primary-color);
+}

@@ -1,9 +1,12 @@
 import { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
+import { ECountries } from 'entities/Country';
+import { ECurrency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile';
 
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
+import { Option } from 'shared/ui/AppSelect/AppSelect';
 
 import { getProfile } from '../model/actions/getProfile';
 import { updateProfileData } from '../model/actions/updateProfileData';
@@ -75,11 +78,33 @@ export const EditableProfileCard = () => {
     [dispatch],
   );
 
+  const onChangeCountry = useCallback(
+    (option?: Option<ECountries, ECountries>) => {
+      dispatch(
+        profileActions.updateProfile({
+          country: option?.value,
+        }),
+      );
+    },
+    [dispatch],
+  );
+
   const onChangeCity = useCallback(
     (value?: string) => {
       dispatch(
         profileActions.updateProfile({
           city: value || '',
+        }),
+      );
+    },
+    [dispatch],
+  );
+
+  const onChangeCurrency = useCallback(
+    (option?: Option<ECurrency, ECurrency>) => {
+      dispatch(
+        profileActions.updateProfile({
+          currency: option?.value,
         }),
       );
     },
@@ -112,7 +137,9 @@ export const EditableProfileCard = () => {
       onChangeLastName={onChangeLastName}
       onChangeUserName={onChangeUserName}
       onChangeAge={onChangeAge}
+      onChangeCountry={onChangeCountry}
       onChangeCity={onChangeCity}
+      onChangeCurrency={onChangeCurrency}
       onChangeAvatar={onChangeAvatar}
     />
   );

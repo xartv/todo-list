@@ -1,3 +1,6 @@
+import { ECountries } from 'entities/Country';
+import { ECurrency } from 'entities/Currency';
+
 import { RequestStatuses } from 'shared/types/globalTypes';
 
 export interface ProfileEntity {
@@ -5,7 +8,8 @@ export interface ProfileEntity {
   lastname?: string;
   username?: string;
   age?: string;
-  country?: 'Russia';
+  country?: ECountries;
+  currency?: ECurrency;
   city?: string;
   avatar?: string;
 }
