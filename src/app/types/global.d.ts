@@ -19,6 +19,7 @@ declare module '*.svg' {
 }
 
 declare const __APP_BASE_URL__: string;
+declare const __PROJECT__: 'storybook' | 'vitest' | 'frontend';
 
 type DeepPartial<T> = T extends object
   ? {

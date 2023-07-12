@@ -3,6 +3,8 @@ import { DefaultTFuncReturn } from 'i18next';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
+import { NothingFoundPage } from 'pages/NothingFoundPage';
+
 import { ECountries } from 'entities/Country';
 import { CountrySelect } from 'entities/Country/ui/CountrySelect/CountrySelect';
 import { ECurrency } from 'entities/Currency';
@@ -53,7 +55,7 @@ export const ProfileCard = ({
 }: ProfileCardInterface) => {
   const { t } = useTranslation();
 
-  if (!profile) return null;
+  if (!profile) return <NothingFoundPage />;
 
   const validationErrorsTranslations: Record<EProfileValidationError, DefaultTFuncReturn> = {
     [EProfileValidationError.INCORRECT_AGE]: t('profile.ageError'),

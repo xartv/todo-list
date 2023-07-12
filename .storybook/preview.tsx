@@ -15,6 +15,7 @@ const preview: Preview = {
       en: 'English',
       ru: 'Russian',
     },
+    __PROJECT__: 'storybook',
   },
   parameters: {
     i18n,

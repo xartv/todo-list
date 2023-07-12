@@ -125,7 +125,9 @@ export const EditableProfileCard = () => {
   );
 
   useEffect(() => {
-    dispatch(getProfile());
+    if (__PROJECT__ === 'frontend') {
+      dispatch(getProfile());
+    }
   }, [dispatch]);
 
   return (

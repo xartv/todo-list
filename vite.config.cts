@@ -39,5 +39,6 @@ export default defineConfig({
   },
   define: {
     __APP_BASE_URL__: JSON.stringify(process.env.VITE_BASE_URL),
+    __PROJECT__: JSON.stringify(process.env.VITE_PROJECT),
   },
 });
