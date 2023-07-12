@@ -18,17 +18,24 @@
   "lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestias maxime laudantium. Ut accusamus, repellendus nihil sit fuga maxime officia voluptate saepe dicta porro doloribus, illo tenetur voluptatem ratione possimus?",
   "profile": {
     "age": "Возраст",
+    "ageError": "Некорректно указан возраст",
     "avatar": "Аватар",
+    "avatarError": "Некорректно указан путь к аватару",
     "cancel": "Отменить",
     "city": "Город",
+    "cityError": "Некорректно указан город",
     "county": "Страна",
     "currency": "Валюта",
     "edit": "Редактировать",
     "lastname": "Фамилия",
     "name": "Имя",
+    "nameError": "Некорректно указаны имя или фамилия",
+    "noDataError": "Нет данных профиля в базе",
     "save": "Сохранить",
+    "serverError": "Ошибка соединения с сервером",
     "title": "Профиль",
-    "username": "Юзернэйм"
+    "username": "Юзернэйм",
+    "usernameError": "Некорректно указан юзернэйм"
   },
   "sidebar": {
     "language": "Ru",

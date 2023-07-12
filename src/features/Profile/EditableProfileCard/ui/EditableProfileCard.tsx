@@ -12,6 +12,7 @@ import { getProfile } from '../model/actions/getProfile';
 import { updateProfileData } from '../model/actions/updateProfileData';
 import { getProfileDataSelector } from '../model/selectors/getProfileDataSelector/getProfileDataSelector';
 import { getProfileReadonlySelector } from '../model/selectors/getProfileReadonlySelector/getProfileReadonlySelector';
+import { getProfileValidationErrorsSelector } from '../model/selectors/getProfileValidationErrorsSelector/getProfileValidationErrorsSelector';
 import { profileActions } from '../model/slice/profileSlice';
 
 export const EditableProfileCard = () => {
@@ -19,6 +20,7 @@ export const EditableProfileCard = () => {
 
   const readonly = useSelector(getProfileReadonlySelector);
   const profile = useSelector(getProfileDataSelector);
+  const validationErrors = useSelector(getProfileValidationErrorsSelector);
 
   const onEditProfile = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
@@ -67,7 +69,7 @@ export const EditableProfileCard = () => {
 
   const onChangeAge = useCallback(
     (value?: string) => {
-      if (value?.match(/^[0-9]+$/gi)) {
+      if (value?.match(/^[0-9]+$/gi) || value === '') {
         dispatch(
           profileActions.updateProfile({
             age: value || '',
@@ -130,6 +132,7 @@ export const EditableProfileCard = () => {
     <ProfileCard
       profile={profile}
       readonly={readonly}
+      validationErrors={validationErrors}
       onEditProfile={onEditProfile}
       onSubmitProfile={onSubmitProfile}
       onCancelEditProfile={onCancelEditProfile}

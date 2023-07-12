@@ -3,6 +3,8 @@ import { ECurrency } from 'entities/Currency';
 
 import { RequestStatuses } from 'shared/types/globalTypes';
 
+import { EProfileValidationError } from '../const/profileConts';
+
 export interface ProfileEntity {
   firstname?: string;
   lastname?: string;
@@ -19,5 +21,6 @@ export interface ProfileSchema {
   formData?: ProfileEntity;
   status: RequestStatuses;
   error?: string;
+  validationErrors?: EProfileValidationError[];
   readonly: boolean;
 }

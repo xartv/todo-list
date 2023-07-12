@@ -18,17 +18,24 @@
   "lorem": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit molestias maxime laudantium. Ut accusamus, repellendus nihil sit fuga maxime officia voluptate saepe dicta porro doloribus, illo tenetur voluptatem ratione possimus?",
   "profile": {
     "age": "Age",
+    "ageError": "Age is incorrect",
     "avatar": "Avatar",
+    "avatarError": "Incorrect path to avatar",
     "cancel": "Cancel",
     "city": "City",
+    "cityError": "Invalid city",
     "county": "Country",
     "currency": "Currency",
     "edit": "Edit",
     "lastname": "Surname",
     "name": "Name",
+    "nameError": "Incorrect first or last name",
+    "noDataError": "No profile data in the database",
     "save": "Save",
+    "serverError": "Server connection error",
     "title": "Profile",
-    "username": "Username"
+    "username": "Username",
+    "usernameError": "Username specified incorrectly"
   },
   "sidebar": {
     "language": "En",

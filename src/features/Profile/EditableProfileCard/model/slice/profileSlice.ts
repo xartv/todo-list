@@ -10,6 +10,7 @@ export const initialState: ProfileSchema = {
   formData: undefined,
   status: 'init',
   error: undefined,
+  validationErrors: undefined,
   readonly: true,
 };
 
@@ -29,6 +30,7 @@ export const profileSlice = createSlice({
     cancelUpdate: state => {
       state.formData = state.fetchData;
       state.readonly = true;
+      state.validationErrors = undefined;
     },
   },
   extraReducers: builder => {
@@ -47,7 +49,7 @@ export const profileSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(updateProfileData.pending, state => {
-        state.error = undefined;
+        state.validationErrors = undefined;
         state.status = 'loading';
       })
       .addCase(updateProfileData.fulfilled, (state, action) => {
@@ -58,7 +60,7 @@ export const profileSlice = createSlice({
       })
       .addCase(updateProfileData.rejected, (state, action) => {
         state.status = 'reject';
-        state.error = action.payload;
+        state.validationErrors = action.payload;
       });
   },
 });

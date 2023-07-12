@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { DefaultTFuncReturn } from 'i18next';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
@@ -7,17 +8,20 @@ import { CountrySelect } from 'entities/Country/ui/CountrySelect/CountrySelect';
 import { ECurrency } from 'entities/Currency';
 import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect/CurrencySelect';
 import { ProfileEntity } from 'entities/Profile';
+import { EProfileValidationError } from 'entities/Profile/model/const/profileConts';
 
 import { Option } from 'shared/ui/AppSelect/AppSelect';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input/Input';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 
 import s from './ProfileCard.module.scss';
 
 interface ProfileCardInterface {
   profile: ProfileEntity | undefined;
   readonly: boolean | undefined;
+  validationErrors: EProfileValidationError[] | undefined;
   onEditProfile: () => void;
   onSubmitProfile: () => void;
   onCancelEditProfile: () => void;
@@ -34,6 +38,7 @@ interface ProfileCardInterface {
 export const ProfileCard = ({
   profile,
   readonly,
+  validationErrors,
   onEditProfile,
   onSubmitProfile,
   onCancelEditProfile,
@@ -49,6 +54,16 @@ export const ProfileCard = ({
   const { t } = useTranslation();
 
   if (!profile) return null;
+
+  const validationErrorsTranslations: Record<EProfileValidationError, DefaultTFuncReturn> = {
+    [EProfileValidationError.INCORRECT_AGE]: t('profile.ageError'),
+    [EProfileValidationError.INCORRECT_AVATAR]: t('profile.avatarError'),
+    [EProfileValidationError.INCORRECT_CITY]: t('profile.cityError'),
+    [EProfileValidationError.INCORRECT_FIRST_LAST_NAME]: t('profile.nameError'),
+    [EProfileValidationError.INCORRECT_USERNAME]: t('profile.usernameError'),
+    [EProfileValidationError.NO_DATA]: t('profile.noDataError'),
+    [EProfileValidationError.SERVER_ERROR]: t('profile.serverError'),
+  };
 
   const defaultCurrencyValue: Option<ECurrency | undefined, ECurrency | undefined> = {
     label: profile.currency,
@@ -76,6 +91,19 @@ export const ProfileCard = ({
       </div>
 
       <Avatar src={profile.avatar} size={AvatarSize.M} className={s.avatar} />
+
+      {Boolean(validationErrors?.length) && (
+        <div className={s.validationErrorsWrapper}>
+          {validationErrors?.map((error, index) => (
+            <Text
+              key={`VALIDATION_ERROR_${error}_${index}`}
+              theme={TextTheme.ERROR}
+              description={validationErrorsTranslations[error]}
+            />
+          ))}
+        </div>
+      )}
+
       <Input
         title={t('profile.name')}
         value={profile.firstname}
