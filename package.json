@@ -22,7 +22,7 @@
     "test:ui:html": "yarn reg-cli --from .loki/report.json --report .loki/report.html",
     "test:ui:report": "yarn test:ui:json && yarn test:ui:html",
     "sb": "VITE_PROJECT=storybook storybook dev -p 6006",
-    "sb:build": "storybook build",
+    "sb:build": "VITE_PROJECT=storybook storybook build",
     "server": "json-server --watch json-server/db.json",
     "postinstall": "husky install"
   },
