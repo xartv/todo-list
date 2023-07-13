@@ -5,7 +5,6 @@ import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import { ECountries } from 'entities/Country';
 import { ECurrency } from 'entities/Currency';
 
-import avatar from 'shared/assets/test/avatar.jpeg';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
@@ -30,7 +29,8 @@ export const Primary: Story = {
           country: ECountries.BELARUS,
           username: 'Batman',
           currency: ECurrency.BYN,
-          avatar: avatar,
+          avatar:
+            'https://news.store.rambler.ru/img/672e5f7081bbc3d9746ee83dd6230ff0?img-format=auto&img-1-resize=height:400,fit:max&img-2-filter=sharpen',
         },
       },
     }),
@@ -50,7 +50,8 @@ export const PrimaryDark: Story = {
           country: ECountries.BELARUS,
           username: 'Batman',
           currency: ECurrency.BYN,
-          avatar: avatar,
+          avatar:
+            'https://news.store.rambler.ru/img/672e5f7081bbc3d9746ee83dd6230ff0?img-format=auto&img-1-resize=height:400,fit:max&img-2-filter=sharpen',
         },
       },
     }),
