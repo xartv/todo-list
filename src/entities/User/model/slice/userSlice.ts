@@ -5,7 +5,9 @@ import { LOCAL_STORAGE_AUTH_USER } from 'shared/const/globalConsts';
 import { UserEntity } from '../types/UserEntity';
 import { UserSchema } from '../types/UserSchema';
 
-const initialState: UserSchema = {};
+const initialState: UserSchema = {
+  _init: false,
+};
 
 export const userSlice = createSlice({
   name: 'user',
@@ -16,9 +18,12 @@ export const userSlice = createSlice({
     },
     initAuth: state => {
       const user = localStorage.getItem(LOCAL_STORAGE_AUTH_USER);
+
       if (user) {
         state.authData = JSON.parse(user);
       }
+
+      state._init = true;
     },
     removeAuthUser: state => {
       localStorage.removeItem(LOCAL_STORAGE_AUTH_USER);

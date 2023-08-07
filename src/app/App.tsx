@@ -1,4 +1,5 @@
 import { Suspense, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 
@@ -9,6 +10,7 @@ import { AppHeader } from 'widgets/AppHeader';
 import { AppSidebar } from 'widgets/AppSidebar';
 
 import { userActions } from 'entities/User';
+import { getInitSelector } from 'entities/User/model/selectors/getInitSelector/getInitSelector';
 
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
 
@@ -18,6 +20,8 @@ function App() {
   const { pathname } = useLocation();
 
   const { theme } = useTheme();
+
+  const init = useSelector(getInitSelector);
 
   useEffect(() => {
     if (pathname === '/') {
@@ -35,7 +39,7 @@ function App() {
         <AppHeader />
         <div className="app-container">
           <AppSidebar />
-          <AppRouter />
+          {init && <AppRouter />}
         </div>
       </Suspense>
     </div>
