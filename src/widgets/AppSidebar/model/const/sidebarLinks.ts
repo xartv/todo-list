@@ -1,5 +1,6 @@
 import { FC, SVGProps } from 'react';
 
+import { ReactComponent as ArticleIcon } from 'shared/assets/icons/articles.svg';
 import { ReactComponent as ProfileIcon } from 'shared/assets/icons/profile.svg';
 import { ReactComponent as TestPageIcon } from 'shared/assets/icons/test-page.svg';
 import { ReactComponent as TodoIcon } from 'shared/assets/icons/todo.svg';
@@ -28,6 +29,12 @@ export const sidebarLinks: SidebarLinks[] = [
     title: 'sidebar.profile',
     link: ROUTE_PATHS.profile,
     icon: ProfileIcon,
+    isAuth: true,
+  },
+  {
+    title: 'sidebar.articles',
+    link: ROUTE_PATHS.articles,
+    icon: ArticleIcon,
     isAuth: true,
   },
 ];

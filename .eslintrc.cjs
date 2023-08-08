@@ -22,7 +22,7 @@ module.exports = {
   plugins: ['react-refresh', '@typescript-eslint', 'import', 'prettier', 'i18next'],
   rules: {
     'prettier/prettier': 1,
-    'react-refresh/only-export-components': 'warn',
+    'react-refresh/only-export-components': 0,
     'import/no-unresolved': 2,
     'import/prefer-default-export': 'off',
     'import/no-cycle': 'off',

@@ -41,10 +41,10 @@
     "language": "En",
     "profile": "Profile",
     "test": "Test page",
-    "zadachi": "Todos"
+    "zadachi": "Todos",
+    "articles": "Articles"
   },
-  "test": {
-  },
+  "test": {},
   "todos": {
     "dobavit": "Add"
   }
