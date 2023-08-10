@@ -6,7 +6,7 @@ export interface ArticleEntity {
   views: number;
   createdAt: string;
   type: ArticleType[];
-  block: ArticleBlock[];
+  blocks: ArticleBlock[];
 }
 
 export enum ArticleType {
