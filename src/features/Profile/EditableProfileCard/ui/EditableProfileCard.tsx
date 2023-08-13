@@ -1,5 +1,6 @@
 import { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import { ECountries } from 'entities/Country';
 import { ECurrency } from 'entities/Currency';
@@ -17,6 +18,7 @@ import { profileActions } from '../model/slice/profileSlice';
 
 export const EditableProfileCard = () => {
   const dispatch = useAppDispatch();
+  const { id } = useParams<{ id: string }>();
 
   const readonly = useSelector(getProfileReadonlySelector);
   const profile = useSelector(getProfileDataSelector);
@@ -125,10 +127,10 @@ export const EditableProfileCard = () => {
   );
 
   useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(getProfile());
+    if (__PROJECT__ !== 'storybook' && id) {
+      dispatch(getProfile(id));
     }
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   return (
     <ProfileCard

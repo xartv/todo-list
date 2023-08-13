@@ -22,16 +22,30 @@
       "avatar": "https://kartinki.pibig.info/uploads/posts/2023-04/1682016583_kartinki-pibig-info-p-kartinka-kotik-za-kompyuterom-arti-instagr-1.jpg"
     }
   ],
-  "profile": {
-    "firstname": "Vasya",
-    "lastname": "Artemov",
-    "username": "123",
-    "age": "99",
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Samara",
-    "avatar": "https://s00.yaplakal.com/pics/pics_original/4/5/9/17929954.jpg"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "Artem",
+      "lastname": "Vasilev",
+      "username": "xartv",
+      "age": "34",
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Samara",
+      "avatar": "https://s00.yaplakal.com/pics/pics_original/4/5/9/17929954.jpg"
+    },
+    {
+      "id": "2",
+      "firstname": "Bruce",
+      "lastname": "Wayne",
+      "username": "Batman",
+      "age": "99",
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Gotham",
+      "avatar": "https://kartinki.pibig.info/uploads/posts/2023-04/1682016583_kartinki-pibig-info-p-kartinka-kotik-za-kompyuterom-arti-instagr-1.jpg"
+    }
+  ],
   "articles": [
     {
       "id": "1",
@@ -121,6 +135,12 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "id": "4",
+      "text": "some comment 3",
+      "articleId": "1",
+      "userId": "2"
     }
   ]
 }

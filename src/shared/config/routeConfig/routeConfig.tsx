@@ -24,7 +24,7 @@ export enum APP_ROUTES {
 export const ROUTE_PATHS: Record<APP_ROUTES, string> = {
   [APP_ROUTES.TODOS]: '/todos',
   [APP_ROUTES.TEST_PAGE]: '/test',
-  [APP_ROUTES.PROFILE]: '/profile',
+  [APP_ROUTES.PROFILE]: '/profile/',
   [APP_ROUTES.ARTICLES]: '/articles',
   [APP_ROUTES.ARTICLE_DETAILS]: '/articles/',
 
@@ -34,7 +34,7 @@ export const ROUTE_PATHS: Record<APP_ROUTES, string> = {
 export const routeConfig: CustomRouteProps[] = [
   { path: ROUTE_PATHS.todos, element: <TodosPage />, authOnly: true },
   { path: ROUTE_PATHS.test_page, element: <TestPage /> },
-  { path: ROUTE_PATHS.profile, element: <ProfilePage />, authOnly: true },
+  { path: `${ROUTE_PATHS.profile}:id`, element: <ProfilePage />, authOnly: true },
   { path: ROUTE_PATHS.articles, element: <ArticlesPage />, authOnly: true },
   { path: `${ROUTE_PATHS.article_details}:id`, element: <ArticleDetailsPage />, authOnly: true },
 
