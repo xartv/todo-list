@@ -1,3 +1,1 @@
-# Just simple todo list (TS, React, Redux toolkit, Vite, Vitest, RTL, loki, storybook, i18n)
-
-## wip
+# WIP Just simple todo list + some tested feature like posts, comments etc (TS, React, Redux toolkit, Vite, Vitest, RTL, loki, storybook, i18n)
