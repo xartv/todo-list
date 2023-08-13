@@ -11,13 +11,15 @@
       "id": 1,
       "username": "admin",
       "password": "kek",
-      "role": "admin"
+      "role": "admin",
+      "avatar": "https://s00.yaplakal.com/pics/pics_original/4/5/9/17929954.jpg"
     },
     {
       "id": 2,
       "username": "user",
       "password": "123456",
-      "role": "user"
+      "role": "user",
+      "avatar": "https://kartinki.pibig.info/uploads/posts/2023-04/1682016583_kartinki-pibig-info-p-kartinka-kotik-za-kompyuterom-arti-instagr-1.jpg"
     }
   ],
   "profile": {

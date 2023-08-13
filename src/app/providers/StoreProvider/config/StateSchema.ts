@@ -3,6 +3,8 @@ import { AnyAction, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/t
 import { AxiosInstance } from 'axios';
 import { CombinedState } from 'redux';
 
+import { CommentsSchema } from 'pages/ArticleDetailsPage/model/types/commentsSchema';
+
 import { LoginSchema } from 'features/AuthByUsername/model/types/loginSchema';
 
 import { ArticleScheme } from 'entities/Article';
@@ -18,6 +20,7 @@ export interface StateSchema {
   login?: LoginSchema;
   profile?: ProfileSchema;
   article?: ArticleScheme;
+  articleComments?: CommentsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

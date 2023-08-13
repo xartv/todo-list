@@ -8,7 +8,13 @@ describe('test loginByUsername', () => {
   const thunk = new TestAsyncThunk(loginByUsername);
 
   test('success', async () => {
-    const userData = { username: '123', id: 1, password: '122' };
+    const userData = {
+      username: '123',
+      id: 1,
+      password: '122',
+      avatar:
+        'https://kartinki.pibig.info/uploads/posts/2023-04/1682016583_kartinki-pibig-info-p-kartinka-kotik-za-kompyuterom-arti-instagr-1.jpg',
+    };
 
     thunk.api.post.mockReturnValue(Promise.resolve({ data: userData }));
     const result = await thunk.callThunk({ username: '123', password: '122' });
