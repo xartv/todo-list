@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 import s from './Input.module.scss';
 
-type InputPropsOmit = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'title'>;
+type InputPropsOmit = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'title' | 'placeholder'>;
 
 interface InputProps extends InputPropsOmit {
   className?: string;
@@ -14,6 +14,7 @@ interface InputProps extends InputPropsOmit {
   };
   value: string | number | undefined;
   title?: string | DefaultTFuncReturn;
+  placeholder?: string | DefaultTFuncReturn;
   autofocus?: boolean;
   readonly?: boolean;
   onChange?: (value: string) => void;
@@ -25,6 +26,7 @@ export const Input = memo(
     className,
     classNames = {},
     title,
+    placeholder,
     value,
     autofocus,
     onChange,
@@ -58,6 +60,7 @@ export const Input = memo(
           onChange={onChangeHandler}
           readOnly={readonly}
           className={cn(s.input, classNames.input, { [s.readonly]: readonly })}
+          placeholder={placeholder as string | undefined}
           {...otherProps}
         />
       </label>

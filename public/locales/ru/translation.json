@@ -1,4 +1,9 @@
 {
+  "comments": {
+    "addComment": "Отправить",
+    "comments": "Комментарии",
+    "enterCommentText": "Введите текст комментария"
+  },
   "global": {
     "na-glavnuyu": "На главную",
     "oops-error": "Ой, тут какая-то ошибочка произошла",
@@ -38,11 +43,11 @@
     "usernameError": "Некорректно указан юзернэйм"
   },
   "sidebar": {
+    "articles": "Статьи",
     "language": "Ru",
     "profile": "Профиль",
     "test": "Тестовая страница",
-    "zadachi": "Задачи",
-    "articles": "Статьи"
+    "zadachi": "Задачи"
   },
   "test": {
   },

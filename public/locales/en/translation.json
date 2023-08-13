@@ -1,4 +1,9 @@
 {
+  "comments": {
+    "addComment": "Send",
+    "comments": "Comments",
+    "enterCommentText": "Enter comment text"
+  },
   "global": {
     "na-glavnuyu": "To main",
     "oops-error": "Oops, there's been a mistake",
@@ -38,13 +43,14 @@
     "usernameError": "Username specified incorrectly"
   },
   "sidebar": {
+    "articles": "Articles",
     "language": "En",
     "profile": "Profile",
     "test": "Test page",
-    "zadachi": "Todos",
-    "articles": "Articles"
+    "zadachi": "Todos"
   },
-  "test": {},
+  "test": {
+  },
   "todos": {
     "dobavit": "Add"
   }

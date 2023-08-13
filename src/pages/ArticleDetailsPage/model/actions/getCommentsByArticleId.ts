@@ -4,8 +4,8 @@ import { CustomThunkApi } from 'app/providers/StoreProvider';
 
 import { CommentEntity } from 'entities/Comment';
 
-export const getCommentsById = createAsyncThunk<CommentEntity[], string | undefined, CustomThunkApi<string>>(
-  'articleDetails/getCommentsById',
+export const getCommentsByArticleId = createAsyncThunk<CommentEntity[], string | undefined, CustomThunkApi<string>>(
+  'articleDetails/getCommentsByArticleId',
   async (articleId, thunkApi) => {
     const { extra, rejectWithValue } = thunkApi;
 

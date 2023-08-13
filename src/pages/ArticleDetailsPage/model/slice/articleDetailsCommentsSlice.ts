@@ -4,7 +4,7 @@ import { StateSchema } from 'app/providers/StoreProvider';
 
 import { CommentEntity } from 'entities/Comment';
 
-import { getCommentsById } from '../actions/getCommentsById';
+import { getCommentsByArticleId } from '../actions/getCommentsByArticleId';
 import { CommentsSchema } from '../types/commentsSchema';
 
 const commentsAdapter = createEntityAdapter<CommentEntity>({
@@ -26,15 +26,15 @@ const articleDetailsCommentsSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(getCommentsById.pending, state => {
+      .addCase(getCommentsByArticleId.pending, state => {
         state.error = undefined;
         state.isLoading = true;
       })
-      .addCase(getCommentsById.fulfilled, (state, action: PayloadAction<CommentEntity[]>) => {
+      .addCase(getCommentsByArticleId.fulfilled, (state, action: PayloadAction<CommentEntity[]>) => {
         state.isLoading = false;
         commentsAdapter.setAll(state, action.payload);
       })
-      .addCase(getCommentsById.rejected, (state, action) => {
+      .addCase(getCommentsByArticleId.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

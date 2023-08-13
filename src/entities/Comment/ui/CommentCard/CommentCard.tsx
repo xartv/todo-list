@@ -23,7 +23,7 @@ export const CommentCard = memo(({ className, comment, isLoading }: CommentCardP
 
   return (
     <div className={cn(s.CommentCard, {}, [className])}>
-      <AppLink to={`${ROUTE_PATHS.profile}${comment.userId}`} className={s.header}>
+      <AppLink to={`${ROUTE_PATHS.profile}${comment.user.id}`} className={s.header}>
         {comment.user.avatar ? <Avatar size={AvatarSize.S} src={comment.user.avatar} /> : null}
         <Text title={comment.user.username} />
       </AppLink>
