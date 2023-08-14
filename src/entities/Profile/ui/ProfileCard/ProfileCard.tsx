@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import { useSelector } from 'react-redux';
 import { DefaultTFuncReturn } from 'i18next';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
@@ -9,6 +10,7 @@ import { ECurrency } from 'entities/Currency';
 import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect/CurrencySelect';
 import { ProfileEntity } from 'entities/Profile';
 import { EProfileValidationError } from 'entities/Profile/model/const/profileConts';
+import { getAuthUserSelector } from 'entities/User';
 
 import { Option } from 'shared/ui/AppSelect/AppSelect';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
@@ -53,6 +55,10 @@ export const ProfileCard = ({
 }: ProfileCardInterface) => {
   const { t } = useTranslation();
 
+  const authUser = useSelector(getAuthUserSelector);
+
+  const isAuthUserProfile = Number(authUser?.id) === Number(profile?.id);
+
   if (!profile) return null;
 
   const validationErrorsTranslations: Record<EProfileValidationError, DefaultTFuncReturn> = {
@@ -77,18 +83,20 @@ export const ProfileCard = ({
 
   return (
     <div className={s.root}>
-      <div className={s.controls}>
-        {readonly ? (
-          <Button onClick={onEditProfile}>{t('profile.edit')}</Button>
-        ) : (
-          <Fragment>
-            <Button onClick={onCancelEditProfile} theme={ButtonTheme.CANCEL}>
-              {t('profile.cancel')}
-            </Button>
-            <Button onClick={onSubmitProfile}>{t('profile.save')}</Button>
-          </Fragment>
-        )}
-      </div>
+      {isAuthUserProfile && (
+        <div className={s.controls}>
+          {readonly ? (
+            <Button onClick={onEditProfile}>{t('profile.edit')}</Button>
+          ) : (
+            <Fragment>
+              <Button onClick={onCancelEditProfile} theme={ButtonTheme.CANCEL}>
+                {t('profile.cancel')}
+              </Button>
+              <Button onClick={onSubmitProfile}>{t('profile.save')}</Button>
+            </Fragment>
+          )}
+        </div>
+      )}
 
       <Avatar src={profile.avatar} size={AvatarSize.M} className={s.avatar} />
 

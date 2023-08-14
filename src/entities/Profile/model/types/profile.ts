@@ -6,6 +6,7 @@ import { RequestStatuses } from 'shared/types/globalTypes';
 import { EProfileValidationError } from '../const/profileConts';
 
 export interface ProfileEntity {
+  id?: number;
   firstname?: string;
   lastname?: string;
   username?: string;

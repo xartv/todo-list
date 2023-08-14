@@ -8,7 +8,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button';
 import { LangSwitcher } from 'shared/ui/LangSwitcher';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 
-import { sidebarLinks } from '../../model/const/sidebarLinks';
+import { getSidebarItemsSelector } from '../../model/selectors/getSidebarItemsSelector';
 import { AppSidebarLinkItem } from '../AppSidebarLinkItem/AppSidebarLinkItem';
 
 import s from './AppSidebar.module.scss';
@@ -19,6 +19,7 @@ interface AppSidebarProps {
 
 export const AppSidebar = memo(({ className }: AppSidebarProps) => {
   const authUser = useSelector(getAuthUserSelector);
+  const sidebarLinks = useSelector(getSidebarItemsSelector);
 
   const [collapsed, setCollapsed] = useState(true);
 
@@ -37,7 +38,7 @@ export const AppSidebar = memo(({ className }: AppSidebarProps) => {
           />
         );
       }),
-    [collapsed, authUser],
+    [collapsed, authUser, sidebarLinks],
   );
 
   const toggleCollapsed = useCallback(() => setCollapsed(prev => !prev), []);
