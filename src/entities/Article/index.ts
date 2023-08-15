@@ -12,3 +12,6 @@ export { articleReducer } from './model/slice/articleSlice';
 
 export type { ArticleScheme } from './model/types/articleScheme';
 export type { ArticleEntity } from './model/types/articleTypes';
+export { ArticleView } from './model/types/articleTypes';
+
+export { ArticleList } from './ui/ArticleList/ArticleList';
