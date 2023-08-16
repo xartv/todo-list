@@ -3,15 +3,16 @@ import { AnyAction, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/t
 import { AxiosInstance } from 'axios';
 import { CombinedState } from 'redux';
 
-import { CommentsSchema } from 'pages/ArticleDetailsPage/model/types/commentsSchema';
+import { CommentsSchema } from 'pages/ArticleDetailsPage';
+import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
-import { LoginSchema } from 'features/AuthByUsername/model/types/loginSchema';
+import { LoginSchema } from 'features/AuthByUsername';
 import { AddNewCommentSchema } from 'features/Comments/AddNewComment';
 
 import { ArticleScheme } from 'entities/Article';
 import { ProfileSchema } from 'entities/Profile';
-import { TodoListReducerSchema } from 'entities/Todo/model/types/todoListReducerSchema';
-import { UserSchema } from 'entities/User/model/types/UserSchema';
+import { TodoListReducerSchema } from 'entities/Todo';
+import { UserSchema } from 'entities/User';
 
 import { AppDispatch } from './store';
 
@@ -21,6 +22,7 @@ export interface StateSchema {
   login?: LoginSchema;
   profile?: ProfileSchema;
   article?: ArticleScheme;
+  articles?: ArticlesPageSchema;
   articleComments?: CommentsSchema;
   addNewComment?: AddNewCommentSchema;
 }

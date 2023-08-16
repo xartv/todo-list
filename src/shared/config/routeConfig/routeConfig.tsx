@@ -2,7 +2,7 @@ import { RouteProps } from 'react-router-dom';
 
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
 import { ArticlesPage } from 'pages/ArticlesPage';
-import { NothingFoundPage } from 'pages/ArticlesPage/NothingFoundPage';
+import { NothingFoundPage } from 'pages/NothingFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { TestPage } from 'pages/TestPage';
 import { TodosPage } from 'pages/TodosPage';
