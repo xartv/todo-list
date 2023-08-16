@@ -1,4 +1,8 @@
 {
+  "articles": {
+    "back": "Назад",
+    "readMore": "Читать далее..."
+  },
   "comments": {
     "addComment": "Отправить",
     "comments": "Комментарии",

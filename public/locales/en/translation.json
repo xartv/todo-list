@@ -1,4 +1,8 @@
 {
+  "articles": {
+    "back": "Back",
+    "readMore": "Read more..."
+  },
   "comments": {
     "addComment": "Send",
     "comments": "Comments",

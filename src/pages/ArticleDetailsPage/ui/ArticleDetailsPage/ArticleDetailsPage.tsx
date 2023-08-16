@@ -1,10 +1,8 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { getCommentsByArticleId } from 'pages/ArticleDetailsPage/model/actions/getCommentsByArticleId';
-import { getArticleCommentsIsLoading } from 'pages/ArticleDetailsPage/model/selector/commentsSelectors';
 import {
   articleDetailsCommentsReducer,
   getArticleComments,
@@ -12,27 +10,38 @@ import {
 
 import { AddNewComment } from 'features/Comments/AddNewComment';
 
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, getArticleDataSelector } from 'entities/Article';
 import { CommentsList } from 'entities/Comment';
 
+import { ROUTE_PATHS } from 'shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader';
+import { Button } from 'shared/ui/Button';
 import { Text } from 'shared/ui/Text/Text';
 
 import { addCommentForArticle } from '../../model/actions/addCommentForArticle';
+import { getCommentsByArticleId } from '../../model/actions/getCommentsByArticleId';
+import { getArticleCommentsIsLoading } from '../../model/selector/commentsSelectors';
 
 const reducers: ReducersList = {
   articleComments: articleDetailsCommentsReducer,
 };
 
 const ArticleDetailsPage = () => {
+  const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
+
   const dispatch = useAppDispatch();
 
   const { t } = useTranslation();
 
+  const article = useSelector(getArticleDataSelector);
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+
+  const handleBack = useCallback(() => {
+    navigate(ROUTE_PATHS.articles);
+  }, [navigate]);
 
   const handleSubmitNewComment = useCallback(
     (commentText: string) => {
@@ -49,10 +58,15 @@ const ArticleDetailsPage = () => {
 
   return (
     <DynamicReducerLoader asyncReducers={reducers} removeOnUnmount>
+      <Button onClick={handleBack}>{t('articles.back')}</Button>
       <ArticleDetails id={id} />
-      <Text title={t('comments.comments')} />
-      <AddNewComment onSubmitComment={handleSubmitNewComment} />
-      <CommentsList isLoading={commentsIsLoading} comments={comments} />
+      {article && (
+        <>
+          <Text title={t('comments.comments')} />
+          <AddNewComment onSubmitComment={handleSubmitNewComment} />
+          <CommentsList isLoading={commentsIsLoading} comments={comments} />
+        </>
+      )}
     </DynamicReducerLoader>
   );
 };

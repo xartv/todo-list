@@ -86,7 +86,7 @@ const ArticlesPage = () => {
       <ArticleList
         articles={new Array(16).fill(0).map((_, index) => ({
           ...ARTICLE_MOCK,
-          id: String(index),
+          id: String(index + 1),
         }))}
         view={ArticleView.BIG}
       />
