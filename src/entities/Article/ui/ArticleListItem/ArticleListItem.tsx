@@ -66,7 +66,6 @@ export const ArticleListItem = ({ className, article, view }: ArticleListItemPro
         <div className={s.imageWrapper}>
           {articleAvatar}
           <Text title={article.createdAt} classNames={{ title: s.date }} />
-          {types}
         </div>
 
         <div className={s.infoWrapper}>

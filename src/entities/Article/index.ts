@@ -15,3 +15,4 @@ export type { ArticleEntity } from './model/types/articleTypes';
 export { ArticleView } from './model/types/articleTypes';
 
 export { ArticleList } from './ui/ArticleList/ArticleList';
+export { ArticleViewSwitcher } from './ui/ArticleViewSwitcher/ArticleViewSwitcher';

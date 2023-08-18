@@ -4,6 +4,8 @@ import { StateSchema } from 'app/providers/StoreProvider';
 
 import { ArticleEntity, ArticleView } from 'entities/Article';
 
+import { LOCAL_STORAGE_ARTICLES_VIEW_KEY } from 'shared/const/globalConsts';
+
 import { getArticles } from '../actions/getArticles';
 import { ArticlesPageSchema } from '../types/articlesPage';
 
@@ -27,6 +29,14 @@ const articlesPageSlice = createSlice({
   reducers: {
     setView: (state, action) => {
       state.view = action.payload;
+      localStorage.setItem(LOCAL_STORAGE_ARTICLES_VIEW_KEY, action.payload);
+    },
+    initView: state => {
+      const storageView = localStorage.getItem(LOCAL_STORAGE_ARTICLES_VIEW_KEY) as ArticleView;
+
+      if (storageView) {
+        state.view = storageView;
+      }
     },
   },
 
