@@ -1,12 +1,12 @@
-import * as React from 'react';
-
 import { ErrorButton } from 'app/providers/ErrorBoundary';
+
+import { Page } from 'shared/ui/Page/Page';
 
 const TestPage = () => {
   return (
-    <React.Fragment>
+    <Page>
       <ErrorButton />
-    </React.Fragment>
+    </Page>
   );
 };
 

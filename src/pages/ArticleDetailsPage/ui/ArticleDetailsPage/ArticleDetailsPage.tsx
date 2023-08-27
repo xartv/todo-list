@@ -17,6 +17,7 @@ import { ROUTE_PATHS } from 'shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader';
 import { Button } from 'shared/ui/Button';
+import { Page } from 'shared/ui/Page/Page';
 import { Text } from 'shared/ui/Text/Text';
 
 import { addCommentForArticle } from '../../model/actions/addCommentForArticle';
@@ -54,19 +55,21 @@ const ArticleDetailsPage = () => {
     dispatch(getCommentsByArticleId(id));
   }, [dispatch, id]);
 
-  if (!id) return null;
+  if (!id) return <Page>{'СТРАНИЦА НЕ НАЙДЕНА'}</Page>;
 
   return (
     <DynamicReducerLoader asyncReducers={reducers} removeOnUnmount>
-      <Button onClick={handleBack}>{t('articles.back')}</Button>
-      <ArticleDetails id={id} />
-      {article && (
-        <>
-          <Text title={t('comments.comments')} />
-          <AddNewComment onSubmitComment={handleSubmitNewComment} />
-          <CommentsList isLoading={commentsIsLoading} comments={comments} />
-        </>
-      )}
+      <Page>
+        <Button onClick={handleBack}>{t('articles.back')}</Button>
+        <ArticleDetails id={id} />
+        {article && (
+          <>
+            <Text title={t('comments.comments')} />
+            <AddNewComment onSubmitComment={handleSubmitNewComment} />
+            <CommentsList isLoading={commentsIsLoading} comments={comments} />
+          </>
+        )}
+      </Page>
     </DynamicReducerLoader>
   );
 };

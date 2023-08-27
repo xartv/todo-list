@@ -44,7 +44,7 @@ export const AppSidebar = memo(({ className }: AppSidebarProps) => {
   const toggleCollapsed = useCallback(() => setCollapsed(prev => !prev), []);
 
   return (
-    <div data-testid="sidebar" className={cn(s.root, className, { [s.collapsed]: collapsed })}>
+    <menu data-testid="sidebar" className={cn(s.root, className, { [s.collapsed]: collapsed })}>
       <Button theme={ButtonTheme.CLEAR_INVERTED} data-testid="toggle-collapse" onClick={toggleCollapsed}>
         {collapsed ? '▶' : '◀'}
       </Button>
@@ -55,6 +55,6 @@ export const AppSidebar = memo(({ className }: AppSidebarProps) => {
         <LangSwitcher />
         <ThemeSwitcher />
       </div>
-    </div>
+    </menu>
   );
 });

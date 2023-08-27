@@ -1,3 +1,5 @@
+import { Page } from 'shared/ui/Page/Page';
+
 export const NothingFoundPage = () => {
-  return <div>404</div>;
+  return <Page>404</Page>;
 };

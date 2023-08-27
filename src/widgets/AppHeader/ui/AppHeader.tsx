@@ -32,20 +32,20 @@ export const AppHeader = memo(() => {
 
   if (authUser)
     return (
-      <div className={s.root}>
+      <header className={s.root}>
         <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogOut}>
           {t('loginModal.vyiti')}
         </Button>
-      </div>
+      </header>
     );
 
   return (
     <Fragment>
-      <div className={s.root}>
+      <header className={s.root}>
         <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={openModal}>
           {t('header.voiti')}
         </Button>
-      </div>
+      </header>
 
       <LoginModal isOpen={isLoginModalOpen} onClose={closeModal} overlayClose lazy />
     </Fragment>

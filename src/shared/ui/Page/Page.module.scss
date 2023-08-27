@@ -1,0 +1,7 @@
+.pageWrapper {
+  flex-grow: 1;
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  padding: 30px;
+  overflow-y: auto;
+}

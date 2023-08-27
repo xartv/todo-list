@@ -6,6 +6,7 @@ import { AddTodo, DeleteTodo, ToggleTodoComplete } from 'features/Todos';
 import { fetchTodos, getTodosSelector, TodoItem } from 'entities/Todo';
 
 import { useAppDispatch, useAppSelector } from 'shared/hooks/useAppHooks';
+import { Page } from 'shared/ui/Page/Page';
 
 import s from './TodosPage.module.scss';
 
@@ -21,7 +22,7 @@ const TodosPage = () => {
   }, []);
 
   return (
-    <React.Fragment>
+    <Page>
       <AddTodo />
 
       <ul className={s.todosWrapper}>
@@ -34,7 +35,7 @@ const TodosPage = () => {
           />
         ))}
       </ul>
-    </React.Fragment>
+    </Page>
   );
 };
 
