@@ -38,3 +38,7 @@ type MockedObjectDeep<T> = MaybeMockedConstructor<T> & {
   [K in Properties<T>]: MaybeMockedDeep<T[K]>;
 };
 type MockedFunctionDeep<T extends Procedure> = Mock<Parameters<T>, ReturnType<T>> & MockedObjectDeep<T>;
+
+type OptionalRecord<K extends keyof any, T> = {
+  [P in K]?: T;
+};

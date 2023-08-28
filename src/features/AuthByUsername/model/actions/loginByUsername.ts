@@ -17,7 +17,7 @@ export const loginByUsername = createAsyncThunk<UserEntity, loginByUsernameProps
   'login/loginByUsername',
   async (userData, thunkApi) => {
     const {
-      extra: { api, navigate },
+      extra: { api },
       dispatch,
     } = thunkApi;
     try {
@@ -30,7 +30,6 @@ export const loginByUsername = createAsyncThunk<UserEntity, loginByUsernameProps
       localStorage.setItem(LOCAL_STORAGE_AUTH_USER, JSON.stringify(response.data));
       dispatch(userActions.setAuthUser(response.data));
       dispatch(loginActions.clearLoginData());
-      navigate?.(0);
 
       return response.data;
     } catch (error) {

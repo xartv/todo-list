@@ -11,7 +11,7 @@ interface getArticlesProps {
 }
 
 export const getArticles = createAsyncThunk<ArticleEntity[], getArticlesProps, CustomThunkApi<string>>(
-  'articleDetails/getCommentsByArticleId',
+  'articlesPage/getArticles',
   async ({ page = 1 }, thunkApi) => {
     const { extra, rejectWithValue } = thunkApi;
 

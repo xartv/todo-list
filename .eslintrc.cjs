@@ -80,6 +80,7 @@ module.exports = {
         'newlines-between': 'always',
       },
     ],
+    'no-debugger': 'off',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-explicit-any': 1,
     '@typescript-eslint/explicit-function-return-type': 0,

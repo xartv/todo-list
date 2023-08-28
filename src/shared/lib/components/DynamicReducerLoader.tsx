@@ -23,7 +23,11 @@ export const DynamicReducerLoader = ({
   const store = useStore() as ReduxStoreWithManager;
 
   useEffect(() => {
+    const mountedReducers = Object.keys(store.reducerManager.getReducerMap());
+
     Object.entries(asyncReducers).forEach(([name, reducer]) => {
+      if (mountedReducers.includes(name)) return;
+
       store.reducerManager.add(name as StateSchemaKey, reducer);
       dispatch({ type: `@INIT ${name} reducer` });
     });

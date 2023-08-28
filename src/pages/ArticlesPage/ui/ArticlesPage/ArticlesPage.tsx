@@ -7,8 +7,8 @@ import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader';
 import { Page } from 'shared/ui/Page/Page';
 
-import { getArticles } from '../../model/actions/getArticles';
 import { getNextArticlesPage } from '../../model/actions/getNextArticlesPage';
+import { initArticlesPage } from '../../model/actions/initArticlesPage';
 import { getArticlesPageViewSelector } from '../../model/selectors/getArticlesPageViewSelector';
 import { articlesPageActions, articlesPageReducer, getArticlesSelector } from '../../model/slices/articlesPageSlice';
 
@@ -36,13 +36,11 @@ const ArticlesPage = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(dispatch(articlesPageActions.initView()));
-
-    dispatch(getArticles({ page: 1 }));
+    dispatch(initArticlesPage());
   }, [dispatch]);
 
   return (
-    <DynamicReducerLoader asyncReducers={reducers}>
+    <DynamicReducerLoader asyncReducers={reducers} removeOnUnmount={false}>
       <Page className={s.root} onScrollEnd={onLoadNextPage}>
         <ArticleViewSwitcher
           onViewClick={handleOnChangeView}

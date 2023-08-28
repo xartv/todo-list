@@ -28,7 +28,7 @@ export const ArticleListItem = ({ className, article, view }: ArticleListItemPro
 
   const [isHover, bindHover] = useHover();
 
-  const types = <Text title={article.type.join(', ')} classNames={{ title: s.types }} />;
+  const types = <Text title={article.type?.join(', ')} classNames={{ title: s.types }} />;
   const views = <Text title={String(article.views)} classNames={{ title: s.views }} />;
   const articleAvatar = <img alt={article.title} src={article.img} className={s.img} />;
 
@@ -37,7 +37,7 @@ export const ArticleListItem = ({ className, article, view }: ArticleListItemPro
   }, [navigate, article.id]);
 
   if (view === ArticleView.BIG) {
-    const textBlock = article.blocks.find(block => block.type === ArticleBlockType.TEXT) as ArticleBlockText;
+    const textBlock = article.blocks?.find(block => block.type === ArticleBlockType.TEXT) as ArticleBlockText;
 
     return (
       <Card className={cn(className, s[view])}>
