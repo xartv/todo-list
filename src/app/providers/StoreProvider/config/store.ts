@@ -1,6 +1,8 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { CombinedState, Reducer } from 'redux';
 
+import { pageReducer } from 'widgets/Page';
+
 import { todoListReducer } from 'entities/Todo/model/slice/todoListSlice';
 import { userReducer } from 'entities/User/model/slice/userSlice';
 
@@ -14,6 +16,7 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Red
     ...asyncReducers,
     todos: todoListReducer,
     users: userReducer,
+    page: pageReducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);

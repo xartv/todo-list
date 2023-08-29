@@ -1,11 +1,12 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
+import { Page } from 'widgets/Page';
+
 import { ArticleList, ArticleView, ArticleViewSwitcher } from 'entities/Article';
 
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader';
-import { Page } from 'shared/ui/Page/Page';
 
 import { getNextArticlesPage } from '../../model/actions/getNextArticlesPage';
 import { initArticlesPage } from '../../model/actions/initArticlesPage';

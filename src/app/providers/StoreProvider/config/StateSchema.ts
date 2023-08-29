@@ -5,6 +5,8 @@ import { CombinedState } from 'redux';
 import { CommentsSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
+import { PageSchema } from 'widgets/Page';
+
 import { LoginSchema } from 'features/AuthByUsername';
 import { AddNewCommentSchema } from 'features/Comments/AddNewComment';
 
@@ -18,6 +20,7 @@ import { AppDispatch } from './store';
 export interface StateSchema {
   todos: TodoListReducerSchema;
   users: UserSchema;
+  page: PageSchema;
   login?: LoginSchema;
   profile?: ProfileSchema;
   article?: ArticleScheme;

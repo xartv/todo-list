@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next';
 
+import { Page } from 'widgets/Page';
+
 import { EditableProfileCard, profileReducer } from 'features/Profile';
 
 import { DynamicReducerLoader } from 'shared/lib/components/DynamicReducerLoader';
-import { Page } from 'shared/ui/Page/Page';
 import { Text } from 'shared/ui/Text/Text';
 
 import s from './ProfilePage.module.scss';

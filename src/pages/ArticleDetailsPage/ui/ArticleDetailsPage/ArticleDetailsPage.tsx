@@ -8,6 +8,8 @@ import {
   getArticleComments,
 } from 'pages/ArticleDetailsPage/model/slice/articleDetailsCommentsSlice';
 
+import { Page } from 'widgets/Page';
+
 import { AddNewComment } from 'features/Comments/AddNewComment';
 
 import { ArticleDetails, getArticleDataSelector } from 'entities/Article';
@@ -17,7 +19,6 @@ import { ROUTE_PATHS } from 'shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader';
 import { Button } from 'shared/ui/Button';
-import { Page } from 'shared/ui/Page/Page';
 import { Text } from 'shared/ui/Text/Text';
 
 import { addCommentForArticle } from '../../model/actions/addCommentForArticle';

@@ -1,6 +1,6 @@
 import { ErrorButton } from 'app/providers/ErrorBoundary';
 
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page';
 
 const TestPage = () => {
   return (
