@@ -1,0 +1,11 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sortSelect {
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}

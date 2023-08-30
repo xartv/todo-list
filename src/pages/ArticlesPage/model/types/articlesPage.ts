@@ -1,18 +1,23 @@
 import { EntityState } from '@reduxjs/toolkit';
 
-import { ArticleEntity, ArticleView } from 'entities/Article';
+import { ArticleEntity, ArticleSortField, ArticleView } from 'entities/Article';
 
-import { RequestStatuses } from 'shared/types/globalTypes';
+import { RequestStatuses, SortOrder } from 'shared/types/globalTypes';
 
 export interface ArticlesPageSchema extends EntityState<ArticleEntity> {
   status?: RequestStatuses;
   error?: string;
-  view: ArticleView;
 
   // pagination
   page: number;
-  limit?: number;
+  limit: number;
   hasMore: boolean;
+
+  // filters
+  view: ArticleView;
+  order: SortOrder;
+  sort: ArticleSortField;
+  search: string;
 
   _inited: boolean;
 }

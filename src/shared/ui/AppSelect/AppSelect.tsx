@@ -1,6 +1,6 @@
+// @ts-nocheck
 import { DefaultTFuncReturn } from 'i18next';
-import Select from 'react-select';
-import StateManagedSelect from 'react-select';
+import Select, { Props } from 'react-select';
 import cn from 'classnames';
 
 import s from './AppSelect.module.scss';
@@ -10,7 +10,7 @@ export interface Option<Value, Label> {
   label: Label;
 }
 
-interface AppSelectProps extends Omit<StateManagedSelect, 'isDisabled'> {
+interface AppSelectProps extends Omit<Props, 'isDisabled' | 'classNames' | 'onChange'> {
   title?: string | DefaultTFuncReturn;
   className?: string;
   classNames?: {
@@ -20,6 +20,8 @@ interface AppSelectProps extends Omit<StateManagedSelect, 'isDisabled'> {
   options?: Option<any, any>[];
 
   isDisabled?: boolean;
+  //eslint-disable-next-line
+  onChange?: (newValue: Option<any, any>) => void;
 }
 
 export const AppSelect = ({

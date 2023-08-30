@@ -16,3 +16,5 @@ export { ArticleView } from './model/types/articleTypes';
 
 export { ArticleList } from './ui/ArticleList/ArticleList';
 export { ArticleViewSwitcher } from './ui/ArticleViewSwitcher/ArticleViewSwitcher';
+
+export { ArticleSortField } from './model/types/articleTypes';

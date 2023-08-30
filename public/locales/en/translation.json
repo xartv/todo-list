@@ -1,6 +1,10 @@
 {
   "articles": {
     "back": "Back",
+    "filters": {
+      "sortBy": "Sort by",
+      "sortDirection": "by"
+    },
     "readMore": "Read more..."
   },
   "comments": {
@@ -9,9 +13,15 @@
     "enterCommentText": "Enter comment text"
   },
   "global": {
+    "asc": "ascending",
+    "createdAt": "created at",
+    "desc": "descending",
     "na-glavnuyu": "To main",
     "oops-error": "Oops, there's been a mistake",
-    "sozdat-oshibku": "Create error"
+    "search": "Search",
+    "sozdat-oshibku": "Create error",
+    "title": "title",
+    "views": "views"
   },
   "header": {
     "voiti": "Log in"

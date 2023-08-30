@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { Page } from 'widgets/Page';
 
-import { ArticleList, ArticleView, ArticleViewSwitcher } from 'entities/Article';
+import { ArticleList } from 'entities/Article';
 
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader';
@@ -11,7 +11,8 @@ import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/Dynami
 import { getNextArticlesPage } from '../../model/actions/getNextArticlesPage';
 import { initArticlesPage } from '../../model/actions/initArticlesPage';
 import { getArticlesPageViewSelector } from '../../model/selectors/getArticlesPageViewSelector';
-import { articlesPageActions, articlesPageReducer, getArticlesSelector } from '../../model/slices/articlesPageSlice';
+import { articlesPageReducer, getArticlesSelector } from '../../model/slices/articlesPageSlice';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 
 import s from './ArticlesPage.module.scss';
 
@@ -25,13 +26,6 @@ const ArticlesPage = () => {
   const articles = useSelector(getArticlesSelector.selectAll);
   const view = useSelector(getArticlesPageViewSelector);
 
-  const handleOnChangeView = useCallback(
-    (articleView: ArticleView) => {
-      dispatch(articlesPageActions.setView(articleView));
-    },
-    [dispatch],
-  );
-
   const onLoadNextPage = useCallback(() => {
     dispatch(getNextArticlesPage());
   }, [dispatch]);
@@ -43,11 +37,7 @@ const ArticlesPage = () => {
   return (
     <DynamicReducerLoader asyncReducers={reducers} removeOnUnmount={false}>
       <Page className={s.root} onScrollEnd={onLoadNextPage}>
-        <ArticleViewSwitcher
-          onViewClick={handleOnChangeView}
-          className={s.viewSwitcher}
-          view={view ?? ArticleView.SMALL}
-        />
+        <ArticlesPageFilters />
         <ArticleList articles={articles} view={view} />
       </Page>
     </DynamicReducerLoader>

@@ -1,6 +1,10 @@
 {
   "articles": {
     "back": "Назад",
+    "filters": {
+      "sortBy": "Сортировать по",
+      "sortDirection": "по"
+    },
     "readMore": "Читать далее..."
   },
   "comments": {
@@ -9,9 +13,15 @@
     "enterCommentText": "Введите текст комментария"
   },
   "global": {
+    "asc": "возрастанию",
+    "createdAt": "дате создания",
+    "desc": "убыванию",
     "na-glavnuyu": "На главную",
     "oops-error": "Ой, тут какая-то ошибочка произошла",
-    "sozdat-oshibku": "Создать ошибку"
+    "search": "Поиск",
+    "sozdat-oshibku": "Создать ошибку",
+    "title": "заголовку",
+    "views": "просмотрам"
   },
   "header": {
     "voiti": "Войти"
