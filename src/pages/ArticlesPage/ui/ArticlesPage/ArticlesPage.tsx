@@ -1,5 +1,6 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 
 import { Page } from 'widgets/Page';
 
@@ -26,13 +27,15 @@ const ArticlesPage = () => {
   const articles = useSelector(getArticlesSelector.selectAll);
   const view = useSelector(getArticlesPageViewSelector);
 
+  const [searchParams] = useSearchParams();
+
   const onLoadNextPage = useCallback(() => {
     dispatch(getNextArticlesPage());
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(initArticlesPage());
-  }, [dispatch]);
+    dispatch(initArticlesPage(searchParams));
+  }, [dispatch, searchParams]);
 
   return (
     <DynamicReducerLoader asyncReducers={reducers} removeOnUnmount={false}>

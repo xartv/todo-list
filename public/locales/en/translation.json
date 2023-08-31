@@ -3,7 +3,11 @@
     "back": "Back",
     "filters": {
       "sortBy": "Sort by",
-      "sortDirection": "by"
+      "sortDirection": "by",
+      "all": "All",
+      "it": "IT",
+      "finance": "Finance",
+      "politics": "Politics"
     },
     "readMore": "Read more..."
   },
@@ -63,8 +67,7 @@
     "test": "Test page",
     "zadachi": "Todos"
   },
-  "test": {
-  },
+  "test": {},
   "todos": {
     "dobavit": "Add"
   }

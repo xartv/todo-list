@@ -2,7 +2,7 @@ import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolki
 
 import { StateSchema } from 'app/providers/StoreProvider';
 
-import { ArticleEntity, ArticleSortField, ArticleView } from 'entities/Article';
+import { ArticleEntity, ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
 
 import { LOCAL_STORAGE_ARTICLES_VIEW_KEY } from 'shared/const/globalConsts';
 import { SortOrder } from 'shared/types/globalTypes';
@@ -32,6 +32,7 @@ const articlesPageSlice = createSlice({
     order: 'asc',
     search: '',
     sort: ArticleSortField.CREATED,
+    tab: ArticleType.ALL,
     _inited: false,
   }),
   reducers: {
@@ -61,17 +62,28 @@ const articlesPageSlice = createSlice({
     setPage: (state, action) => {
       state.page = action.payload;
     },
+    setTab: (state, action: PayloadAction<ArticleType>) => {
+      state.tab = action.payload;
+    },
   },
 
   extraReducers: builder => {
     builder
-      .addCase(getArticles.pending, state => {
+      .addCase(getArticles.pending, (state, action) => {
         state.status = 'loading';
+        if (action.meta.arg.replace) {
+          articlesAdapter.removeAll(state);
+        }
       })
       .addCase(getArticles.fulfilled, (state, action) => {
         state.status = 'idle';
-        articlesAdapter.addMany(state, action.payload);
-        state.hasMore = action.payload.length > 0;
+        state.hasMore = action.payload.length >= state.limit;
+
+        if (action.meta.arg.replace) {
+          articlesAdapter.setAll(state, action.payload);
+        } else {
+          articlesAdapter.addMany(state, action.payload);
+        }
       })
       .addCase(getArticles.rejected, (state, action) => {
         state.status = 'reject';

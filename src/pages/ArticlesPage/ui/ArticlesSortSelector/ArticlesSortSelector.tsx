@@ -66,6 +66,14 @@ export const ArticlesSortSelector = ({
 
   const orderDefaultValue = useMemo(() => orderOptions.find(field => field.value === order), [order, orderOptions]);
 
+  const handleOnChangeOrder = (newValue: unknown) => {
+    onChangeOrder(newValue as Option<SortOrder, string>);
+  };
+
+  const handleOnChangeSort = (newValue: unknown) => {
+    onChangeSort(newValue as Option<ArticleSortField, string>);
+  };
+
   return (
     <div className={cn(s.root, className)}>
       <AppSelect
@@ -73,14 +81,14 @@ export const ArticlesSortSelector = ({
         className={s.sortSelect}
         options={sortFieldOptions}
         defaultValue={sortDefaultValue}
-        onChange={onChangeSort}
+        onChange={handleOnChangeSort}
       />
       <AppSelect
         title={t('articles.filters.sortDirection')}
         defaultValue={orderDefaultValue}
         className={s.sortSelect}
         options={orderOptions}
-        onChange={onChangeOrder}
+        onChange={handleOnChangeOrder}
       />
     </div>
   );

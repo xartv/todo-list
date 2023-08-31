@@ -20,10 +20,12 @@ interface AppSelectProps extends Omit<Props, 'isDisabled' | 'classNames' | 'onCh
   options?: Option<any, any>[];
 
   isDisabled?: boolean;
+
   //eslint-disable-next-line
   onChange?: (newValue: Option<any, any>) => void;
 }
 
+// TODO: Написать свой собственный Select
 export const AppSelect = ({
   title,
   className,

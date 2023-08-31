@@ -3,7 +3,11 @@
     "back": "Назад",
     "filters": {
       "sortBy": "Сортировать по",
-      "sortDirection": "по"
+      "sortDirection": "по",
+      "all": "Все",
+      "it": "Айти",
+      "finance": "Финансы",
+      "politics": "Политика"
     },
     "readMore": "Читать далее..."
   },
