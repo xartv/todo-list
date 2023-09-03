@@ -20,3 +20,5 @@ export { ArticleViewSwitcher } from './ui/ArticleViewSwitcher/ArticleViewSwitche
 export { ArticleSortField } from './model/types/articleTypes';
 
 export { ArticleType } from './model/types/articleTypes';
+
+export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';

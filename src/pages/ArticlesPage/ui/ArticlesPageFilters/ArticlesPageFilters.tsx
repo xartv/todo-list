@@ -1,10 +1,9 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
-import { ArticleSortField, ArticleView, ArticleViewSwitcher } from 'entities/Article';
-import { ArticleType } from 'entities/Article/model/types/articleTypes';
+import { ArticleSortField, ArticleType, ArticleTypeTabs, ArticleView, ArticleViewSwitcher } from 'entities/Article';
 
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { useDebounce } from 'shared/hooks/useDebounce';
@@ -12,7 +11,7 @@ import { SortOrder } from 'shared/types/globalTypes';
 import { Option } from 'shared/ui/AppSelect/AppSelect';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
-import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
+import { TabItem } from 'shared/ui/Tabs/Tabs';
 
 import { getArticles } from '../../model/actions/getArticles';
 import {
@@ -41,16 +40,6 @@ export const ArticlesPageFilters = ({ className }: ArticlesPageFiltersProps) => 
   const sort = useSelector(getArticlesPageSort);
   const search = useSelector(getArticlesPageSearch);
   const tab = useSelector(getArticlesPageTab);
-
-  const typeTabs = useMemo<TabItem[]>(
-    () => [
-      { value: ArticleType.ALL, content: t('articles.filters.all') },
-      { value: ArticleType.FINANCE, content: t('articles.filters.finance') },
-      { value: ArticleType.IT, content: t('articles.filters.it') },
-      { value: ArticleType.POLITICS, content: t('articles.filters.politics') },
-    ],
-    [t],
-  );
 
   const fetchData = useCallback(() => {
     dispatch(getArticles({ replace: true }));
@@ -92,9 +81,14 @@ export const ArticlesPageFilters = ({ className }: ArticlesPageFiltersProps) => 
     [dispatch, debouncedFetchData],
   );
 
-  const handleTabClick = (newTab: TabItem) => {
-    dispatch(articlesPageActions.setTab(newTab.value as ArticleType));
-  };
+  const handleTabClick = useCallback(
+    (newTab: TabItem) => {
+      dispatch(articlesPageActions.setTab(newTab.value as ArticleType));
+      dispatch(articlesPageActions.setPage(1));
+      debouncedFetchData();
+    },
+    [dispatch, debouncedFetchData],
+  );
 
   return (
     <div className={cn(s.root, className)}>
@@ -110,8 +104,7 @@ export const ArticlesPageFilters = ({ className }: ArticlesPageFiltersProps) => 
       <Card className={s.search}>
         <Input placeholder={t('global.search')} value={search} onChange={handleOnSearch} />
       </Card>
-
-      <Tabs tabs={typeTabs} value={tab} onTabClick={handleTabClick} />
+      <ArticleTypeTabs value={tab} onChange={handleTabClick} className={s.tabs} />
     </div>
   );
 };

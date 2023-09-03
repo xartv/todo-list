@@ -2,12 +2,13 @@
   "articles": {
     "back": "Назад",
     "filters": {
-      "sortBy": "Сортировать по",
-      "sortDirection": "по",
       "all": "Все",
-      "it": "Айти",
       "finance": "Финансы",
-      "politics": "Политика"
+      "it": "Айти",
+      "politics": "Политика",
+      "science": "Наука",
+      "sortBy": "Сортировать по",
+      "sortDirection": "по"
     },
     "readMore": "Читать далее..."
   },

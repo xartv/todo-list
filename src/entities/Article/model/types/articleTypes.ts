@@ -11,6 +11,7 @@ export enum ArticleType {
   IT = 'IT',
   FINANCE = 'FINANCE',
   POLITICS = 'POLITICS',
+  SCIENCE = 'SCIENCE',
 }
 
 export enum ArticleBlockType {
