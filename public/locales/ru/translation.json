@@ -10,7 +10,8 @@
       "sortBy": "Сортировать по",
       "sortDirection": "по"
     },
-    "readMore": "Читать далее..."
+    "readMore": "Читать далее...",
+    "recommend": "Рекомендуем"
   },
   "comments": {
     "addComment": "Отправить",

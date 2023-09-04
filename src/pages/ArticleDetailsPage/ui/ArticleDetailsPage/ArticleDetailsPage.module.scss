@@ -1,0 +1,13 @@
+.recommendsTitle,
+.commentsTitle {
+  margin: 20px 0 16px 0;
+}
+
+.recommendationWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+
+  padding-bottom: 8px;
+}

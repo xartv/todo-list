@@ -10,7 +10,8 @@
       "sortBy": "Sort by",
       "sortDirection": "by"
     },
-    "readMore": "Read more..."
+    "readMore": "Read more...",
+    "recommend": "Recommended"
   },
   "comments": {
     "addComment": "Send",

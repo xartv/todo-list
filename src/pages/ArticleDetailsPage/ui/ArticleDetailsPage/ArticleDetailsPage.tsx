@@ -3,16 +3,11 @@ import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import {
-  articleDetailsCommentsReducer,
-  getArticleComments,
-} from 'pages/ArticleDetailsPage/model/slice/articleDetailsCommentsSlice';
-
 import { Page } from 'widgets/Page';
 
 import { AddNewComment } from 'features/Comments/AddNewComment';
 
-import { ArticleDetails, getArticleDataSelector } from 'entities/Article';
+import { ArticleDetails, ArticleList, getArticleDataSelector } from 'entities/Article';
 import { CommentsList } from 'entities/Comment';
 
 import { ROUTE_PATHS } from 'shared/config/routeConfig/routeConfig';
@@ -22,11 +17,17 @@ import { Button } from 'shared/ui/Button';
 import { Text } from 'shared/ui/Text/Text';
 
 import { addCommentForArticle } from '../../model/actions/addCommentForArticle';
+import { getArticleRecommendations } from '../../model/actions/getArticleRecommendations';
 import { getCommentsByArticleId } from '../../model/actions/getCommentsByArticleId';
 import { getArticleCommentsIsLoading } from '../../model/selector/commentsSelectors';
+import { articleDetailsReducer } from '../../model/slice';
+import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
+import { getArticleRecommendationsSelector } from '../../model/slice/articleDetailsRecommendationSlice';
+
+import s from './ArticleDetailsPage.module.scss';
 
 const reducers: ReducersList = {
-  articleComments: articleDetailsCommentsReducer,
+  articleDetails: articleDetailsReducer,
 };
 
 const ArticleDetailsPage = () => {
@@ -40,6 +41,7 @@ const ArticleDetailsPage = () => {
   const article = useSelector(getArticleDataSelector);
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+  const recommendations = useSelector(getArticleRecommendationsSelector.selectAll);
 
   const handleBack = useCallback(() => {
     navigate(ROUTE_PATHS.articles);
@@ -54,18 +56,21 @@ const ArticleDetailsPage = () => {
 
   useEffect(() => {
     dispatch(getCommentsByArticleId(id));
+    dispatch(getArticleRecommendations());
   }, [dispatch, id]);
 
   if (!id) return <Page>{'СТРАНИЦА НЕ НАЙДЕНА'}</Page>;
 
   return (
     <DynamicReducerLoader asyncReducers={reducers} removeOnUnmount>
-      <Page>
+      <Page className={s.root}>
         <Button onClick={handleBack}>{t('articles.back')}</Button>
         <ArticleDetails id={id} />
         {article && (
           <>
-            <Text title={t('comments.comments')} />
+            <Text title={t('articles.recommend')} classNames={{ title: s.recommendsTitle }} />
+            <ArticleList articles={recommendations} className={s.recommendationWrapper} target="_blank" />
+            <Text title={t('comments.comments')} classNames={{ title: s.commentsTitle }} />
             <AddNewComment onSubmitComment={handleSubmitNewComment} />
             <CommentsList isLoading={commentsIsLoading} comments={comments} />
           </>

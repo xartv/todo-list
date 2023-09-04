@@ -14,12 +14,14 @@ interface CommentListProps {
 
 export const CommentsList = memo(({ className, isLoading, comments }: CommentListProps) => {
   return (
-    <div className={cn(s.CommentList, {}, [className])}>
-      {comments?.length
-        ? comments.map(comment => (
-            <CommentCard key={comment.id} isLoading={isLoading} className={s.comment} comment={comment} />
-          ))
-        : 'Комментарии отсутствуют'}
+    <div className={cn(s.root, className)}>
+      {comments?.length ? (
+        comments.map(comment => (
+          <CommentCard key={comment.id} isLoading={isLoading} className={s.comment} comment={comment} />
+        ))
+      ) : (
+        <div className={s.comment}>{'Комментарии отсутствуют'}</div>
+      )}
     </div>
   );
 });
