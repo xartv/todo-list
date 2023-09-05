@@ -30,6 +30,7 @@ export interface ArticleEntity {
   title: string;
   subtitle: string;
   user: UserEntity;
+  userId: string;
   img: string;
   views: number;
   createdAt: string;

@@ -1,6 +1,6 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { Page } from 'widgets/Page';
@@ -10,10 +10,8 @@ import { AddNewComment } from 'features/Comments/AddNewComment';
 import { ArticleDetails, ArticleList, getArticleDataSelector } from 'entities/Article';
 import { CommentsList } from 'entities/Comment';
 
-import { ROUTE_PATHS } from 'shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader';
-import { Button } from 'shared/ui/Button';
 import { Text } from 'shared/ui/Text/Text';
 
 import { addCommentForArticle } from '../../model/actions/addCommentForArticle';
@@ -23,6 +21,7 @@ import { getArticleCommentsIsLoading } from '../../model/selector/commentsSelect
 import { articleDetailsReducer } from '../../model/slice';
 import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import { getArticleRecommendationsSelector } from '../../model/slice/articleDetailsRecommendationSlice';
+import { ArticleDetailsHeader } from '../ArticleDetailsHeader/ArticleDetailsHeader';
 
 import s from './ArticleDetailsPage.module.scss';
 
@@ -31,7 +30,6 @@ const reducers: ReducersList = {
 };
 
 const ArticleDetailsPage = () => {
-  const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
 
   const dispatch = useAppDispatch();
@@ -42,10 +40,6 @@ const ArticleDetailsPage = () => {
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
   const recommendations = useSelector(getArticleRecommendationsSelector.selectAll);
-
-  const handleBack = useCallback(() => {
-    navigate(ROUTE_PATHS.articles);
-  }, [navigate]);
 
   const handleSubmitNewComment = useCallback(
     (commentText: string) => {
@@ -64,7 +58,7 @@ const ArticleDetailsPage = () => {
   return (
     <DynamicReducerLoader asyncReducers={reducers} removeOnUnmount>
       <Page className={s.root}>
-        <Button onClick={handleBack}>{t('articles.back')}</Button>
+        <ArticleDetailsHeader />
         <ArticleDetails id={id} />
         {article && (
           <>

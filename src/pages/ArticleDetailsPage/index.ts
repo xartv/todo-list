@@ -3,3 +3,4 @@ export { ArticleDetailsPageAsync as ArticleDetailsPage } from './ui/ArticleDetai
 export type { CommentsSchema } from './model/types/commentsSchema';
 export type { RecommendationsSchema } from './model/types/recommendationsSchema';
 export type { ArticleDetailsSchema } from './model/types';
+export { isAuthorSelector } from './model/selector/articleSelectors';

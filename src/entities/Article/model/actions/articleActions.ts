@@ -12,7 +12,11 @@ export const getArticleById = createAsyncThunk<ArticleEntity, string, CustomThun
       rejectWithValue,
     } = thunkApi;
     try {
-      const response = await api.get<ArticleEntity>(`/articles/${articleId}`);
+      const response = await api.get<ArticleEntity>(`/articles/${articleId}`, {
+        params: {
+          _expand: 'user',
+        },
+      });
 
       if (!response.data) {
         throw new Error();
