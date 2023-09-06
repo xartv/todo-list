@@ -7,7 +7,7 @@
     "start": "VITE_PROJECT=frontend vite",
     "start:dev": "concurrently \"yarn start\" \" yarn start:dev:server\"",
     "start:dev:server": "node ./json-server/index.cjs",
-    "build": "tsc && vite build",
+    "build": "VITE_BASE_URL=https://production-todolist-server.vercel.app tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
     "lint:styles": "stylelint src/**/*.scss",
