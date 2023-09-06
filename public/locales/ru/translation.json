@@ -31,6 +31,7 @@
     "views": "просмотрам"
   },
   "header": {
+    "createArticle": "Создать статью",
     "voiti": "Войти"
   },
   "loginModal": {

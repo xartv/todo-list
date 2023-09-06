@@ -7,6 +7,7 @@ import { LoginModal } from 'features/AuthByUsername';
 
 import { getAuthUserSelector, userActions } from 'entities/User';
 
+import { ROUTE_PATHS } from 'shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 
@@ -30,9 +31,16 @@ export const AppHeader = memo(() => {
     navigate(0);
   };
 
+  const handleCreateArticle = useCallback(() => {
+    navigate(ROUTE_PATHS.article_create);
+  }, [navigate]);
+
   if (authUser)
     return (
       <header className={s.root}>
+        <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={handleCreateArticle}>
+          {t('header.createArticle')}
+        </Button>
         <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onLogOut}>
           {t('loginModal.vyiti')}
         </Button>
