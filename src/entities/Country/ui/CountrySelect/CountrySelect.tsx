@@ -1,9 +1,9 @@
 import { DefaultTFuncReturn } from 'i18next';
 import StateManagedSelect from 'react-select';
 
-import { ECountries } from 'entities/Country';
-
 import { AppSelect, Option } from 'shared/ui/AppSelect/AppSelect';
+
+import { ECountries } from '../../model/types/counrty';
 
 interface CountrySelectProps extends Omit<StateManagedSelect, 'isDisabled'> {
   title?: string | DefaultTFuncReturn;

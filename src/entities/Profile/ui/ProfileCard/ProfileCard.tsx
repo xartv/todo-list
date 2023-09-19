@@ -8,8 +8,6 @@ import { ECountries } from 'entities/Country';
 import { CountrySelect } from 'entities/Country/ui/CountrySelect/CountrySelect';
 import { ECurrency } from 'entities/Currency';
 import { CurrencySelect } from 'entities/Currency/ui/CurrencySelect/CurrencySelect';
-import { ProfileEntity } from 'entities/Profile';
-import { EProfileValidationError } from 'entities/Profile/model/const/profileConts';
 import { getAuthUserSelector } from 'entities/User';
 
 import { Option } from 'shared/ui/AppSelect/AppSelect';
@@ -17,6 +15,9 @@ import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
+
+import { EProfileValidationError } from '../../model/const/profileConts';
+import { ProfileEntity } from '../../model/types/profile';
 
 import s from './ProfileCard.module.scss';
 

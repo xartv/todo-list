@@ -1,9 +1,9 @@
 import { DefaultTFuncReturn } from 'i18next';
 import StateManagedSelect from 'react-select';
 
-import { ECurrency } from 'entities/Currency';
-
 import { AppSelect, Option } from 'shared/ui/AppSelect/AppSelect';
+
+import { ECurrency } from '../../model/types/currency';
 
 interface CurrencySelectProps extends Omit<StateManagedSelect, 'isDisabled'> {
   title?: string | DefaultTFuncReturn;

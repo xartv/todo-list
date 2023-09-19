@@ -19,8 +19,9 @@ module.exports = {
     ecmaVersion: '2020',
     sourceType: 'module',
   },
-  plugins: ['react-refresh', '@typescript-eslint', 'import', 'prettier', 'i18next'],
+  plugins: ['react-refresh', '@typescript-eslint', 'import', 'prettier', 'i18next', 'ulbi-tv-plugin'],
   rules: {
+    'ulbi-tv-plugin/path-checker': 2,
     'prettier/prettier': 1,
     'react-refresh/only-export-components': 0,
     'import/no-unresolved': 2,

@@ -3,7 +3,7 @@ import cn from 'classnames';
 
 import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 
-import { Portal } from 'shared/ui/Portal';
+import { Portal } from '../Portal';
 
 import s from './Modal.module.scss';
 
