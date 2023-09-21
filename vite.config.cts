@@ -36,7 +36,7 @@ export default defineConfig({
     environment: 'jsdom',
     clearMocks: true,
     setupFiles: './.tests/setup.cjs',
-    reporters: ['html'],
+    //reporters: ['html'],
   },
   define: {
     __APP_BASE_URL__: JSON.stringify(process.env.VITE_BASE_URL),

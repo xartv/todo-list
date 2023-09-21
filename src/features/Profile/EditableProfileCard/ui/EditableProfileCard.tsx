@@ -127,7 +127,7 @@ export const EditableProfileCard = () => {
   );
 
   useEffect(() => {
-    if (__PROJECT__ !== 'storybook' && id) {
+    if (__PROJECT__ !== 'storybook' && __PROJECT__ !== 'vitest' && id) {
       dispatch(getProfile(id));
     }
   }, [dispatch, id]);

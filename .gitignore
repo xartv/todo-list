@@ -16,6 +16,7 @@ storybook-static
 .loki/report.html
 .loki/report.json
 .env
+html
 
 # Editor directories and files
 .vscode/*

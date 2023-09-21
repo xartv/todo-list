@@ -87,13 +87,17 @@ export const ProfileCard = ({
       {isAuthUserProfile && (
         <div className={s.controls}>
           {readonly ? (
-            <Button onClick={onEditProfile}>{t('profile.edit')}</Button>
+            <Button onClick={onEditProfile} data-testid="ProfileCard.EditButton">
+              {t('profile.edit')}
+            </Button>
           ) : (
             <Fragment>
-              <Button onClick={onCancelEditProfile} theme={ButtonTheme.CANCEL}>
+              <Button data-testid="ProfileCard.CancelButton" onClick={onCancelEditProfile} theme={ButtonTheme.CANCEL}>
                 {t('profile.cancel')}
               </Button>
-              <Button onClick={onSubmitProfile}>{t('profile.save')}</Button>
+              <Button data-testid="ProfileCard.SaveButton" onClick={onSubmitProfile}>
+                {t('profile.save')}
+              </Button>
             </Fragment>
           )}
         </div>
@@ -108,6 +112,7 @@ export const ProfileCard = ({
               key={`VALIDATION_ERROR_${error}_${index}`}
               theme={TextTheme.ERROR}
               description={validationErrorsTranslations[error]}
+              dataTestId="ProfileCard.Error"
             />
           ))}
         </div>
@@ -120,6 +125,7 @@ export const ProfileCard = ({
         className={s.input}
         readonly={readonly}
         classNames={{ input: cn({ [s.active]: !readonly }) }}
+        data-testid="ProfileCard.Input.FirstName"
       />
       <Input
         title={t('profile.lastname')}
@@ -128,6 +134,7 @@ export const ProfileCard = ({
         className={s.input}
         readonly={readonly}
         classNames={{ input: cn({ [s.active]: !readonly }) }}
+        data-testid="ProfileCard.Input.LastName"
       />
       <Input
         title={t('profile.username')}
@@ -136,6 +143,7 @@ export const ProfileCard = ({
         className={s.input}
         readonly={readonly}
         classNames={{ input: cn({ [s.active]: !readonly }) }}
+        data-testid="ProfileCard.Input.UserName"
       />
       <Input
         title={t('profile.age')}
@@ -144,6 +152,7 @@ export const ProfileCard = ({
         className={s.input}
         readonly={readonly}
         classNames={{ input: cn({ [s.active]: !readonly }) }}
+        data-testid="ProfileCard.Input.Age"
       />
       <CountrySelect
         title={t('profile.county')}
@@ -151,6 +160,7 @@ export const ProfileCard = ({
         className={s.selectWrapper}
         isDisabled={readonly}
         onChange={onChangeCountry}
+        data-testid="ProfileCard.Input.Country"
       />
       <Input
         title={t('profile.city')}
@@ -159,6 +169,7 @@ export const ProfileCard = ({
         className={s.input}
         readonly={readonly}
         classNames={{ input: cn({ [s.active]: !readonly }) }}
+        data-testid="ProfileCard.Input.City"
       />
       <CurrencySelect
         title={t('profile.currency')}
@@ -166,6 +177,7 @@ export const ProfileCard = ({
         className={s.selectWrapper}
         isDisabled={readonly}
         onChange={onChangeCurrency}
+        data-testid="ProfileCard.Input.Currency"
       />
       <Input
         title={t('profile.avatar')}
@@ -174,6 +186,7 @@ export const ProfileCard = ({
         className={s.input}
         readonly={readonly}
         classNames={{ input: cn({ [s.active]: !readonly }) }}
+        data-testid="ProfileCard.Input.Avatar"
       />
     </div>
   );
