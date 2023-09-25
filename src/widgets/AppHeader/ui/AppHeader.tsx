@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import { LoginModal } from 'features/AuthByUsername';
 
-import { getAuthUserSelector, userActions } from 'entities/User';
+import { getAuthUserSelector, isUserAdmin, isUserManager, userActions } from 'entities/User';
 
 import { ROUTE_PATHS } from 'shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
@@ -19,6 +19,8 @@ export const AppHeader = memo(() => {
   const { t } = useTranslation();
 
   const authUser = useSelector(getAuthUserSelector);
+  const isAdmin = useSelector(isUserAdmin);
+  const isManager = useSelector(isUserManager);
 
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
@@ -35,9 +37,20 @@ export const AppHeader = memo(() => {
     navigate(ROUTE_PATHS.article_create);
   }, [navigate]);
 
+  const handleAdminPanel = useCallback(() => {
+    navigate(ROUTE_PATHS.admin_panel);
+  }, [navigate]);
+
+  const shouldShowAdminPanel = isAdmin || isManager;
+
   if (authUser)
     return (
       <header className={s.root}>
+        {shouldShowAdminPanel && (
+          <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={handleAdminPanel}>
+            {t('header.adminPanel')}
+          </Button>
+        )}
         <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={handleCreateArticle}>
           {t('header.createArticle')}
         </Button>

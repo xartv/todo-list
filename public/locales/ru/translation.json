@@ -31,6 +31,7 @@
     "views": "просмотрам"
   },
   "header": {
+    "adminPanel": "Админка",
     "createArticle": "Создать статью",
     "voiti": "Войти"
   },

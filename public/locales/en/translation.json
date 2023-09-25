@@ -31,6 +31,7 @@
     "views": "views"
   },
   "header": {
+    "adminPanel": "Admin panel",
     "createArticle": "Create article",
     "voiti": "Log in"
   },
