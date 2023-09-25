@@ -22,7 +22,11 @@ export function RequireAuth({ children, roles }: RequireAuthProps) {
     return roles.some(requiredRole => userRoles?.includes(requiredRole));
   }, [roles, userRoles]);
 
-  if (!auth || !hasRequiredRoles) {
+  if (!auth) {
+    return <Navigate to={ROUTE_PATHS.test_page} state={{ from: location }} replace />;
+  }
+
+  if (!hasRequiredRoles) {
     return <Navigate to={ROUTE_PATHS.forbidden_page} state={{ from: location }} replace />;
   }
 
