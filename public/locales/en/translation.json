@@ -33,6 +33,7 @@
   "header": {
     "adminPanel": "Admin panel",
     "createArticle": "Create article",
+    "notification": "Notifications",
     "voiti": "Log in"
   },
   "loginModal": {

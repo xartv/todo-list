@@ -33,6 +33,7 @@
   "header": {
     "adminPanel": "Админка",
     "createArticle": "Создать статью",
+    "notification": "Уведомления",
     "voiti": "Войти"
   },
   "loginModal": {

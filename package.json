@@ -28,6 +28,7 @@
     "postinstall": "husky install"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
     "classnames": "^2.3.2",

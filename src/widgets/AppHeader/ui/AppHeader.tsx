@@ -10,6 +10,7 @@ import { getAuthUserSelector, isUserAdmin, isUserManager, userActions } from 'en
 import { ROUTE_PATHS } from 'shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Popover } from 'shared/ui/Popups';
 
 import s from './AppHeader.module.scss';
 
@@ -46,6 +47,13 @@ export const AppHeader = memo(() => {
   if (authUser)
     return (
       <header className={s.root}>
+        <Popover trigger={<Button theme={ButtonTheme.CLEAR_INVERTED}>{t('header.notification')}</Button>}>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+        </Popover>
+
         {shouldShowAdminPanel && (
           <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={handleAdminPanel}>
             {t('header.adminPanel')}
