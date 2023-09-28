@@ -47,7 +47,7 @@ export const AppHeader = memo(() => {
   if (authUser)
     return (
       <header className={s.root}>
-        <Popover trigger={<Button theme={ButtonTheme.CLEAR_INVERTED}>{t('header.notification')}</Button>}>
+        <Popover trigger={<div>{t('header.notification')}</div>}>
           <div>1</div>
           <div>2</div>
           <div>3</div>
