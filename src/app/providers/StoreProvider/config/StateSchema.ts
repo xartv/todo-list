@@ -15,12 +15,15 @@ import { ProfileSchema } from 'entities/Profile';
 import { TodoListReducerSchema } from 'entities/Todo';
 import { UserSchema } from 'entities/User';
 
+import { rtkApi } from 'shared/api/rtkApi';
+
 import { AppDispatch } from './store';
 
 export interface StateSchema {
   todos: TodoListReducerSchema;
   users: UserSchema;
   page: PageSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
   login?: LoginSchema;
   profile?: ProfileSchema;
   article?: ArticleScheme;

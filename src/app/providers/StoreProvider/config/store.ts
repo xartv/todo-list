@@ -7,6 +7,7 @@ import { todoListReducer } from 'entities/Todo/model/slice/todoListSlice';
 import { userReducer } from 'entities/User/model/slice/userSlice';
 
 import { _api } from 'shared/api/api';
+import { rtkApi } from 'shared/api/rtkApi';
 
 import { createReducerManager } from './reducerManager';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
@@ -17,6 +18,7 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Red
     todos: todoListReducer,
     users: userReducer,
     page: pageReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);
@@ -34,7 +36,7 @@ export function createReduxStore(initialState?: StateSchema, asyncReducers?: Red
         thunk: {
           extraArgument: extraArg,
         },
-      }),
+      }).concat(rtkApi.middleware),
   });
 
   // @ts-ignore

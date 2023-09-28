@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import { LoginModal } from 'features/AuthByUsername';
 
+import { NotificationList } from 'entities/Notification';
 import { getAuthUserSelector, isUserAdmin, isUserManager, userActions } from 'entities/User';
 
 import { ROUTE_PATHS } from 'shared/config/routeConfig/routeConfig';
@@ -48,10 +49,7 @@ export const AppHeader = memo(() => {
     return (
       <header className={s.root}>
         <Popover trigger={<div>{t('header.notification')}</div>}>
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
+          <NotificationList />
         </Popover>
 
         {shouldShowAdminPanel && (
