@@ -1,0 +1,14 @@
+.root {
+  flex-direction: column;
+}
+
+.root, .filtersWrapper,
+.dataWrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  user-select: none;
+  cursor: pointer;
+}

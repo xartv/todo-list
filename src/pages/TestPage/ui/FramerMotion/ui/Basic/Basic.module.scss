@@ -1,0 +1,24 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  width: 100%;
+}
+
+.square,
+.hoverCircle {
+  width: 150px;
+  height: 150px;
+
+  background-color: var(--inverted-bg-color);
+}
+
+.hoverCircle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  user-select: none;
+}

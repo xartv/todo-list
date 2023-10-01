@@ -16,7 +16,7 @@ const TestPage = () => {
       {showAnimationPage && <FramerMotion />}
 
       <Button className={s.button} onClick={() => setShowAnimationPage(prev => !prev)}>
-        {'Animation page'}
+        {'Framer motion'}
       </Button>
     </Page>
   );
