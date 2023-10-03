@@ -1,6 +1,7 @@
 import cn from 'classnames';
 
 import { useNotifications } from '../../api/notificationApi';
+import { NotificationItem } from '../NotificationItem/NotificationItem';
 
 import s from './NotificationList.module.scss';
 
@@ -9,12 +10,14 @@ interface NotificationListProps {
 }
 
 export const NotificationList = ({ className }: NotificationListProps) => {
-  const { data } = useNotifications(null);
+  const { data } = useNotifications(null, {
+    pollingInterval: 5000,
+  });
 
   return (
     <div className={cn(s.root, className)}>
       {data?.map(item => (
-        <div key={item.title}>{item.title}</div>
+        <NotificationItem key={item.id} item={item} />
       ))}
     </div>
   );
