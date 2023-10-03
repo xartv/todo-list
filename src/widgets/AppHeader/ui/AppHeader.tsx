@@ -1,6 +1,7 @@
 import { Fragment, memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useMedia } from 'react-use';
 import { useTranslation } from 'react-i18next';
 
 import { LoginModal } from 'features/AuthByUsername';
@@ -11,6 +12,7 @@ import { getAuthUserSelector, isUserAdmin, isUserManager, userActions } from 'en
 import { ROUTE_PATHS } from 'shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Drawer } from 'shared/ui/Drawer/Drawer';
 import { Popover } from 'shared/ui/Popups';
 
 import s from './AppHeader.module.scss';
@@ -25,6 +27,9 @@ export const AppHeader = memo(() => {
   const isManager = useSelector(isUserManager);
 
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [showDrawer, setShowDrawer] = useState(false);
+
+  const isMobile = useMedia('(max-width: 767px)');
 
   const openModal = useCallback(() => setIsLoginModalOpen(true), []);
   const closeModal = useCallback(() => setIsLoginModalOpen(false), []);
@@ -34,6 +39,13 @@ export const AppHeader = memo(() => {
     setIsLoginModalOpen(false);
     navigate(0);
   };
+
+  const handleOpenDrawer = useCallback(() => {
+    setShowDrawer(true);
+  }, []);
+  const handleCloseDrawer = useCallback(() => {
+    setShowDrawer(false);
+  }, []);
 
   const handleCreateArticle = useCallback(() => {
     navigate(ROUTE_PATHS.article_create);
@@ -48,9 +60,22 @@ export const AppHeader = memo(() => {
   if (authUser)
     return (
       <header className={s.root}>
-        <Popover trigger={<div>{t('header.notification')}</div>}>
-          <NotificationList />
-        </Popover>
+        {isMobile && (
+          <>
+            <Drawer isOpen={showDrawer} onClose={handleCloseDrawer}>
+              <NotificationList />
+            </Drawer>
+            <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={handleOpenDrawer}>
+              {t('header.notification')}
+            </Button>
+          </>
+        )}
+
+        {!isMobile && (
+          <Popover trigger={<div>{t('header.notification')}</div>}>
+            <NotificationList />
+          </Popover>
+        )}
 
         {shouldShowAdminPanel && (
           <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={handleAdminPanel}>
@@ -74,7 +99,7 @@ export const AppHeader = memo(() => {
         </Button>
       </header>
 
-      <LoginModal isOpen={isLoginModalOpen} onClose={closeModal} overlayClose lazy />
+      <LoginModal isOpen={isLoginModalOpen} onClose={closeModal} lazy />
     </Fragment>
   );
 });
