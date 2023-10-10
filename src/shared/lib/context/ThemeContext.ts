@@ -1,9 +1,6 @@
 import * as React from 'react';
 
-export enum Theme {
-  LIGHT = 'app_theme_light',
-  DARK = 'app_theme_dark',
-}
+import { Theme } from 'shared/const/theme';
 
 export interface ThemeContextProps {
   theme?: Theme;

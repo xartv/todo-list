@@ -2,8 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
-import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
-
+import { useTheme } from 'shared/hooks/useTheme';
 import { Button } from 'shared/ui/Button';
 
 import s from './PageError.module.scss';

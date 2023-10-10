@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 
 import { AppRouter } from 'app/providers/router';
-import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 
 import { AppHeader } from 'widgets/AppHeader';
 import { AppSidebar } from 'widgets/AppSidebar';
@@ -13,6 +12,7 @@ import { userActions } from 'entities/User';
 import { getInitSelector } from 'entities/User/model/selectors/getInitSelector/getInitSelector';
 
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
+import { useTheme } from 'shared/hooks/useTheme';
 
 function App() {
   const dispatch = useAppDispatch();

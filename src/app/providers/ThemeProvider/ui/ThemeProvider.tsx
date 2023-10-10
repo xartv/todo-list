@@ -1,8 +1,9 @@
 import * as React from 'react';
 
 import { LOCAL_STORAGE_THEME_KEY } from 'shared/const/globalConsts';
+import { Theme } from 'shared/const/theme';
 
-import { Theme, ThemeContext } from '../lib/ThemeContext';
+import { ThemeContext } from '../../../../shared/lib/context/ThemeContext';
 
 export interface ThemeProviderProps {
   initialTheme?: Theme;

@@ -1,9 +1,8 @@
 import * as React from 'react';
 import cn from 'classnames';
 
-import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
-
 import { useModal } from 'shared/hooks/useModal';
+import { useTheme } from 'shared/hooks/useTheme';
 
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal';

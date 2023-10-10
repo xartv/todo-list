@@ -1,11 +1,10 @@
 import { memo } from 'react';
 import cn from 'classnames';
 
-import { Theme } from 'app/providers/ThemeProvider/lib/ThemeContext';
-import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
-
 import { ReactComponent as Dark } from 'shared/assets/icons/dark-theme.svg';
 import { ReactComponent as Light } from 'shared/assets/icons/light-theme.svg';
+import { Theme } from 'shared/const/theme';
+import { useTheme } from 'shared/hooks/useTheme';
 
 import { Button, ButtonTheme } from '../Button';
 
