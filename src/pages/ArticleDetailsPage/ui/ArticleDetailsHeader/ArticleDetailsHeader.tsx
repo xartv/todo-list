@@ -6,7 +6,7 @@ import cn from 'classnames';
 
 import { getArticleDataSelector } from 'entities/Article';
 
-import { ROUTE_PATHS } from 'shared/config/routeConfig/routeConfig';
+import { ROUTE_PATHS } from 'shared/const/router';
 import { Button } from 'shared/ui/Button';
 
 import { isAuthorSelector } from '../../model/selector/articleSelectors';

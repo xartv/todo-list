@@ -9,7 +9,7 @@ import { LoginModal } from 'features/AuthByUsername';
 import { NotificationList } from 'entities/Notification';
 import { getAuthUserSelector, isUserAdmin, isUserManager, userActions } from 'entities/User';
 
-import { ROUTE_PATHS } from 'shared/config/routeConfig/routeConfig';
+import { ROUTE_PATHS } from 'shared/const/router';
 import { useAppDispatch } from 'shared/hooks/useAppHooks';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Drawer } from 'shared/ui/Drawer/Drawer';

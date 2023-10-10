@@ -2,7 +2,7 @@ import { HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
-import { ROUTE_PATHS } from 'shared/config/routeConfig/routeConfig';
+import { ROUTE_PATHS } from 'shared/const/router';
 import { useHover } from 'shared/hooks/useHover';
 import { AppLink } from 'shared/ui/AppLink';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';

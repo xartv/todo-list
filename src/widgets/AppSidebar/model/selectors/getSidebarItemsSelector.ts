@@ -6,7 +6,7 @@ import { ReactComponent as ArticleIcon } from 'shared/assets/icons/articles.svg'
 import { ReactComponent as ProfileIcon } from 'shared/assets/icons/profile.svg';
 import { ReactComponent as TestPageIcon } from 'shared/assets/icons/test-page.svg';
 import { ReactComponent as TodoIcon } from 'shared/assets/icons/todo.svg';
-import { ROUTE_PATHS } from 'shared/config/routeConfig/routeConfig';
+import { ROUTE_PATHS } from 'shared/const/router';
 
 import { SidebarLinks } from '../types/sidebar';
 

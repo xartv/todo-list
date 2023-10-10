@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import cn from 'classnames';
 
-import { ROUTE_PATHS } from 'shared/config/routeConfig/routeConfig';
+import { ROUTE_PATHS } from 'shared/const/router';
 import { AppLink } from 'shared/ui/AppLink';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { Text } from 'shared/ui/Text/Text';
