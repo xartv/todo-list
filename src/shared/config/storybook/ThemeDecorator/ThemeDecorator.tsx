@@ -7,7 +7,7 @@ import { Theme } from 'shared/const/theme';
 export function ThemeDecorator(theme: Theme) {
   return function story(Story: StoryFn) {
     return (
-      <ThemeProvider initialTheme={Theme.LIGHT}>
+      <ThemeProvider initialTheme={theme}>
         <div className={`app ${theme}`}>
           <Story />
         </div>
