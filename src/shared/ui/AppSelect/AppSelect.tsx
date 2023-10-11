@@ -10,30 +10,28 @@ export interface Option<Value, Label> {
   label: Label;
 }
 
-interface AppSelectProps extends Omit<Props, 'isDisabled' | 'classNames' | 'onChange'> {
+interface AppSelectProps<T extends Option> extends Omit<Props, 'isDisabled' | 'classNames' | 'onChange'> {
   title?: string | DefaultTFuncReturn;
   className?: string;
   classNames?: {
     title?: string;
   };
-  //eslint-disable-next-line
-  options?: Option<any, any>[];
+  options?: T[];
 
   isDisabled?: boolean;
 
-  //eslint-disable-next-line
-  onChange?: (newValue: Option<any, any>) => void;
+  onChange?: (newValue: T) => void;
 }
 
 // TODO: Написать свой собственный Select
-export const AppSelect = ({
+export const AppSelect = <T extends Option>({
   title,
   className,
   classNames = {},
   options,
   isDisabled,
   ...otherProps
-}: AppSelectProps) => (
+}: AppSelectProps<T>) => (
   <div className={cn(s.root, className)}>
     {title && <span className={cn(s.title, classNames.title)}>{title}</span>}
 

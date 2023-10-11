@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { DefaultTFuncReturn } from 'i18next';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
@@ -13,9 +12,9 @@ import s from './ArticlesSortSelector.module.scss';
 interface ArticlesSortSelectorProps {
   className?: string;
   sort: ArticleSortField;
+  onChangeSort: (newSort: Option<ArticleSortField, string>) => void;
   order: SortOrder;
   onChangeOrder: (newOrder: Option<SortOrder, string>) => void;
-  onChangeSort: (newSort: Option<ArticleSortField, string>) => void;
 }
 
 export const ArticlesSortSelector = ({
@@ -27,7 +26,7 @@ export const ArticlesSortSelector = ({
 }: ArticlesSortSelectorProps) => {
   const { t } = useTranslation();
 
-  const orderOptions = useMemo<Option<SortOrder, DefaultTFuncReturn>[]>(
+  const orderOptions = useMemo<Option<SortOrder, string>[]>(
     () => [
       {
         value: 'asc',
@@ -41,7 +40,7 @@ export const ArticlesSortSelector = ({
     [t],
   );
 
-  const sortFieldOptions = useMemo<Option<ArticleSortField, DefaultTFuncReturn>[]>(
+  const sortFieldOptions = useMemo<Option<ArticleSortField, string>[]>(
     () => [
       {
         value: ArticleSortField.CREATED,
@@ -66,14 +65,6 @@ export const ArticlesSortSelector = ({
 
   const orderDefaultValue = useMemo(() => orderOptions.find(field => field.value === order), [order, orderOptions]);
 
-  const handleOnChangeOrder = (newValue: unknown) => {
-    onChangeOrder(newValue as Option<SortOrder, string>);
-  };
-
-  const handleOnChangeSort = (newValue: unknown) => {
-    onChangeSort(newValue as Option<ArticleSortField, string>);
-  };
-
   return (
     <div className={cn(s.root, className)}>
       <AppSelect
@@ -81,14 +72,14 @@ export const ArticlesSortSelector = ({
         className={s.sortSelect}
         options={sortFieldOptions}
         defaultValue={sortDefaultValue}
-        onChange={handleOnChangeSort}
+        onChange={onChangeSort}
       />
       <AppSelect
         title={t('articles.filters.sortDirection')}
         defaultValue={orderDefaultValue}
         className={s.sortSelect}
         options={orderOptions}
-        onChange={handleOnChangeOrder}
+        onChange={onChangeOrder}
       />
     </div>
   );
