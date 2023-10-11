@@ -10,24 +10,35 @@ import { TodosPage } from 'pages/TodosPage';
 
 import { UserRole } from 'entities/User';
 
-import { ROUTE_PATHS } from 'shared/const/router';
+import {
+  getRouteAdminPanel,
+  getRouteArticleCreate,
+  getRouteArticleDetails,
+  getRouteArticleEdit,
+  getRouteArticles,
+  getRouteForbiddenPage,
+  getRouteNotFound,
+  getRouteProfile,
+  getRouteTestPage,
+  getRouteTodos,
+} from 'shared/const/router';
 import { CustomRouteProps } from 'shared/types/router';
 
 export const routeConfig: CustomRouteProps[] = [
-  { path: ROUTE_PATHS.todos, element: <TodosPage />, authOnly: true },
-  { path: ROUTE_PATHS.test_page, element: <TestPage /> },
-  { path: `${ROUTE_PATHS.profile}:id`, element: <ProfilePage />, authOnly: true },
-  { path: ROUTE_PATHS.articles, element: <ArticlesPage />, authOnly: true },
-  { path: `${ROUTE_PATHS.article_details}:id`, element: <ArticleDetailsPage />, authOnly: true },
-  { path: `${ROUTE_PATHS.article_create}`, element: <ArticleEditPage />, authOnly: true },
-  { path: `${ROUTE_PATHS.article_edit}`, element: <ArticleEditPage />, authOnly: true },
+  { path: getRouteTodos(), element: <TodosPage />, authOnly: true },
+  { path: getRouteTestPage(), element: <TestPage /> },
+  { path: getRouteProfile(':id'), element: <ProfilePage />, authOnly: true },
+  { path: getRouteArticles(), element: <ArticlesPage />, authOnly: true },
+  { path: getRouteArticleDetails(':id'), element: <ArticleDetailsPage />, authOnly: true },
+  { path: getRouteArticleCreate(), element: <ArticleEditPage />, authOnly: true },
+  { path: getRouteArticleEdit(':id'), element: <ArticleEditPage />, authOnly: true },
   {
-    path: `${ROUTE_PATHS.admin_panel}`,
+    path: getRouteAdminPanel(),
     element: <AdminPanelPage />,
     authOnly: true,
     roles: [UserRole.ADMIN, UserRole.MANAGER],
   },
 
-  { path: ROUTE_PATHS.not_found, element: <NothingFoundPage /> },
-  { path: ROUTE_PATHS.forbidden_page, element: <ForbiddenPage /> },
+  { path: getRouteNotFound(), element: <NothingFoundPage /> },
+  { path: getRouteForbiddenPage(), element: <ForbiddenPage /> },
 ];

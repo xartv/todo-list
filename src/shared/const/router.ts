@@ -11,16 +11,14 @@ export enum APP_ROUTES {
   NOT_FOUND = 'not_found',
   FORBIDDEN_PAGE = 'forbidden_page',
 }
-export const ROUTE_PATHS: Record<APP_ROUTES, string> = {
-  [APP_ROUTES.TODOS]: '/todos',
-  [APP_ROUTES.TEST_PAGE]: '/test',
-  [APP_ROUTES.PROFILE]: '/profile/',
-  [APP_ROUTES.ARTICLES]: '/articles',
-  [APP_ROUTES.ARTICLE_DETAILS]: '/articles/',
-  [APP_ROUTES.ARTICLE_CREATE]: '/articles/create',
-  [APP_ROUTES.ARTICLE_EDIT]: '/articles/:id/edit',
-  [APP_ROUTES.ADMIN_PANEL]: '/admin',
 
-  [APP_ROUTES.NOT_FOUND]: '*',
-  [APP_ROUTES.FORBIDDEN_PAGE]: '/forbidden',
-};
+export const getRouteTodos = () => '/todos';
+export const getRouteTestPage = () => `/test`;
+export const getRouteProfile = (id: string) => `/profile/${id}`;
+export const getRouteArticles = () => `/articles`;
+export const getRouteArticleDetails = (id: string) => `/articles/${id}`;
+export const getRouteArticleCreate = () => `/articles/create`;
+export const getRouteArticleEdit = (id: string) => `/articles/${id}/edit`;
+export const getRouteAdminPanel = () => `/admin`;
+export const getRouteNotFound = () => `*`;
+export const getRouteForbiddenPage = () => `/forbidden`;

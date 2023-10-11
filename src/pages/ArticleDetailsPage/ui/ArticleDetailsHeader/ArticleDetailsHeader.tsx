@@ -6,7 +6,7 @@ import cn from 'classnames';
 
 import { getArticleDataSelector } from 'entities/Article';
 
-import { ROUTE_PATHS } from 'shared/const/router';
+import { getRouteArticleEdit, getRouteArticles } from 'shared/const/router';
 import { Button } from 'shared/ui/Button';
 
 import { isAuthorSelector } from '../../model/selector/articleSelectors';
@@ -26,12 +26,12 @@ export const ArticleDetailsHeader = ({ className }: ArticleDetailsHeaderProps) =
   const article = useSelector(getArticleDataSelector);
 
   const handleBack = useCallback(() => {
-    navigate(ROUTE_PATHS.articles);
+    navigate(getRouteArticles());
   }, [navigate]);
 
   const handleEdit = useCallback(() => {
-    navigate(`${ROUTE_PATHS.articles}/${article?.id}/edit`);
-  }, [navigate, article?.id]);
+    if (article) navigate(getRouteArticleEdit(article.id));
+  }, [navigate, article]);
 
   return (
     <div className={cn(s.root, className)}>

@@ -4,7 +4,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 
 import { getAuthUserSelector, getUserRoles, UserRole } from 'entities/User';
 
-import { ROUTE_PATHS } from 'shared/const/router';
+import { getRouteForbiddenPage, getRouteTestPage } from 'shared/const/router';
 
 interface RequireAuthProps {
   children: JSX.Element;
@@ -23,11 +23,11 @@ export function RequireAuth({ children, roles }: RequireAuthProps) {
   }, [roles, userRoles]);
 
   if (!auth) {
-    return <Navigate to={ROUTE_PATHS.test_page} state={{ from: location }} replace />;
+    return <Navigate to={getRouteTestPage()} state={{ from: location }} replace />;
   }
 
   if (!hasRequiredRoles) {
-    return <Navigate to={ROUTE_PATHS.forbidden_page} state={{ from: location }} replace />;
+    return <Navigate to={getRouteForbiddenPage()} state={{ from: location }} replace />;
   }
 
   return children;

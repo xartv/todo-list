@@ -6,7 +6,7 @@ import { ReactComponent as ArticleIcon } from 'shared/assets/icons/articles.svg'
 import { ReactComponent as ProfileIcon } from 'shared/assets/icons/profile.svg';
 import { ReactComponent as TestPageIcon } from 'shared/assets/icons/test-page.svg';
 import { ReactComponent as TodoIcon } from 'shared/assets/icons/todo.svg';
-import { ROUTE_PATHS } from 'shared/const/router';
+import { getRouteArticles, getRouteProfile, getRouteTestPage, getRouteTodos } from 'shared/const/router';
 
 import { SidebarLinks } from '../types/sidebar';
 
@@ -14,7 +14,7 @@ export const getSidebarItemsSelector = createSelector(getAuthUserSelector, authU
   const sidebarItems: SidebarLinks[] = [
     {
       title: 'sidebar.test',
-      link: ROUTE_PATHS.test_page,
+      link: getRouteTestPage(),
       icon: TestPageIcon,
     },
   ];
@@ -23,19 +23,19 @@ export const getSidebarItemsSelector = createSelector(getAuthUserSelector, authU
     sidebarItems.push(
       {
         title: 'sidebar.zadachi',
-        link: ROUTE_PATHS.todos,
+        link: getRouteTodos(),
         icon: TodoIcon,
         isAuth: true,
       },
       {
         title: 'sidebar.profile',
-        link: `${ROUTE_PATHS.profile}${authUser?.id}`,
+        link: getRouteProfile(String(authUser.id)),
         icon: ProfileIcon,
         isAuth: true,
       },
       {
         title: 'sidebar.articles',
-        link: ROUTE_PATHS.articles,
+        link: getRouteArticles(),
         icon: ArticleIcon,
         isAuth: true,
       },

@@ -2,7 +2,7 @@ import { HTMLAttributeAnchorTarget } from 'react';
 import { useTranslation } from 'react-i18next';
 import cn from 'classnames';
 
-import { ROUTE_PATHS } from 'shared/const/router';
+import { getRouteArticleDetails } from 'shared/const/router';
 import { useHover } from 'shared/hooks/useHover';
 import { AppLink } from 'shared/ui/AppLink';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
@@ -46,7 +46,7 @@ export const ArticleListItem = ({ className, article, view, target }: ArticleLis
         {articleAvatar}
         {textBlock && <ArticleTextBlock block={textBlock} className={s.textBlock} />}
         <div className={s.footer}>
-          <AppLink to={`${ROUTE_PATHS.article_details}${article.id}`}>
+          <AppLink to={getRouteArticleDetails(article.id)}>
             <Button theme={ButtonTheme.OUTLINE}>{t('articles.readMore')}</Button>
           </AppLink>
           {views}
@@ -58,7 +58,7 @@ export const ArticleListItem = ({ className, article, view, target }: ArticleLis
   return (
     <AppLink
       target={target}
-      to={`${ROUTE_PATHS.article_details}${article.id}`}
+      to={getRouteArticleDetails(article.id)}
       className={cn(s.root, className, s[view], { [s.hovered]: isHover })}
       {...bindHover}
     >

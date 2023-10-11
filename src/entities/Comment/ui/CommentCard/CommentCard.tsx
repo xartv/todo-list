@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import cn from 'classnames';
 
-import { ROUTE_PATHS } from 'shared/const/router';
+import { getRouteProfile } from 'shared/const/router';
 import { AppLink } from 'shared/ui/AppLink';
 import { Avatar, AvatarSize } from 'shared/ui/Avatar/Avatar';
 import { Text } from 'shared/ui/Text/Text';
@@ -23,7 +23,7 @@ export const CommentCard = memo(({ className, comment, isLoading }: CommentCardP
 
   return (
     <div className={cn(s.CommentCard, {}, [className])}>
-      <AppLink to={`${ROUTE_PATHS.profile}${comment.user.id}`} className={s.header}>
+      <AppLink to={getRouteProfile(String(comment.user.id))} className={s.header}>
         {comment.user.avatar ? <Avatar size={AvatarSize.S} src={comment.user.avatar} /> : null}
         <Text title={comment.user.username} />
       </AppLink>
