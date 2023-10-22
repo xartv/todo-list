@@ -18,7 +18,7 @@ const ProfilePage = () => {
 
   return (
     <DynamicReducerLoader asyncReducers={profileReducerObject} removeOnUnmount>
-      <Page className={s.root}>
+      <Page dataTestid="ProfilePage" className={s.root}>
         <Text title={t('profile.title')} />
         <EditableProfileCard />
       </Page>

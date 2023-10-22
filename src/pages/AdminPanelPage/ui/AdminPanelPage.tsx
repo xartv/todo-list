@@ -1,6 +1,8 @@
 import { memo } from 'react';
 import cn from 'classnames';
 
+import { Page } from 'widgets/Page';
+
 import s from './AdminPanelPage.module.scss';
 
 interface AdminPanelPageProps {
@@ -8,7 +10,11 @@ interface AdminPanelPageProps {
 }
 
 const AdminPanelPage = ({ className }: AdminPanelPageProps) => {
-  return <div className={cn(s.root, className)}>{'AdminPanelPage'}</div>;
+  return (
+    <Page dataTestid="AdminPanelPage" className={cn(s.root, className)}>
+      {'AdminPanelPage'}
+    </Page>
+  );
 };
 
 export default memo(AdminPanelPage);

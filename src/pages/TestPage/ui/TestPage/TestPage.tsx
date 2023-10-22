@@ -12,7 +12,7 @@ const TestPage = () => {
   const [showAnimationPage, setShowAnimationPage] = useState(false);
 
   return (
-    <Page>
+    <Page dataTestid="TestPage">
       {showAnimationPage && <FramerMotion />}
 
       <Button className={s.button} onClick={() => setShowAnimationPage(prev => !prev)}>

@@ -1,4 +1,4 @@
-import { memo, MutableRefObject, ReactNode, UIEvent, useEffect, useRef } from 'react';
+import { MutableRefObject, ReactNode, UIEvent, useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import cn from 'classnames';
@@ -17,10 +17,11 @@ import s from './Page.module.scss';
 interface PageProps {
   className?: string;
   children: ReactNode;
+  dataTestid?: string;
   onScrollEnd?: () => void;
 }
 
-export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
+export const Page = ({ className, children, dataTestid, onScrollEnd }: PageProps) => {
   const dispatch = useAppDispatch();
 
   const location = useLocation();
@@ -46,9 +47,9 @@ export const Page = memo(({ className, children, onScrollEnd }: PageProps) => {
   }, [pageScrollPosition]);
 
   return (
-    <section ref={wrapperRef} className={cn(s.pageWrapper, className)} onScroll={onScroll}>
+    <section data-testid={dataTestid} ref={wrapperRef} className={cn(s.pageWrapper, className)} onScroll={onScroll}>
       {children}
       {onScrollEnd && <div ref={triggerRef} className={s.trigger} />}
     </section>
   );
-});
+};

@@ -39,7 +39,7 @@ const ArticlesPage = () => {
 
   return (
     <DynamicReducerLoader asyncReducers={reducers} removeOnUnmount={false}>
-      <Page className={s.root} onScrollEnd={onLoadNextPage}>
+      <Page dataTestid={'ArticlesPage'} className={s.root} onScrollEnd={onLoadNextPage}>
         <ArticlesPageFilters />
         <ArticleList articles={articles} view={view} />
       </Page>

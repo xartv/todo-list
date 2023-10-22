@@ -1,5 +1,5 @@
 import { Page } from 'widgets/Page';
 
 export const NothingFoundPage = () => {
-  return <Page>404</Page>;
+  return <Page dataTestid="NothingFoundPage">404</Page>;
 };

@@ -8,7 +8,11 @@ interface ForbiddenPageProps {
 }
 
 const ForbiddenPage = ({ className }: ForbiddenPageProps) => {
-  return <div className={cn(s.root, className)}>{'ForbiddenPage'}</div>;
+  return (
+    <div data-testid={'ForbiddenPage'} className={cn(s.root, className)}>
+      {'ForbiddenPage'}
+    </div>
+  );
 };
 
 export default memo(ForbiddenPage);
